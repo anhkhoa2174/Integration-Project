@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in interface</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/log_in.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Đăng nhập bình thường -->
+    <div class="login-container">
+      <div class="login-header">
+        <h1>Đăng nhập</h1>
+        <div class="brand">
+          <img
+            src="{{ url_for('static', filename='images/icon_sports_soccer_black.png') }}"
+            alt="Sporty Webby Logo"
+            class="brand-logo"
+          />
+          <span class="brand-name">Sporty Webby</span>
+        </div>
+        <img
+          src="{{ url_for('static', filename='images/icon_QRCode.png') }}"
+          alt="QR Code"
+          class="qr-code"
+          id="qrCodeIcon"
+        />
+      </div>
+
+      <!-- Form đăng nhập -->
+      <form class="login-form" autocomplete="off">
+        <!-- Ẩn auto-fill của trình duyệt -->
+        <input
+          type="text"
+          name="fakeusernameremembered"
+          style="display: none"
+        />
+        <input
+          type="password"
+          name="fakepasswordremembered"
+          style="display: none"
+        />
+
+        <div class="input-group">
+          <label for="username">
+            <img
+              src="{{ url_for('static', filename='images/icon_user.png') }}"
+              alt="User Icon"
+            />
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Tài khoản/Số điện thoại/Email"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="password">
+            <img
+              src="{{ url_for('static', filename='images/icon_lock.png') }}"
+              alt="Password Icon"
+            />
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Mật khẩu"
+            autocomplete="new-password"
+          />
+          <button type="button" class="toggle-password">
+            <img
+              src="{{ url_for('static', filename='images/icon_eye_password_hide.png') }}"
+              alt="Toggle Password"
+              id="toggle-icon"
+            />
+          </button>
+        </div>
+
+        <button type="submit" class="sign-in-btn">Sign In</button>
+
+        <div class="options">
+          <label> <input type="checkbox" /> Lưu mật khẩu </label>
+          <a href="#" class="forgot-password">Quên mật khẩu?</a>
+        </div>
+
+        <div class="divider">hoặc</div>
+
+        <div class="social-login">
+          <button class="facebook-btn">
+            <img
+              src="{{ url_for('static', filename='images/icon_facebook.png') }}"
+              alt="Facebook"
+            />
+          </button>
+          <button class="google-btn">
+            <img
+              src="{{ url_for('static', filename='images/icon_google.png') }}"
+              alt="Google"
+            />
+          </button>
+          <button class="phone-btn">
+            <img
+              src="{{ url_for('static', filename='images/icon_phone.png') }}"
+              alt="Phone"
+            />
+          </button>
+        </div>
+
+        <p class="register-link">
+          Bạn chưa có tài khoản? <a href="#">Đăng ký ngay</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Đăng nhập bằng QR code -->
+    <div
+      id="qr-login-container"
+      class="qr-login-container"
+      style="display: none"
+    >
+      <div class="qr-header">
+        <div class="brand">
+          <img
+            src="{{ url_for('static', filename='images/icon_sports_soccer_black.png') }}"
+            alt="Sporty Webby Logo"
+            class="brand-logo"
+          />
+          <span class="brand-name">Sporty Webby</span>
+        </div>
+      </div>
+      <div class="qr-content">
+        <h2>Quét QR để đăng nhập</h2>
+        <img
+          src="{{ url_for('static', filename='images/icon_qr_code.png') }}"
+          alt="QR Code"
+          class="qr-code-img"
+        />
+        <p>Quét bằng ứng dụng di động để đăng nhập ngay</p>
+      </div>
+      <button id="close-qr-login" class="close-qr-login">←</button>
+    </div>
+
+    <!-- Quên mật khẩu -->
+    <div
+      id="forgot-password-container"
+      class="forgot-password-container"
+      style="display: none"
+    >
+      <button id="back-to-login" class="back-btn">←</button>
+      <h1>Quên mật khẩu</h1>
+      <p>Nhập email hoặc số điện thoại để đặt lại mật khẩu</p>
+      <form>
+        <div class="input-group">
+          <label for="email">
+            <img
+              src="{{ url_for('static', filename='images/icon_mail.png') }}"
+              alt="Email Icon"
+            />
+          </label>
+          <input type="email" id="email" placeholder="Email" />
+        </div>
+        <div class="input-group">
+          <label for="phone">
+            <img
+              src="{{ url_for('static', filename='images/icon_phone.png') }}"
+              alt="Phone Icon"
+            />
+          </label>
+          <input type="text" id="phone" placeholder="Số điện thoại" />
+        </div>
+        <button type="submit" class="confirm-btn">Gửi mã xác nhận</button>
+      </form>
+      <p class="back-to-login-text">
+        Bạn đã có tài khoản?
+        <a href="#" id="back-to-login-link">Đăng nhập ngay</a>
+      </p>
+    </div>
+
+    <!-- khung mã xác nhận -->
+    <div
+      id="verify-code-container"
+      class="verify-code-container"
+      style="display: none"
+    >
+      <button id="back-to-forgot" class="back-btn">←</button>
+      <h1>Quên mật khẩu</h1>
+
+      <!-- Khung nhập mã xác nhận -->
+      <div class="code-input-container">
+        <input type="text" maxlength="1" class="code-input" />
+        <input type="text" maxlength="1" class="code-input" />
+        <input type="text" maxlength="1" class="code-input" />
+        <input type="text" maxlength="1" class="code-input" />
+      </div>
+
+      <p>Mã xác nhận đã được gửi đến bạn</p>
+      <p>Mã sẽ hết hạn trong <strong>3 phút</strong></p>
+
+      <button type="submit" class="confirm-btn">Xác nhận</button>
+
+      <p class="resend-code">
+        <a href="#" id="resend-code-link">Gửi lại mã</a>
+      </p>
+    </div>
+
+    <!-- Khung đặt lại mật khẩu -->
+    <div
+      id="reset-password-wrapper"
+      class="reset-password-wrapper"
+      style="display: none"
+    >
+      <button id="return-btn" class="back-btn">←</button>
+      <h1>Đặt lại mật khẩu</h1>
+
+      <form>
+        <!-- Nhập mật khẩu mới -->
+        <div class="reset-input-wrapper">
+          <input
+            type="password"
+            id="new-password"
+            placeholder="Nhập mật khẩu mới"
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            onclick="toggleNewPassword()"
+          >
+            <img
+              src="{{ url_for('static', filename='images/icon_eye_password_hide.png') }}"
+              alt="Show Password"
+              id="toggle-new-password"
+            />
+          </button>
+        </div>
+
+        <!-- Xác nhận mật khẩu mới -->
+        <div class="reset-input-wrapper">
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="Xác nhận mật khẩu mới"
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            onclick="toggleConfirmPassword()"
+          >
+            <img
+              src="{{ url_for('static', filename='images/icon_eye_password_hide.png') }}"
+              alt="Show Password"
+              id="toggle-confirm-password"
+            />
+          </button>
+        </div>
+
+        <button type="submit" class="confirm-btn">Đặt lại mật khẩu</button>
+      </form>
+    </div>
+
+    <!-- Khung Đặt Lại Mật Khẩu Thành Công -->
+    <div
+      id="reset-success-container"
+      class="reset-success-container"
+      style="display: none"
+    >
+      <div class="success-icon">
+        <img
+          src="{{ url_for('static', filename='images/icon_success.png') }}"
+          alt="Success"
+        />
+      </div>
+      <h2>
+        Mật khẩu được đặt lại <br />
+        <span class="highlight">thành công</span>
+      </h2>
+      <button id="return-login-btn" class="return-login-btn">
+        Quay về trang đăng nhập
+      </button>
+    </div>
+
+    <script>
+      document
+        .querySelector(".toggle-password")
+        .addEventListener("click", function () {
+          const passwordInput = document.getElementById("password");
+          const toggleIcon = document.getElementById("toggle-icon");
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.src = "images/icon _eye_password_show.png";
+          } else {
+            passwordInput.type = "password";
+            toggleIcon.src = "images/icon _eye_password_hide.png";
+          }
+        });
+      // Hiển thị khung QR Code khi nhấn vào biểu tượng QR Code
+      document
+        .getElementById("qrCodeIcon")
+        .addEventListener("click", function () {
+          document.querySelector(".login-container").style.display = "none"; // Ẩn khung đăng nhập chính
+          document.getElementById("qr-login-container").style.display = "flex"; // Hiển thị khung QR code
+        });
+
+      // Đóng khung QR Code khi nhấn nút "←"
+      document
+        .getElementById("close-qr-login")
+        .addEventListener("click", function () {
+          document.getElementById("qr-login-container").style.display = "none"; // Ẩn khung QR code
+          document.querySelector(".login-container").style.display = "block"; // Hiển thị khung đăng nhập chính
+        });
+
+      // Hiển thị khung "Quên mật khẩu"
+      document
+        .querySelector(".forgot-password")
+        .addEventListener("click", function () {
+          document.querySelector(".login-container").style.display = "none"; // Ẩn form đăng nhập
+          document.getElementById("forgot-password-container").style.display =
+            "flex"; // Hiển thị khung quên mật khẩu
+        });
+
+      // Quay lại khung đăng nhập
+      document
+        .getElementById("back-to-login")
+        .addEventListener("click", function () {
+          document.getElementById("forgot-password-container").style.display =
+            "none"; // Ẩn khung quên mật khẩu
+          document.querySelector(".login-container").style.display = "block"; // Hiển thị lại form đăng nhập
+        });
+      // Xử lý quay lại khung đăng nhập từ trang quên mật khẩu
+      document
+        .getElementById("back-to-login-link")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("forgot-password-container").style.display =
+            "none";
+          document.querySelector(".login-container").style.display = "block";
+        });
+      // Hiển thị khung nhập mã xác nhận khi gửi mã
+      document
+        .querySelector(".confirm-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("forgot-password-container").style.display =
+            "none";
+          document.getElementById("verify-code-container").style.display =
+            "flex";
+        });
+
+      // Quay lại khung quên mật khẩu
+      document
+        .getElementById("back-to-forgot")
+        .addEventListener("click", function () {
+          document.getElementById("verify-code-container").style.display =
+            "none";
+          document.getElementById("forgot-password-container").style.display =
+            "flex";
+        });
+      // Hiển thị khung đặt lại mật khẩu thành công
+      document
+        .querySelector("#reset-password-wrapper .confirm-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("reset-password-wrapper").style.display =
+            "none";
+          document.getElementById("reset-success-container").style.display =
+            "flex";
+        });
+
+      // Quay lại trang đăng nhập từ khung thành công
+      document
+        .getElementById("return-login-btn")
+        .addEventListener("click", function () {
+          document.getElementById("reset-success-container").style.display =
+            "none";
+          document.querySelector(".login-container").style.display = "block";
+        });
+    </script>
+
+    <script>
+      // Hiển thị khung đặt lại mật khẩu sau khi nhập mã xác nhận thành công
+      document
+        .querySelector("#verify-code-container .confirm-btn")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("verify-code-container").style.display =
+            "none";
+          document.getElementById("reset-password-wrapper").style.display =
+            "flex";
+        });
+
+      // Quay lại khung nhập mã xác nhận
+      document
+        .getElementById("return-btn")
+        .addEventListener("click", function () {
+          document.getElementById("reset-password-wrapper").style.display =
+            "none";
+          document.getElementById("verify-code-container").style.display =
+            "flex";
+        });
+
+      // Toggle hiển/ẩn mật khẩu mới
+      function toggleNewPassword() {
+        const newPasswordInput = document.getElementById("new-password");
+        const toggleIcon = document.getElementById("toggle-new-password");
+
+        if (newPasswordInput.type === "password") {
+          newPasswordInput.type = "text";
+          toggleIcon.src =
+            "{{ url_for('static', filename='images/icon_eye_password_show.png') }}";
+        } else {
+          newPasswordInput.type = "password";
+          toggleIcon.src =
+            "{{ url_for('static', filename='images/icon_eye_password_hide.png') }}";
+        }
+      }
+
+      // Toggle hiển/ẩn xác nhận mật khẩu
+      function toggleConfirmPassword() {
+        const confirmPasswordInput =
+          document.getElementById("confirm-password");
+        const toggleIcon = document.getElementById("toggle-confirm-password");
+
+        if (confirmPasswordInput.type === "password") {
+          confirmPasswordInput.type = "text";
+          toggleIcon.src =
+            "{{ url_for('static', filename='images/icon_eye_password_show.png') }}";
+        } else {
+          confirmPasswordInput.type = "password";
+          toggleIcon.src =
+            "{{ url_for('static', filename='images/icon_eye_password_hide.png') }}";
+        }
+      }
+    </script>
+  </body>
+</html>
