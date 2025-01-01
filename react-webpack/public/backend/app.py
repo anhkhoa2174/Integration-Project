@@ -24,9 +24,13 @@ def get_db_connection():
 def login():
     return render_template('index.html') 
 
-@app.route('/booking history')
-def index():
+@app.route('/booking_history')
+def booking_history():
     return render_template('booking_history.html')
+
+@app.route('/transaction_history')
+def transaction_history():
+    return render_template('transaction_history.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
