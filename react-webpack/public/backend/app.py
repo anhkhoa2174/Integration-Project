@@ -32,5 +32,9 @@ def booking_history():
 def transaction_history():
     return render_template('transaction_history.html')
 
+@app.route('/deposit')
+def deposit():
+    return render_template('deposit.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
