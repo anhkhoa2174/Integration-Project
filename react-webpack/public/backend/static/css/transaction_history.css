@@ -1,0 +1,121 @@
+.main-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.content-container {
+  width: 75%;
+  height: auto;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.balance {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.balance-amount {
+  color: #007acc;
+  font-weight: bold;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#date-range {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.filter-btn {
+  padding: 8px 15px;
+  border: none;
+  background-color: #007acc;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.booking-table th {
+  background-color: #f2f2f2;
+}
+
+.status {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-btn {
+  padding: 8px 15px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background-color: #007acc;
+  color: white;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#search-bar,
+input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.download-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 8px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background-color: #357ab7;
+}

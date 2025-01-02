@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ người dùng</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/nav_bar.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/deposit.css') }}"
+    />
+  </head>
+  <body>
+    <!-- nav bar -->
+    <div class="navbar_ngang">
+      <!-- logo + text -->
+      <div class="logo-section">
+        <img
+          class="logo"
+          src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+        />
+        <div class="logo-text">
+          Sporty <br />
+          Webby
+        </div>
+      </div>
+      <!-- search -->
+      <div class="search-container">
+        <div class="search-box">
+          <img
+            class="search-icon"
+            src="{{ url_for('static', filename='images/icon_search.png') }}"
+          />
+          <input type="text" class="search-input" placeholder="Search" />
+          <button class="clear-btn">✖</button>
+        </div>
+        <script>
+          const searchInput = document.querySelector(".search-input");
+          const clearBtn = document.querySelector(".clear-btn");
+
+          clearBtn.addEventListener("click", () => {
+            searchInput.value = "";
+            searchInput.focus();
+          });
+        </script>
+      </div>
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a href="#" class="nav-item">Trang chủ</a>
+        <a href="#" class="nav-item">Bạn bè</a>
+        <a href="#" class="nav-item">Blog</a>
+      </div>
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <div class="notification-icons">
+          <!-- Bell icon for Notifications -->
+          <div class="bell-icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_noti.png') }}"
+            />
+          </div>
+          <!-- Message box icon -->
+          <div class="message-icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_chat.png') }}"
+            />
+          </div>
+        </div>
+        <!-- Profile Info -->
+        <div class="profile-info">
+          <img
+            class="profile-avatar"
+            src="{{ url_for('static', filename='images/avatar.png') }}"
+          />
+          <div class="profile-name">
+            <p>Trần Văn A</p>
+            <p class="status">Trực tuyến</p>
+          </div>
+        </div>
+        <!-- Arrow icon to toggle dropdown menu -->
+        <div class="dropdown-arrow" onclick="toggleDropdown()">
+          <img
+            src="{{ url_for('static', filename='images/icon_arrow.png') }}"
+          />
+        </div>
+        <!-- Dropdown menu -->
+        <div class="dropdown-menu" id="dropdownMenu">
+          <ul>
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Lịch sử hoạt động</a></li>
+            <li><a href="#">Bảo mật</a></li>
+            <li><a href="#">Cài đặt</a></li>
+            <li><a href="#">Năng suất</a></li>
+          </ul>
+        </div>
+        <script>
+          function toggleDropdown() {
+            var dropdownMenu = document.getElementById("dropdownMenu");
+            dropdownMenu.style.display =
+              dropdownMenu.style.display === "block" ? "none" : "block";
+          }
+        </script>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <!-- side bar -->
+      <div class="sidebar">
+        <div class="menu-item">
+          <div class="icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_dashboard.png') }}"
+            />
+          </div>
+          <div class="text">Bảng điều khiển</div>
+        </div>
+        <div class="menu-item">
+          <div class="icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_book_field.png') }}"
+            />
+          </div>
+          <div class="text">Đặt sân</div>
+        </div>
+        <div class="menu-item">
+          <div class="icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_history_book_field.png') }}"
+            />
+          </div>
+          <div class="text">Lịch sử đặt sân</div>
+        </div>
+        <div class="menu-item">
+          <div class="icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_deposit.png') }}"
+            />
+          </div>
+          <div class="text">Nạp tiền</div>
+        </div>
+        <div class="menu-item">
+          <div class="icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_payment_history.png') }}"
+            />
+          </div>
+          <div class="text">Lịch sử giao dịch</div>
+        </div>
+      </div>
+      <!-- nạp tiền -->
+      <!-- Main Container (Phần nội dung chính) -->
+      <!-- Cột Nội dung chính -->
+      <div class="main-container">
+        <!-- Thông tin tài khoản -->
+        <div class="account-info">
+          <h3>1. Thông tin tài khoản</h3>
+          <p>Trần Văn A</p>
+          <p>Số dư: <span>125.000 VND</span></p>
+        </div>
+
+        <!-- Chọn gói nạp -->
+        <div class="package-selection">
+          <h3>2. Chọn gói nạp</h3>
+          <div class="package-list">
+            <!-- Gói 100k -->
+            <div class="package-item">
+              <img
+                src="{{ url_for('static', filename='images/icon_money.png') }}"
+                alt="Gói 100k"
+              />
+              <div class="package-bottom">
+                <div class="package-info">
+                  <p>Gói 100k</p>
+                  <span>95.000 VND</span>
+                </div>
+                <button>+</button>
+              </div>
+            </div>
+
+            <!-- Gói 200k -->
+            <div class="package-item">
+              <img
+                src="{{ url_for('static', filename='images/icon_money.png') }}"
+                alt="Gói 200k"
+              />
+              <div class="package-bottom">
+                <div class="package-info">
+                  <p>Gói 200k</p>
+                  <span>190.000 VND</span>
+                </div>
+                <button>+</button>
+              </div>
+            </div>
+
+            <!-- Gói 400k -->
+            <div class="package-item">
+              <img
+                src="{{ url_for('static', filename='images/icon_money.png') }}"
+                alt="Gói 400k"
+              />
+              <div class="package-bottom">
+                <div class="package-info">
+                  <p>Gói 400k</p>
+                  <span>385.000 VND</span>
+                </div>
+                <button>+</button>
+              </div>
+            </div>
+
+            <!-- Gói 500k -->
+            <div class="package-item">
+              <img
+                src="{{ url_for('static', filename='images/icon_money.png') }}"
+                alt="Gói 500k"
+              />
+              <div class="package-bottom">
+                <div class="package-info">
+                  <p>Gói 500k</p>
+                  <span>480.000 VND</span>
+                </div>
+                <button>+</button>
+              </div>
+            </div>
+
+            <!-- Gói 600k -->
+            <div class="package-item">
+              <img
+                src="{{ url_for('static', filename='images/icon_money.png') }}"
+                alt="Gói 600k"
+              />
+              <div class="package-bottom">
+                <div class="package-info">
+                  <p>Gói 600k</p>
+                  <span>575.000 VND</span>
+                </div>
+                <button>+</button>
+              </div>
+            </div>
+
+            <!-- Gói 800k -->
+            <div class="package-item">
+              <img
+                src="{{ url_for('static', filename='images/icon_money.png') }}"
+                alt="Gói 800k"
+              />
+              <div class="package-bottom">
+                <div class="package-info">
+                  <p>Gói 800k</p>
+                  <span>765.000 VND</span>
+                </div>
+                <button>+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phương thức thanh toán -->
+        <div class="payment-method">
+          <h3>3. Chọn phương thức thanh toán</h3>
+          <div class="method-list">
+            <div
+              class="method-item"
+              onclick="selectPaymentMethod(this, 'Momo', 'icon_momo.png')"
+            >
+              <img
+                src="{{ url_for('static', filename='images/icon_momo.png') }}"
+                alt="Momo"
+              />
+              <p>Momo</p>
+            </div>
+            <div
+              class="method-item"
+              onclick="selectPaymentMethod(this, 'Banking', 'icon_bank.png')"
+            >
+              <img
+                src="{{ url_for('static', filename='images/icon_bank.png') }}"
+                alt="Banking"
+              />
+              <p>Banking</p>
+            </div>
+            <div
+              class="method-item"
+              onclick="selectPaymentMethod(this, 'Zalopay', 'icon_zalopay.png')"
+            >
+              <img
+                src="{{ url_for('static', filename='images/icon_zalopay.png') }}"
+                alt="Zalo Pay"
+              />
+              <p>Zalo Pay</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cột Xác nhận thông tin -->
+      <div class="confirmation-container">
+        <h3>4. Xác nhận thông tin</h3>
+
+        <!-- Khung chọn gói nạp -->
+        <div class="select-package-box" id="selectedPackageBox">
+          Chọn gói nạp
+        </div>
+
+        <!-- Chi tiết thanh toán -->
+        <div class="order-summary">
+          <h4>Chi tiết thanh toán</h4>
+          <p>Tổng tiền: <span id="total-amount">0 VND</span></p>
+          <p>Tổng thanh toán: <span id="total-pay">0 VND</span></p>
+        </div>
+
+        <!-- Khung chọn phương thức thanh toán -->
+        <div class="select-method-box" id="selectedMethodBox">
+          Chọn phương thức thanh toán
+        </div>
+
+        <!-- Lưu ý -->
+        <p class="notice">
+          Bằng việc nhấn vào nút Thanh toán ngay, bạn đồng ý rằng giao dịch này
+          là không hoàn, không hủy.
+        </p>
+
+        <!-- Nút thanh toán -->
+        <button class="pay-btn" disabled id="payButton">Thanh toán ngay</button>
+      </div>
+    </div>
+    <!-- chọn phương thức thanh toán -->
+    <script>
+      let selectedMethod = false; // Trạng thái chọn phương thức
+
+      function selectPaymentMethod(element, methodName, iconPath) {
+        const selectedMethodBox = document.getElementById("selectedMethodBox");
+
+        if (element.classList.contains("selected")) {
+          element.classList.remove("selected");
+          selectedMethodBox.innerHTML = "Chọn phương thức thanh toán";
+          selectedMethodBox.style.border = "2px dashed #ccc";
+          selectedMethod = false; // Đặt trạng thái chưa chọn
+        } else {
+          // Bỏ chọn tất cả các phương thức khác
+          document.querySelectorAll(".method-item").forEach((item) => {
+            item.classList.remove("selected");
+          });
+
+          // Thêm class 'selected' vào phương thức vừa được chọn
+          element.classList.add("selected");
+
+          // Hiển thị phương thức thanh toán
+          selectedMethodBox.innerHTML = `
+                <div class="selected-method">
+                  <img src="{{ url_for('static', filename='images/') }}${iconPath}" alt="${methodName}">
+                  <p>${methodName}</p>
+                </div>
+            `;
+          selectedMethodBox.style.border = "none";
+          selectedMethod = true; // Đặt trạng thái đã chọn
+        }
+
+        validatePayment(); // Kiểm tra điều kiện kích hoạt nút thanh toán
+      }
+    </script>
+
+    <!-- chọn gói nạp -->
+    <script>
+      let selectedPackage = false; // Trạng thái chọn gói nạp
+
+      function toggleSelectPackage(button) {
+        const isSelected = button.classList.contains("selected");
+        const packageText = button.parentElement.querySelector("p").textContent;
+        const packagePrice =
+          button.parentElement.querySelector("span").textContent;
+        const packageImage =
+          button.parentElement.parentElement.querySelector("img").src;
+
+        const selectedPackageBox =
+          document.getElementById("selectedPackageBox");
+        const totalAmount = document.getElementById("total-amount");
+        const totalPay = document.getElementById("total-pay");
+
+        if (isSelected) {
+          // Hủy chọn gói nạp
+          button.textContent = "+";
+          button.classList.remove("selected");
+
+          selectedPackageBox.innerHTML = "Chọn gói nạp";
+          selectedPackageBox.style.border = "2px dashed #ddd";
+          totalAmount.textContent = "0 VND";
+          totalPay.textContent = "0 VND";
+          selectedPackage = false; // Đặt trạng thái chưa chọn
+        } else {
+          // Hủy chọn tất cả gói khác trước khi chọn mới
+          document.querySelectorAll(".package-bottom button").forEach((btn) => {
+            btn.textContent = "+";
+            btn.classList.remove("selected");
+          });
+
+          // Chọn gói mới
+          button.textContent = "✓";
+          button.classList.add("selected");
+
+          selectedPackageBox.innerHTML = `
+                <div class="selected-package">
+                  <img src="${packageImage}" alt="${packageText}">
+                  <div class="package-info">
+                    <p>${packageText}</p>
+                    <span>${packagePrice}</span>
+                  </div>
+                  <div class="quantity">x1</div>
+                </div>
+            `;
+          selectedPackageBox.style.border = "none";
+          totalAmount.textContent = packagePrice;
+          totalPay.textContent = packagePrice;
+          selectedPackage = true; // Đặt trạng thái đã chọn
+        }
+
+        validatePayment(); // Kiểm tra điều kiện kích hoạt nút thanh toán
+      }
+
+      // Thêm sự kiện click cho các gói nạp
+      document.querySelectorAll(".package-bottom button").forEach((button) => {
+        button.addEventListener("click", function () {
+          toggleSelectPackage(button);
+        });
+      });
+    </script>
+
+    <!-- kích hoạt nút thanh toán -->
+    <script>
+      // Hàm kiểm tra điều kiện để kích hoạt nút thanh toán
+      function validatePayment() {
+        const payButton = document.getElementById("payButton");
+        if (selectedPackage && selectedMethod) {
+          payButton.disabled = false;
+        } else {
+          payButton.disabled = true;
+        }
+      }
+    </script>
+  </body>
+</html>
