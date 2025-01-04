@@ -10,27 +10,8 @@ html {
 .main-wrapper {
   display: grid;
   grid-template-columns: 13% 55% 25%; /* Sidebar nhỏ, nội dung lớn, cột xác nhận nhỏ */
-  height: 90vh;
+  height: 91vh;
   gap: 20px;
-}
-
-/* Sidebar */
-.sidebar {
-  background-color: #041f4a;
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
-
-.menu-item {
-  padding: 20px 25px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.menu-item:hover {
-  background-color: #1c3d6e;
 }
 
 /* Cột nội dung chính */

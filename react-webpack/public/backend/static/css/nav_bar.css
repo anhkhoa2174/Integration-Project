@@ -221,7 +221,7 @@ body {
 
 .sidebar {
 	width: 180px;
-	height: 100%;
+	height: 91vh;
 	background: #041f4a; /* Màu xanh đậm */
 	color: white;
 	display: flex;
