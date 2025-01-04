@@ -36,5 +36,9 @@ def transaction_history():
 def deposit():
     return render_template('deposit.html')
 
+@app.route('/user_dashboard')
+def user_dashboard():
+    return render_template('user_dashboard.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
