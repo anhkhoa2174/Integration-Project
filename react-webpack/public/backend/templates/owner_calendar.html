@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporty Webby Calendar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owner_calendar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}">
+</head>
+<body>
+     <!-- nav bar -->
+     <div class="navbar_ngang">
+      <div class="logo-section">
+        <img
+          class="logo"
+          src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+        />
+        <div class="logo-text">
+          Sporty <br />
+          Webby
+        </div>
+      </div>
+      <div class="search-container">
+        <div class="search-box">
+          <img
+            class="search-icon"
+            src="{{ url_for('static', filename='images/icon_search.png') }}"
+          />
+          <input type="text" class="search-input" placeholder="Search" />
+          <button class="clear-btn">✖</button>
+        </div>
+        <script>
+          const searchInput = document.querySelector(".search-input");
+          const clearBtn = document.querySelector(".clear-btn");
+  
+          clearBtn.addEventListener("click", () => {
+            searchInput.value = "";
+            searchInput.focus();
+          });
+        </script>
+      </div>
+      <div class="nav-links">
+        <a href="#" class="nav-item">Trang chủ</a>
+        <a href="#" class="nav-item">Bạn bè</a>
+        <a href="#" class="nav-item">Blog</a>
+      </div>
+      <div class="profile-section">
+        <div class="notification-icons">
+          <div class="bell-icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_noti.png') }}"
+            />
+          </div>
+          <div class="message-icon">
+            <img
+              src="{{ url_for('static', filename='images/icon_chat.png') }}"
+            />
+          </div>
+        </div>
+        <div class="profile-info">
+          <img
+            class="profile-avatar"
+            src="{{ url_for('static', filename='images/avatar.png') }}"
+          />
+          <div class="profile-name">
+            <p>Trần Văn A</p>
+            <p class="status">Trực tuyến</p>
+          </div>
+        </div>
+        <div class="dropdown-arrow" onclick="toggleDropdown()">
+          <img
+            src="{{ url_for('static', filename='images/icon_arrow.png') }}"
+          />
+        </div>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <ul>
+            <li><a href="#">Thông tin cá nhân</a></li>
+            <li><a href="#">Lịch sử hoạt động</a></li>
+            <li><a href="#">Bảo mật</a></li>
+            <li><a href="#">Cài đặt</a></li>
+            <li><a href="#">Năng suất</a></li>
+          </ul>
+        </div>
+        <script>
+          function toggleDropdown() {
+            var dropdownMenu = document.getElementById
+        </script>
+      </div>
+    </div>
+    <div class="sidebar">
+        <a href="#" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_dashboard.png') }}" alt="Trang chủ Icon"/>
+            </div>
+            <div class="text">Trang chủ</div>
+        </a>
+        <a href="#" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_book_field.png') }}" alt="Quản Lí Sân Icon" />
+            </div>
+            <div class="text">Quản Lí Sân</div>
+        </a>
+        <a href="ownercalendar" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_calendar.png') }}" alt="Lịch Icon"/>
+            </div>
+            <div class="text">Lịch</div>
+        </a>
+        <a href="#" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_payment_history.png') }}" alt="Lịch sử giao dịch Icon"/>
+            </div>
+            <div class="text">Lịch sử giao dịch</div>
+        </a>
+    </div>
+
+    <div class="main-content">
+      <div class="month-header">
+    <div class="month-dropdown">
+        <button class="month-dropdown-toggle">Tháng 5 2024</button>
+        <div class="month-dropdown-menu">
+            <div class="month-dropdown-scrollable"> <script>
+                const currentYear = new Date().getFullYear();
+                const currentMonth = new Date().getMonth() + 1; // Get current month (1-12)
+                const startMonth = currentMonth - 6; // Show 6 months before
+                const endMonth = currentMonth + 6;   // Show 6 months after
+
+                for (let i = startMonth; i <= endMonth; i++) {
+                    let year = currentYear;
+                    let month = i;
+
+                    if (month < 1) {
+                        year--;
+                        month += 12;
+                    } else if (month > 12) {
+                        year++;
+                        month -= 12;
+                    }
+
+                    const monthName = new Date(year, month - 1, 1).toLocaleString('vi-VN', { month: 'long' });
+                    const optionText = `Tháng ${month} ${year}`;
+                    document.write(`<a href="#" data-month="${month}" data-year="${year}">${optionText}</a>`);
+                }
+            </script>
+            </div>
+        </div>
+    </div>
+    <div class="field-dropdown">
+    <button class="field-dropdown-toggle">
+        Clb Sân Bóng Đá Mini 77 <span class="dropdown-arrow">▼</span>
+    </button>
+    <div class="field-dropdown-menu">
+        <a href="#" data-field="77">Clb Sân Bóng Đá Mini 77</a>
+        <a href="#" data-field="ABC">Sân Bóng ABC</a>
+        <a href="#" data-field="XYZ">Sân Bóng XYZ</a>
+        </div>
+</div>
+<script>
+    const fieldDropdownToggle = document.querySelector('.field-dropdown-toggle');
+    const fieldDropdownMenu = document.querySelector('.field-dropdown-menu');
+    const fieldLinks = fieldDropdownMenu.querySelectorAll('a');
+
+    fieldDropdownToggle.addEventListener('click', () => {
+        fieldDropdownMenu.style.display = fieldDropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    fieldLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const field = link.dataset.field;
+            fieldDropdownToggle.textContent = link.textContent + " ▼";
+            fieldDropdownMenu.style.display = 'none';
+            console.log(`Selected field: ${field}`);
+            // Add your logic to handle the selected field (e.g., update calendar)
+        });
+    });
+
+    window.addEventListener('click', (event) => {
+        if (!fieldDropdownToggle.contains(event.target) && !fieldDropdownMenu.contains(event.target)) {
+            fieldDropdownMenu.style.display = 'none';
+        }
+    });
+</script>
+</div>
+
+      <script>
+          const monthDropdownToggle = document.querySelector('.month-dropdown-toggle');
+          const monthDropdownMenu = document.querySelector('.month-dropdown-menu');
+          const monthLinks = monthDropdownMenu.querySelectorAll('a');
+
+          monthDropdownToggle.addEventListener('click', () => {
+              monthDropdownMenu.style.display = monthDropdownMenu.style.display === 'block' ? 'none' : 'block';
+          });
+
+          monthLinks.forEach(link => {
+              link.addEventListener('click', (event) => {
+                  event.preventDefault();
+                  const month = link.dataset.month;
+                  const year = link.dataset.year;
+                  monthDropdownToggle.textContent = link.textContent;
+                  monthDropdownMenu.style.display = 'none';
+
+                  updateCalendar(month, year);
+              });
+          });
+
+          function updateCalendar(month, year) {
+              console.log(`Selected month: ${month}, year: ${year}`);
+              // Your calendar update logic here
+          }
+
+          window.addEventListener('click', (event) => {
+              if (!monthDropdownToggle.contains(event.target) && !monthDropdownMenu.contains(event.target)) {
+                  monthDropdownMenu.style.display = 'none';
+              }
+          });
+      </script>
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>Thứ 2</th> <th>Thứ 3</th> <th>Thứ 4</th> <th>Thứ 5</th> <th>Thứ 6</th> <th>Thứ 7</th> <th>CN</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="inactive"><button class="date-button">1</button></td>
+                <td><button class="date-button">2</button></td>
+                <td><button class="date-button">3</button></td>
+                <td><button class="date-button">4</button></td>
+                <td><button class="date-button">5</button></td>
+                <td><button class="date-button">6</button></td>
+                <td><button class="date-button">7</button></td>
+              </tr>
+              <tr>
+                <td><button class="date-button">8</button></td>
+                <td class="highlighted"><button class="date-button">9</button></td>
+                <td><button class="date-button">10</button></td>
+                <td><button class="date-button">11</button></td>
+                <td class="highlighted"><button class="date-button">12</button></td>
+                <td><button class="date-button">13</button></td>
+                <td><button class="date-button">14</button></td>
+              </tr>
+              <tr>
+                <td><button class="date-button">15</button></td>
+                <td><button class="date-button">16</button></td>
+                <td><button class="date-button">17</button></td>
+                <td class="highlighted"><button class="date-button">18</button></td>
+                <td><button class="date-button">19</button></td>
+                <td><button class="date-button">20</button></td>
+                <td><button class="date-button">21</button></td>
+              </tr>
+              <tr>
+                <td><button class="date-button">22</button></td>
+                <td><button class="date-button">23</button></td>
+                <td><button class="date-button">24</button></td>
+                <td><button class="date-button">25</button></td>
+                <td><button class="date-button">26</button></td>
+                <td><button class="date-button">27</button></td>
+                <td><button class="date-button">28</button></td>
+              </tr>
+              <tr>
+                <td><button class="date-button">29</button></td>
+                <td><button class="date-button">30</button></td>
+                <td><button class="date-button">31</button></td>
+                <td class="inactive"><button class="date-button">1</button></td>
+                <td class="inactive"><button class="date-button">2</button></td>
+                <td class="inactive"><button class="date-button">3</button></td>
+                <td class="inactive"><button class="date-button">4</button></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // JavaScript to handle date button clicks (add functionality as needed)
+        const dateButtons = document.querySelectorAll('.date-button');
+        dateButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const date = button.textContent;
+                const url = "ownercalendar2"; 
+                window.location.href = url;
+            });
+        });
+    </script>
+</body>
+</html>

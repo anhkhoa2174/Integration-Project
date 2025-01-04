@@ -36,5 +36,21 @@ def transaction_history():
 def deposit():
     return render_template('deposit.html')
 
+@app.route('/ownercalendar')
+def ownercalendar():
+    return render_template('owner_calendar.html')
+
+@app.route('/ownercalendar2')
+def ownercalendar2():
+    return render_template('owner_calendar_var2.html')
+
+@app.route('/ownercalendar3')
+def ownercalendar3():
+    return render_template('owner_calendar_var3.html')
+
+@app.route('/ownerdeposit')
+def ownerdeposit():
+    return render_template('owner_deposit.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

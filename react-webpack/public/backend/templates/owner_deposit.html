@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporty Webby</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owner_deposit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}">
+
+</head>
+<body>
+    <div class="navbar_ngang">
+        <div class="logo-section">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+          />
+          <div class="logo-text">
+            Sporty <br />
+            Webby
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <img
+              class="search-icon"
+              src="{{ url_for('static', filename='images/icon_search.png') }}"
+            />
+            <input type="text" class="search-input" placeholder="Search" />
+            <button class="clear-btn">✖</button>
+          </div>
+          <script>
+            const searchInput = document.querySelector(".search-input");
+            const clearBtn = document.querySelector(".clear-btn");
+    
+            clearBtn.addEventListener("click", () => {
+              searchInput.value = "";
+              searchInput.focus();
+            });
+          </script>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-item">Trang chủ</a>
+          <a href="#" class="nav-item">Bạn bè</a>
+          <a href="#" class="nav-item">Blog</a>
+        </div>
+        <div class="profile-section">
+          <div class="notification-icons">
+            <div class="bell-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_noti.png') }}"
+              />
+            </div>
+            <div class="message-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_chat.png') }}"
+              />
+            </div>
+          </div>
+          <div class="profile-info">
+            <img
+              class="profile-avatar"
+              src="{{ url_for('static', filename='images/avatar.png') }}"
+            />
+            <div class="profile-name">
+              <p>Trần Văn A</p>
+              <p class="status">Trực tuyến</p>
+            </div>
+          </div>
+          <div class="dropdown-arrow" onclick="toggleDropdown()">
+            <img
+              src="{{ url_for('static', filename='images/icon_arrow.png') }}"
+            />
+          </div>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+              <li><a href="#">Thông tin cá nhân</a></li>
+              <li><a href="#">Lịch sử hoạt động</a></li>
+              <li><a href="#">Bảo mật</a></li>
+              <li><a href="#">Cài đặt</a></li>
+              <li><a href="#">Năng suất</a></li>
+            </ul>
+          </div>
+          <script>
+            function toggleDropdown() {
+              var dropdownMenu = document.getElementById
+          </script>
+        </div>
+      </div>
+      <div class="sidebar">
+          <a href="#" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_dashboard.png') }}" alt="Trang chủ Icon"/>
+              </div>
+              <div class="text">Trang chủ</div>
+          </a>
+          <a href="#" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_book_field.png') }}" alt="Quản Lí Sân Icon" />
+              </div>
+              <div class="text">Quản Lí Sân</div>
+          </a>
+          <a href="ownercalendar" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_calendar.png') }}" alt="Lịch Icon"/>
+              </div>
+              <div class="text">Lịch</div>
+          </a>
+          <a href="#" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_payment_history.png') }}" alt="Lịch sử giao dịch Icon"/>
+              </div>
+              <div class="text">Lịch sử giao dịch</div>
+          </a>
+      </div>
+
+<div class="container">
+    <div class="main-content">
+      <div class="header">
+        <div>
+          <h3>Lịch sử đặt sân</h3>
+          Số dư: 125.000 VND <br>
+          Khoảng thời gian<br>
+          27/09/2022 - 10/10/2022
+        </div>
+        <input type="text" class="search-bar" placeholder="Tìm Kiếm...">
+      </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã đặt sân</th>
+                    <th>Ngày và Giờ</th>
+                    <th>Tên sân</th>
+                    <th>Loại sân</th>
+                    <th>Số tiền</th>
+                    <th>Ghi chú Giao dịch</th>
+                    <th>Phương thức Thanh toán</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001234</td>
+                <td>25/11/2024<br>7:00</td>
+                <td>Sân A</td>
+                <td>Sân cầu lông</td>
+                <td>100K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Momo</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>23/11/2024<br>8:00</td>
+                <td>Sân B</td>
+                <td>Sân bóng đá</td>
+                <td>50K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>21/11/2024<br>5:00</td>
+                <td>Sân C</td>
+                <td>Sân bóng rổ</td>
+                <td>80K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Paypal</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>18/11/2024<br>10:00</td>
+                <td>Sân D</td>
+                <td>Sân bóng chuyền</td>
+                <td>90K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+                <tr>
+                <td>001234</td>
+                <td>15/11/2024<br>11:00</td>
+                <td>Sân E</td>
+                <td>Sân pickleball</td>
+                <td>70K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>13/11/2024<br>12:00</td>
+                <td>Sân F</td>
+                <td>Sân bóng đá</td>
+                <td>200K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>11/11/2024<br>13:00</td>
+                <td>Sân G</td>
+                <td>Sân cầu lông</td>
+                <td>100K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>8/11/2024<br>14:30</td>
+                <td>Sân H</td>
+                <td>Sân tennis</td>
+                <td>80K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>6/4/2024<br>15:30</td>
+                <td>Sân I</td>
+                <td>Sân cầu lông</td>
+                <td>90K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>4/11/2024<br>16:30</td>
+                <td>Sân J</td>
+                <td>Sân bóng rổ</td>
+                <td>110K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+                <tr>
+                <td>001234</td>
+                <td>2/11/2024<br>17:30</td>
+                <td>Sân K</td>
+                <td>Sân bóng chuyền</td>
+                <td>200K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+              <tr>
+                <td>001234</td>
+                <td>1/11/2024<br>18:30</td>
+                <td>Sân L</td>
+                <td>Sân chuyên</td>
+                <td>150K VND</td>
+                <td>Không có ghi chú</td>
+                <td>Thẻ tín dụng</td>
+                <td>Hoàn thành</td>
+              </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
