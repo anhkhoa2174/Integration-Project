@@ -10,7 +10,7 @@ html {
 .main-wrapper {
 	display: grid;
 	grid-template-columns: 13% 55% 25%; /* Sidebar nhỏ, nội dung lớn, cột xác nhận nhỏ */
-	height: 90vh;
+	height: 91vh;
 	gap: 20px;
 }
 
