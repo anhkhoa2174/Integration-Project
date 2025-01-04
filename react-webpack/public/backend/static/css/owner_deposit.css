@@ -33,12 +33,12 @@ th {
     font-weight: bold;
 }
 .header {
-    margin-top: auto;
+    margin-top: 100px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
     width: 90%;
+    align-content: center;
 }
 .pagination {
     margin-top: 20px;
