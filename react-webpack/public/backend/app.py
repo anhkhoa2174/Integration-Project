@@ -56,5 +56,9 @@ def admin_navsidebar():
 def admin_test():
     return render_template('administrator/test.html')
 
+@app.route('/test1')
+def admin_test1():
+    return render_template('administrator/test1.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
