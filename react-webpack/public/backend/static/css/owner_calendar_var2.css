@@ -1,0 +1,178 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 90px 20px 20px 220px; /* Adjusted left padding */
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+}
+
+/* Dropdowns (Month and Field) */
+.month-dropdown, .field-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.month-dropdown-toggle, .field-dropdown-toggle {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+}
+
+.dropdown-arrow {
+    margin-left: 8px;
+    font-size: smaller;
+}
+
+.month-dropdown-menu, .field-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+.month-dropdown-menu a, .field-dropdown-menu a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.month-dropdown-menu a:hover, .field-dropdown-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Field Info */
+.field-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.field-info h2 {
+    margin-top: 0;
+}
+
+/* Schedule */
+.schedule {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Vertical scrolling */
+    max-height: 600px; /* Set a max height for the schedule */
+    padding: 10px;
+}
+
+.time-slots {
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+}
+
+.time-slot-container {
+    overflow-y: auto;
+    max-height: 500px; /* Adjust as needed */
+}
+
+.time-slots-inner{
+    display: flex;
+    flex-direction: column;
+}
+
+.time-slot {
+    border-top: 1px solid #ddd;
+    padding: 15px 20px;
+    min-height: 50px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+
+.time-slot:last-child {
+    border-bottom: 1px solid #ddd;
+}
+
+.time-slot > span {
+    width: 50px;
+    flex-shrink: 0;
+}
+
+.time-slot.booked {
+    position: absolute;
+    left: 70px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top:0;
+}
+
+.booking-info {
+    flex-grow: 1;
+}
+
+.delete-button {
+    background-color: red; /* Or any color you prefer */
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: white; /* Text color */
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height (same as width for a circle) */
+    border-radius: 50%; /* Make it a circle */
+    display: inline-flex; /* Use flexbox for centering */
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.delete-button:hover {
+    background-color: darkred; /* Darker red on hover */
+}

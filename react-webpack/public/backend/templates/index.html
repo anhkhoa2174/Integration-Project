@@ -293,10 +293,10 @@
           const toggleIcon = document.getElementById("toggle-icon");
           if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            toggleIcon.src = "images/icon _eye_password_show.png";
+            toggleIcon.src = "{{ url_for('static', filename='images/icon_eye_password_show.png') }}";
           } else {
             passwordInput.type = "password";
-            toggleIcon.src = "images/icon _eye_password_hide.png";
+            toggleIcon.src = "{{ url_for('static', filename='images/icon_eye_password_hide.png') }}";
           }
         });
       // Hiển thị khung QR Code khi nhấn vào biểu tượng QR Code
