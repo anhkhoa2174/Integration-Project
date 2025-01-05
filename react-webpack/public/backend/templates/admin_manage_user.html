@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Booking Interface</title>
+  <style>
+    .search-input-class {
+        width: 850px; /* Chiều rộng cụ thể */
+    }
+    .search-input-class2 {
+        width: 390px; /* Chiều rộng cụ thể */
+    }
+    #search-button.active {
+        background-color: #ccc; /* Màu nền chớp sáng */
+        transition: background-color 0.2s ease-in-out;
+    }
+    
+    /* Hiệu ứng khi di chuột */
+    #search-button:hover {
+        background-color: #000; /* Nền đen */
+        transition: background-color 0.2s ease-in-out; /* Hiệu ứng mượt */
+    }
+    
+    #search-button:hover svg {
+        stroke: #fff; /* Ký hiệu kính lúp thành trắng */
+        transition: stroke 0.2s ease-in-out; /* Hiệu ứng mượt */
+    }
+    #search-button2.active {
+        background-color: #ccc; /* Màu nền chớp sáng */
+        transition: background-color 0.2s ease-in-out;
+    }
+    
+    /* Hiệu ứng khi di chuột */
+    #search-button2:hover {
+        background-color: #000; /* Nền đen */
+        transition: background-color 0.2s ease-in-out; /* Hiệu ứng mượt */
+    }
+    
+    #search-button2:hover svg {
+        stroke: #fff; /* Ký hiệu kính lúp thành trắng */
+        transition: stroke 0.2s ease-in-out; /* Hiệu ứng mượt */
+    }
+
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex flex-wrap lg:flex-nowrap p-4 gap-4">
+    <!-- Left Section -->
+    <div class="flex-1 lg:w-3/5">
+        <!-- User Reviews -->
+        <div class="bg-white p-4 rounded-lg shadow-md mb-4" style="height: 265px;">
+            <h2 class="text-lg font-semibold mb-2">Nhận xét người dùng</h2>
+            <div class="flex gap-10 text-sm text-gray-600 mb-4">
+                <div class="text-center">
+                    <p class="font-bold text-blue-500 text-2xl">10</p>
+                    <p>Nhận xét mới hôm nay</p>
+                </div>
+                <div class="flex items-start space-x-3 mb-2">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
+                    <div class="text-sm">
+                        <p class="font-bold">Lý Thu Phong <span class="text-fuchsia-500">(Người dùng tích cực)</span></p>
+                        <p class="text-gray-600">Web của bạn rất tốt nhưng search sản chưa được tốt khi mà hỏi các câu khó.</p>
+                        <p class="text-gray-400 text-xs">Hôm nay lúc 13:37</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-12 text-sm text-gray-600 mb-4">
+                <div class="text-center">
+                    <p class="font-bold text-purple-500 text-2xl">124</p>
+                    <p>Nhận xét trong tháng</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
+                    <div class="text-sm">
+                        <p class="font-bold">Nguyen Quang Duy <span class="text-blue-500">(Người dùng thường xuyên)</span></p>
+                        <p class="text-gray-600">Hệ thống sử dụng tốt, dễ nhìn, dễ sử dụng nhưng cần nâng cấp giao diện đẹp hơn.</p>
+                        <p class="text-gray-400 text-xs">Hôm nay lúc 15:23</p>
+                    </div>
+                </div>
+            </div>
+            <button 
+                class="border border-black text-black bg-white text-xs font-medium py-1 px-2 rounded-md hover:bg-black hover:text-white active:bg-black active:text-white transition duration-200">
+                Xem tất cả nhận xét
+            </button>
+
+        </div>
+
+        <!-- User List -->
+        <div class="bg-white p-4 rounded-lg shadow-md" style="height: 605px;">
+            <div class="flex gap-10 items-center mb-4">
+                <h2 class="text-lg font-semibold">Danh sách người dùng</h2>
+                <p class="text-2xl font-bold text-blue-500">145</p>
+                <button 
+                    class="ml-auto flex items-center font-bold gap-2 p-2 bg-white border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100">
+                    <!-- Biểu tượng Filter -->
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="w-6 h-6 text-black-500" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="2">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            d="M3 4h18M6 8l6 6m0 0l6-6M6 8h12" />
+                    </svg>
+                    Lọc
+                </button>
+            </div>
+            
+            <div class="relative mb-4">
+                <!-- Ô tìm kiếm -->
+                <input 
+                    id="search-input" 
+                    type="text" 
+                    placeholder="Search" 
+                    class="search-input-class border rounded-md pl-4 pr-10 py-2 text-sm" />
+            
+                <!-- Nút "X" -->
+                <button 
+                    id="clear-button" 
+                    class="absolute right-16 top-1/2 transform -translate-y-1/2 hidden">
+                    <svg 
+                        class="w-4 h-4 text-gray-500" 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            
+                <!-- Nút kính lúp -->
+                <button 
+                    id="search-button" 
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-200 rounded-md p-2">
+                    <svg 
+                        class="w-5 h-5 text-gray-500" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35" />
+                    </svg>
+                </button>
+            </div>
+
+
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                    <tr>
+                        <th scope="col" class="p-3">Người sử dụng</th>
+                        <th scope="col" class="p-3 text-center flex items-center justify-center">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                class="w-4 h-4 mr-1 text-gray-700" 
+                                fill="none" 
+                                viewBox="0 0 24 24" 
+                                stroke="currentColor">
+                                <path 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    stroke-width="2" 
+                                    d="M12 4v10m0 0l-6-6m6 6l6-6" />
+                            </svg>
+                            Lượt đặt sân
+                        </th>
+                        <th scope="col" class="p-3 text-center">Truy cập lần cuối</th>
+                        <th scope="col" class="p-3 text-center">Ngày tham gia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b">
+                        <td class="p-3 flex items-center space-x-3">
+                            <input type="checkbox">
+                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
+                            <div>
+                                <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                            </div>
+                        </td>
+                        <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                        <td class="p-3 text-center">4 ngày trước</td>
+                        <td class="p-3 text-center">07/07/2024</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <td class="p-3 flex items-center space-x-3">
+                            <input type="checkbox">
+                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
+                            <div>
+                                <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                            </div>
+                        </td>
+                        <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                        <td class="p-3 text-center">4 ngày trước</td>
+                        <td class="p-3 text-center">07/07/2024</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <td class="p-3 flex items-center space-x-3">
+                            <input type="checkbox">
+                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
+                            <div>
+                                <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                            </div>
+                        </td>
+                        <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                        <td class="p-3 text-center">4 ngày trước</td>
+                        <td class="p-3 text-center">07/07/2024</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <td class="p-3 flex items-center space-x-3">
+                            <input type="checkbox">
+                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
+                            <div>
+                                <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                            </div>
+                        </td>
+                        <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                        <td class="p-3 text-center">4 ngày trước</td>
+                        <td class="p-3 text-center">07/07/2024</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <td class="p-3 flex items-center space-x-3">
+                            <input type="checkbox">
+                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
+                            <div>
+                                <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                            </div>
+                        </td>
+                        <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                        <td class="p-3 text-center">4 ngày trước</td>
+                        <td class="p-3 text-center">07/07/2024</td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <td class="p-3 flex items-center space-x-3">
+                            <input type="checkbox">
+                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
+                            <div>
+                                <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                            </div>
+                        </td>
+                        <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                        <td class="p-3 text-center">4 ngày trước</td>
+                        <td class="p-3 text-center">07/07/2024</td>
+                    </tr>
+
+                    
+                    <!-- Repeat rows -->
+                </tbody>
+            </table>
+            <div class="text-center mt-4">
+                <button class="w-full text-black-500 text-sm mt-2">Xem thêm...</button>
+            </div>
+            <script>
+                // Lấy các phần tử
+                const searchInput = document.getElementById('search-input');
+                const clearButton = document.getElementById('clear-button');
+                const rows = document.querySelectorAll('tbody tr');
+            
+                // Hàm lọc hàng
+                const filterRows = () => {
+                    const filterText = searchInput.value.trim().toLowerCase(); // Lấy giá trị tìm kiếm
+            
+                    rows.forEach(row => {
+                        const nameCell = row.querySelector('td:first-child span.font-bold'); // Lấy phần tử span.font-bold
+                        if (nameCell) {
+                            const nameText = nameCell.textContent.toLowerCase(); // Nội dung tên người dùng
+                            if (nameText.includes(filterText)) {
+                                row.style.display = ""; // Hiển thị hàng
+                            } else {
+                                row.style.display = "none"; // Ẩn hàng
+                            }
+                        }
+                    });
+                };
+            
+                // Hiện nút "X" khi người dùng nhập văn bản và lọc kết quả
+                searchInput.addEventListener('input', () => {
+                    if (searchInput.value.trim() !== "") {
+                        clearButton.classList.remove('hidden');
+                    } else {
+                        clearButton.classList.add('hidden');
+                    }
+            
+                    filterRows(); // Tự động gọi hàm lọc
+                });
+            
+                // Xóa nội dung trong ô tìm kiếm khi nhấn "X"
+                clearButton.addEventListener('click', () => {
+                    searchInput.value = "";
+                    clearButton.classList.add('hidden');
+                    filterRows(); // Lọc lại để hiển thị toàn bộ hàng
+                    searchInput.focus(); // Đưa con trỏ về lại ô tìm kiếm
+                });
+            </script>
+        </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="w-full lg:w-1/3">
+        <!-- Owner List -->
+        <div class="bg-white p-4 rounded-lg shadow-md mb-4" style="height: 770px;">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold">Danh sách chủ sân</h2>
+                <button 
+                    class="ml-4 flex items-center font-bold gap-2 p-2 bg-white border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100">
+                    <!-- Biểu tượng Filter -->
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="w-5 h-5 text-black-500" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="2">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            d="M3 4h18M6 8l6 6m0 0l6-6M6 8h12" />
+                    </svg>
+                    Lọc
+                </button>
+                <button class="text-blue-500 text-sm">Thêm người</button>
+            </div>
+            <div class="relative mb-4">
+                <!-- Ô tìm kiếm -->
+                <input 
+                    id="search-input2" 
+                    type="text" 
+                    placeholder="Search" 
+                    class="search-input-class2 border rounded-md pl-4 pr-10 py-2 text-sm" />
+            
+                <!-- Nút "X" -->
+                <button 
+                    id="clear-button2" 
+                    class="absolute right-16 top-1/2 transform -translate-y-1/2 hidden">
+                    <svg 
+                        class="w-4 h-4 text-gray-500" 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            
+                <!-- Nút kính lúp -->
+                <button 
+                    id="search-button2" 
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-200 rounded-md p-2">
+                    <svg 
+                        class="w-5 h-5 text-gray-500" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35" />
+                    </svg>
+                </button>
+            </div>
+
+            <script>
+                // Lấy các phần tử
+                const searchInput2 = document.getElementById('search-input2');
+                const clearButton2 = document.getElementById('clear-button2');
+                // Hiện nút "X" khi người dùng nhập văn bản
+                searchInput2.addEventListener('input', () => {
+                    if (searchInput2.value.trim() !== "") {
+                        clearButton2.classList.remove('hidden'); // Hiện nút "X"
+                    } else {
+                        clearButton2.classList.add('hidden'); // Ẩn nút "X"
+                    }
+                });
+            
+                // Xóa nội dung trong ô tìm kiếm khi nhấn "X"
+                clearButton2.addEventListener('click', () => {
+                    searchInput2.value = ""; // Xóa văn bản
+                    clearButton2.classList.add('hidden'); // Ẩn nút "X"
+                    searchInput2.focus(); // Đưa con trỏ về ô tìm kiếm
+                });
+            </script>
+
+            <div class="flex justify-between text-sm font-bold bg-gray-100 p-3 rounded-t-md">
+                <span class="uppercase text-xs text-gray-700">Chủ sân</span>
+                <span class="uppercase text-xs text-gray-700 flex items-center">
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="w-4 h-4 mr-1 text-gray-700" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M12 4v10m0 0l-6-6m6 6l6-6" />
+                    </svg>
+                    Số lượng sân
+                </span>
+            </div>
+            
+            <ul class="overflow-auto divide-y divide-gray-200" style="max-height: 650 px;">
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>
+                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]" >20</p>
+                </li>
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>
+                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]">15</p>
+                </li>
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>
+                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]">30</p>
+                </li>
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>
+                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                </li>
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>
+                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                </li>
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>
+                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                </li>
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                </li> 
+                <li class="flex items-center justify-between text-sm py-3">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox">
+                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
+                        <div>
+                            <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                            <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                        </div>                    </div>
+                    <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                </li> 
+
+
+                <li class="flex items-center justify-between text-sm py-3">
+                    <button class="w-full text-black-500 text-sm mt-2">Xem thêm...</button>
+                </li> 
+            </ul>
+            <script>
+                // Lấy các phần tử
+
+                const rows2 = document.querySelectorAll('ul li.flex');
+                // Hàm lọc hàng
+                const filterRows2 = () => {
+                    const filterText = searchInput2.value.trim().toLowerCase(); // Lấy giá trị tìm kiếm
+            
+                    rows2.forEach(row => {
+                        const nameCell = row.querySelector('div > div > span.font-bold'); // Lấy phần tử span.font-bold
+                        if (nameCell) {
+                            const nameText = nameCell.textContent.toLowerCase(); // Nội dung tên người dùng
+                            if (nameText.includes(filterText)) {
+                                row.style.display = ""; // Hiển thị hàng
+                            } else {
+                                row.style.display = "none"; // Ẩn hàng
+                            }
+                        }
+                    });
+                };
+            
+                // Hiện nút "X" khi người dùng nhập văn bản và lọc kết quả
+                searchInput2.addEventListener('input', () => {
+                    if (searchInput2.value.trim() !== "") {
+                        clearButton2.classList.remove('hidden');
+                    } else {
+                        clearButton2.classList.add('hidden');
+                    }
+            
+                    filterRows2(); // Tự động gọi hàm lọc
+                });
+            
+                // Xóa nội dung trong ô tìm kiếm khi nhấn "X"
+                clearButton2.addEventListener('click', () => {
+                    searchInput2.value = "";
+                    clearButton2.classList.add('hidden');
+                    filterRows2(); // Lọc lại để hiển thị toàn bộ hàng
+                    searchInput2.focus(); // Đưa con trỏ về lại ô tìm kiếm
+                });
+            </script>
+           
+        </div>
+
+        <!-- Online Users -->
+        <div class="bg-white p-4 rounded-lg shadow-md" style="height: 105px;">
+            <div class="flex items-center justify-start gap-x-7 mb-4">
+                <h2 class="text-lg font-semibold flex items-center gap-x-2">
+                    Người đang online
+                    <!-- Icon mặt người -->
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        class="w-6 h-6 text-black-700" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor">
+                        <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M15 11a3 3 0 10-6 0 3 3 0 006 0zm-7.879 6.804A10.014 10.014 0 0112 15c2.763 0 5.26 1.112 7.121 2.804M12 21a9 9 0 110-18 9 9 0 010 18z" />
+                    </svg>
+                </h2>
+                <div class="text-3xl font-bold text-blue-500">6</div>
+            </div>
+            <button class="w-full text-black-500 text-sm mt-2">Xem chi tiết...</button>
+        </div>
+    </div>
+</div>
+
+    
+</body>
+</html>

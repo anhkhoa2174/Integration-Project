@@ -32,9 +32,18 @@ def booking_history():
 def transaction_history():
     return render_template('transaction_history.html')
 
+@app.route('/admin_transaction_history')
+def admin_transaction_history():
+    return render_template('administrator/admin_transaction_history.html')
+
+@app.route('/admin_manage_user')
+def admin_manage_user():
+    return render_template('administrator/admin_manage_user.html')
+
 @app.route('/deposit')
 def deposit():
     return render_template('deposit.html')
+
 
 @app.route('/dashboard')
 def admin_dashboard():
