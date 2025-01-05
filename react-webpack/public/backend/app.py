@@ -52,5 +52,13 @@ def ownercalendar3():
 def ownerdeposit():
     return render_template('owner_deposit.html')
 
+@app.route('/user_dashboard')
+def user_dashboard():
+    return render_template('user_dashboard.html')
+
+@app.route('/user_bookfield')
+def user_bookfield():
+    return render_template('user_bookfield.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
