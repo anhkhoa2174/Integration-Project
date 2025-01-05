@@ -36,5 +36,13 @@ def transaction_history():
 def deposit():
     return render_template('deposit.html')
 
+@app.route('/admin_transactionhistory')
+def admin_transaction_history():
+    return render_template('admin_transaction_history.html')
+
+@app.route('/admin_manageuser')
+def admin_manage_user():
+    return render_template('admin_manage_user.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
