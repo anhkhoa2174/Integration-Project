@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home - Field Booking System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 20px;
+            }
+    
+            .container {
+                max-width: 1200px;
+                margin: auto;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+    
+            .container2 {
+                display: flex; /* Sử dụng flexbox để các phần tử nằm trên cùng hàng */
+                justify-content: space-between; /* Giãn cách giữa các phần tử */
+                align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+            }
+            .container3 {
+                display: flex; /* Sử dụng flexbox để các phần tử nằm trên cùng hàng */
+                justify-content: space-between; /* Giãn cách giữa các phần tử */
+                align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+            }
+    
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+    
+            .header h2 {
+                margin: 0;
+            }
+    
+            .balance {
+                color: #007bff;
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+    
+            .search-bar {
+                display: flex;
+                align-items: center;
+                gap: 20px; /* Giảm khoảng cách giữa ô tìm kiếm và nút tìm */
+                width: 315px; /* Đặt chiều rộng cố định cho thanh tìm kiếm */
+            }
+            
+            .input-wrapper {
+                position: relative;
+                flex: 1; /* Để ô tìm kiếm chiếm không gian tối đa */
+            }
+            
+            .input-wrapper input {
+                width: 100%;
+                padding: 8px 0px 8px 10px; /* Chừa không gian phải để chứa nút xóa */
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                outline: none;
+            }
+            
+            #clearButton {
+                position: absolute;
+                top: 45%; /* Căn giữa theo chiều dọc */
+                right:5px; /* Điều chỉnh lại để nút xóa sát bên phải */
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                color: #aaa;
+                font-size: 27px;
+                
+                cursor: pointer;
+            }
+            
+            #clearButton:hover {
+                color: #000;
+            }
+            
+            #searchButton {
+                background-color: black;
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                font-size: 14px;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+            
+            #searchButton:hover {
+                background-color: #333;
+            }
+            .timeinterval {
+    
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+    
+            .filters {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 5px;
+            }
+    
+            .filters input[type="date"],
+            .filters button {
+                padding: 8px 10px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-weight: bold; /* Chữ in đậm */
+            }
+    
+            .filters button {
+                background-color: black;
+                color: #fff;
+                cursor: pointer;
+            }
+    
+            .filters button:hover {
+                background-color: #0056b3;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                font-size: 14px; /* Giảm kích thước font chữ */
+            }
+    
+            table th, table td {
+                text-align: center;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+    
+            table th {
+                background-color: #f1f1f1;
+            }
+    
+            .pagination {
+                display: flex;
+                justify-content: center;
+                gap: 2px;
+                margin-top: 20px;
+            }
+    
+            .pagination button {
+                padding: 6px 10px;
+          
+                background: #fff;
+                cursor: pointer;
+                border-radius: 50%;  /* Tạo hình tròn */
+                font-weight: bold; /* Chữ in đậm */
+                font-size: 15px;  /* Giảm kích thước chữ */
+                border: none; /* Bỏ viền */
+            }
+    
+            .pagination button:hover {
+                background:rgb(178, 179, 180);
+                color: #fff;
+            }
+    
+            .pagination button.active {
+                background:black ;
+                color: #fff;
+                pointer-events: none;
+            }
+    
+    
+            .actions {
+                display: flex;
+                justify-content: flex-end; /* Đẩy các nút sang bên phải */
+                gap: 10px;
+            }
+    
+            .actions button {
+                padding: 8px 12px;
+                font-size: 14px;
+                background-color: white; /* Nền trắng */
+                color: black; 
+                border: 2px solid black; /* Viền đen */
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold; /* Chữ in đậm */
+                margin-bottom: 5px;
+            }
+        
+            .actions button:hover {
+                background-color: #333; /* Nền xám khi hover */
+                color: #fff; /* Chữ trắng khi hover */
+            }
+        </style>
+    </style>
+</head>
+<body class="h-full bg-gray-100 flex flex-col">
+    <!-- Navigation Bar -->
+    <header class="flex items-center justify-between px-4 py-3 bg-gray-900">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+            <img class="w-10 h-10" src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}" alt="Logo" />
+            <div class="text-white font-bold">
+                <p>Sporty</p>
+                <p>Webby</p>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative flex w-full max-w-sm mx-4">
+            <!-- Search Input -->
+            <input
+                type="text"
+                placeholder="Search"
+                class="w-full px-10 py-2 rounded-lg bg-gray-100 text-gray-700 placeholder-gray-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
+            />
+            <!-- Search Icon -->
+            <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <img
+                    class="search-icon"
+                    src="{{ url_for('static', filename='images/icon_search.png') }}"
+                    alt="Search Icon"
+                />
+            </div>
+            <!-- Clear Button -->
+            <button
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 focus:outline-none"
+                onclick="clearSearch()"
+            >
+                <svg class="w-5 h-5 text-gray-500 hover:text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <script>
+            function clearSearch() {
+                const input = document.querySelector('input[type="text"]');
+                input.value = '';
+                input.focus();
+            }
+        </script>
+      
+        <!-- Navigation Links -->
+        <nav class="flex space-x-6">
+            <a href="#" class="text-white text-lg hover:text-blue-500">Trang chủ</a>
+            <a href="#" class="text-white text-lg hover:text-blue-500">Bạn bè</a>
+            <a href="#" class="text-white text-lg hover:text-blue-500">Blog</a>
+        </nav>
+      
+        <!-- Profile Section -->
+        <div class="flex items-center space-x-4">
+            <div class="flex space-x-3">
+                <!-- Bell icon for Notifications -->
+                <button class="relative bg-white w-7 h-7 flex items-center justify-center rounded-full shadow-md focus:outline-none">
+                    <svg class="w-4 h-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C7.589 2 4 5.589 4 10v5l-1.293 1.293A.999.999 0 0 0 4 18h16a.999.999 0 0 0 .293-1.707L20 15v-5c0-4.411-3.589-8-8-8zM7.293 17h9.414l1.086 1.086a1.994 1.994 0 0 0-2.563-2.567L7.293 17z"></path>
+                        <path d="M11 20h2a1 1 0 0 1-2 0z"></path>
+                    </svg>
+                </button>
+                <!-- Message box icon -->
+                <button class="relative bg-white w-7 h-7 flex items-center justify-center rounded-full shadow-md focus:outline-none">
+                    <svg class="w-4 h-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 2H4a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h3l4 4 4-4h5a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM9.5 13h-2v-2h2zm3 0h-2v-2h2zm3 0h-2v-2h2z"></path>
+                    </svg>
+                </button>
+            </div>
+      
+            <!-- Profile Info -->
+            <div class="flex items-center space-x-2">
+                <img class="w-10 h-10 rounded-full" src="{{ url_for('static', filename='images/avatar.png') }}" alt="Avatar" />
+                <div class="text-white">
+                    <p class="font-semibold">Trần Văn A</p>
+                    <p class="text-sm text-green-500">Trực tuyến</p>
+                </div>
+            </div>
+      
+            <!-- Arrow icon to toggle dropdown menu -->
+            <div class="relative cursor-pointer text-white" onclick="toggleDropdown()">
+                <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+                
+                <!-- Dropdown menu -->
+                <div class="absolute right-0 mt-7 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden" id="dropdownMenu">
+                    <ul class="py-2 text-gray-800">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Thông tin cá nhân</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Lịch sử hoạt động</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Bảo mật</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Cài đặt</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Đăng suất</a></li>
+                    </ul>
+                </div>
+                <script>
+                    function toggleDropdown() {
+                        var dropdownMenu = document.getElementById("dropdownMenu");
+                        dropdownMenu.classList.toggle("hidden");
+                    } 
+                </script>
+            </div>
+        </header>
+
+    <!-- Content Area -->
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-48 bg-gray-900 text-white flex flex-col p-4">
+            <!-- Menu Item 1 -->
+            <a href="#" class="menu-item flex flex-col items-center space-y-2 py-4 hover:bg-gray-700 rounded-md transition-colors">
+                <div class="icon w-8 h-8">
+                    <img
+                        src="{{ url_for('static', filename='images/icon_dashboard.png') }}"
+                        alt="Dashboard Icon"
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+                <span class="text-lg font-semibold">Bảng điều khiển</span>
+            </a>
+        
+            <!-- Menu Item 2 -->
+            <a href="#" class="menu-item flex flex-col items-center space-y-2 py-4 hover:bg-gray-700 rounded-md transition-colors">
+                <div class="icon w-8 h-8">
+                    <img
+                        src="{{ url_for('static', filename='images/icon_book_field.png') }}"
+                        alt="Book Field Icon"
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+                <span class="text-lg font-semibold">Đặt sân</span>
+            </a>
+        
+            <!-- Menu Item 3 -->
+            <a href="#" class="menu-item flex flex-col items-center space-y-2 py-4 hover:bg-gray-700 rounded-md transition-colors">
+                <div class="icon w-10 h-10">
+                    <img
+                        src="{{ url_for('static', filename='images/icon_history_book_field.png') }}"
+                        alt="Booking History Icon"
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+                <span class="text-lg font-semibold">Lịch sử đặt sân</span>
+            </a>
+        
+            <!-- Menu Item 4 -->
+            <a href="#" class="menu-item flex flex-col items-center space-y-2 py-4 hover:bg-gray-700 rounded-md transition-colors">
+                <div class="icon w-8 h-8">
+                    <img
+                        src="{{ url_for('static', filename='images/icon_deposit.png') }}"
+                        alt="Deposit Icon"
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+                <span class="text-lg font-semibold">Nạp tiền</span>
+            </a>
+        
+            <!-- Menu Item 5 -->
+            <a href="#" class="menu-item flex flex-col items-center space-y-2 py-4 hover:bg-gray-700 rounded-md transition-colors">
+                <div class="icon w-8 h-8">
+                    <img
+                        src="{{ url_for('static', filename='images/icon_payment_history.png') }}"
+                        alt="Payment History Icon"
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+                <span class="text-lg font-semibold">Lịch sử giao dịch</span>
+            </a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-6 overflow-auto">
+            <div class="container">
+                <div class="container3">
+                    <div class="header">
+                        <h2>Lịch sử giao dịch</h2>
+                    </div>
+        
+                    <div class="search-bar">
+                        <div class="input-wrapper">
+                            <input type="text" id="searchInput" placeholder="Tìm kiếm..." oninput="filterTable()" />
+                            <button id="clearButton" onclick="clearSearch()">&times;</button>
+                        </div>
+                        <button id="searchButton" onclick="filterTable()">Tìm</button>
+                    </div>
+                </div>
+        
+                <div class="balance">Số dư: 125,000 VND</div>
+        
+                <div class= "timeinterval">Khoảng thời gian</div>
+                
+                <div class="container2">
+                    <div class="filters">
+                        <div class="date-inputs">
+                            <input type="date" />
+                            <input type="date" />
+                        </div>
+                        <button onclick="filterByDate()">Lọc</button>
+                    </div>
+                
+                    <div class="actions">
+                        <button>Tải xuống tệp CSV</button>
+                        <button>Tải xuống hóa đơn</button>
+                    </div>
+                </div>
+        
+                <table id="transactionTable">
+                    <thead>
+                        <tr>
+                            <th>Mã Giao dịch</th>
+                            <th>Ngày và Giờ</th>
+                            <th>Tên Tài khoản</th>
+                            <th>Số tiền thanh toán</th>
+                            <th>Ghi chú Giao dịch</th>
+                            <th>Phương thức Thanh toán</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001234</td>
+                            <td>27/09/2022 14:30</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>500K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Momo</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001235</td>
+                            <td>27/09/2022 15:00</td>
+                            <td>Nguyễn Văn B</td>
+                            <td>700K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Thẻ tín dụng</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td >Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                        <tr>
+                            <td>001236</td>
+                            <td>27/09/2022 15:30</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>800K VND</td>
+                            <td>Không có ghi chú</td>
+                            <td>Paypal</td>
+                            <td>Hoàn thành</td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+        
+                <div class="pagination">
+                    <button class="page-btn">&laquo;</button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button class="page-btn">&raquo;</button>
+                </div>
+            </div>
+        
+            <script>
+                function clearSearch() {
+                    document.getElementById('searchInput').value = '';
+                    filterTable();
+                }
+        
+                function filterTable() {
+                    const input = document.getElementById('searchInput').value.toLowerCase();
+                    const rows = document.querySelectorAll('#transactionTable tbody tr');
+        
+                    rows.forEach(row => {
+                        const name = row.cells[2].textContent.toLowerCase();
+                        if (name.includes(input)) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                }
+        
+                function filterByDate() {
+                    const dateInputs = document.querySelectorAll('.filters input[type="date"]');
+                    const startDate = dateInputs[0].value;
+                    const endDate = dateInputs[1].value;
+            
+                    const rows = document.querySelectorAll('#transactionTable tbody tr');
+            
+                    rows.forEach(row => {
+                        const dateText = row.cells[1].textContent.split(' ')[0];
+                        const rowDate = new Date(dateText.split('/').reverse().join('-'));
+            
+                        if (
+                            (!startDate || new Date(startDate) <= rowDate) &&
+                            (!endDate || new Date(endDate) >= rowDate)
+                        ) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                }
+            </script>
+        </main>
+    </div>
+</body>
+</html>
