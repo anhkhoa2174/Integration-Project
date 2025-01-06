@@ -27,7 +27,7 @@
         <div class="flex flex-col gap-4">
           <div class="flex rounded-lg shadow-md bg-white" style="height: 300px">
             <!-- Field Image -->
-            <div class="flex" style="width: 450px">
+            <div class="flex w-1/2 pr-2">
               <img
                 src="{{ url_for('static', filename='images/administrator/football_field.png') }}"
                 alt="Soccer Field"
@@ -35,8 +35,8 @@
               />
             </div>
             <!-- Field Management -->
-            <div class="flex-1 p-6">
-              <h2 class="text-lg font-semibold mb-4">Quản lý sân bóng</h2>
+            <div class="flex-1 flex flex-col justify-between p-4">
+              <h2 class="text-lg font-semibold">Quản lý sân bóng</h2>
               <ul>
                 <li class="flex justify-between py-2 border-b">
                   <span>Sân bóng đá trong nhà Bắc Sài Gòn</span>
@@ -52,7 +52,7 @@
                 </li>
               </ul>
               <button
-                class="mt-4 w-48 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+                class="w-48 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
               >
                 Đi tới
               </button>
@@ -63,7 +63,7 @@
             <div class="flex flex-col w-1/2 gap-4 bg-gray-100">
               <!-- User Management -->
               <div
-                class="flex flex-col p-4 rounded-lg shadow-md bg-white justify-between"
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
                 style="height: 250px"
               >
                 <h2 class="text-lg font-semibold">Quản lý người dùng</h2>
@@ -90,20 +90,64 @@
 
               <!-- Statistic -->
               <div
-                class="p-4 rounded-lg shadow-md bg-white"
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
                 style="height: 300px"
-              ></div>
+              >
+                <h2 class="text-lg font-semibold">Thống kê</h2>
+                <div class="flex flex-row justify-between w-full px-4">
+                  <div class="flex flex-col items-center">
+                    <span class="font-bold text-3xl mb-3">130</span>
+                    <span>Số lượt đánh giá</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="font-bold text-3xl mb-3">254</span>
+                    <span>Số lượt đặt sân</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="font-bold text-3xl mb-3">201</span>
+                    <span>Lượng truy cập</span>
+                  </div>
+                </div>
+                <button
+                  class="w-36 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+                >
+                  Đi tới
+                </button>
+              </div>
             </div>
 
             <!-- Right Section -->
             <div class="flex flex-col w-1/2 gap-4 bg-gray-100">
-              <!-- -->
+              <!-- Notification -->
               <div
                 class="p-4 rounded-lg shadow-md bg-white"
                 style="height: 150px"
-              ></div>
+              >
+                <div class="flex flex-row justify-between items-center">
+                  <h2 class="text-lg font-semibold mb-4 bg-red-400">
+                    Thông báo
+                  </h2>
+                  <select class="w-28 p-2 border rounded mb-4 bg-red-400">
+                    <option>Mọi người</option>
+                    <option>Người chơi</option>
+                    <option>Chủ sân</option>
+                    <option>Quản trị viên</option>
+                  </select>
+                  <div class="icon w-4 h-4 bg-red-400">
+                    <img
+                      src="{{ url_for('static', filename='images/administrator/icon_send.svg') }}"
+                      alt="Send Icon"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <textarea
+                  class="w-full p-2 border rounded"
+                  placeholder="Viết thông báo của bạn ở đây..."
+                ></textarea>
+              </div>
 
-              <!-- -->
+              <!-- Transaction History -->
               <div
                 class="p-4 rounded-lg shadow-md bg-white"
                 style="height: 400px"
