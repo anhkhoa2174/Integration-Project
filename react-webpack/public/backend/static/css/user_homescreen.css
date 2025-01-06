@@ -5,7 +5,9 @@ body {
 .main-wrapper {
 	height: 1250px;
 	width: 100%;
+	margin-top: 9vh;
 }
+
 .sports-section {
 	display: flex;
 	align-items: center;

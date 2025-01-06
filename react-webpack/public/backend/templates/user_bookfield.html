@@ -13,7 +13,7 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 		<link
 			rel="stylesheet"
-			href="{{ url_for('static', filename='css/nav_bar_deposit.css') }}" />
+			href="{{ url_for('static', filename='css/nav_bar_bookfield.css') }}" />
 		<link
 			rel="stylesheet"
 			href="{{ url_for('static', filename='css/user_bookfield.css') }}" />
@@ -144,45 +144,33 @@
 				</div>
 			</div>
 			<!-- Sports Section -->
-			<div
-				class="grid grid-cols-6 gap-8 p-8 w-full max-w-screen-xl mx-[0px] ml-[-39px] max-h-40">
-				<div class="text-center">
-					<img
-						class="h-24 w-32 mx-auto selectable"
-						src="{{ url_for('static', filename='images/bongda.png') }}"
-						alt="Bóng đá" />
-				</div>
-				<div class="text-center">
-					<img
-						class="h-24 w-32 mx-auto selectable"
-						src="{{ url_for('static', filename='images/bongro.png') }}"
-						alt="Bóng rổ" />
-				</div>
-				<div class="text-center">
-					<img
-						class="h-24 w-32 mx-auto selectable"
-						src="{{ url_for('static', filename='images/caulong.png') }}"
-						alt="Cầu lông" />
-				</div>
-				<div class="text-center">
-					<img
-						class="h-24 w-32 mx-auto selectable"
-						src="{{ url_for('static', filename='images/pickeball.png') }}"
-						alt="Pickeball" />
-				</div>
-				<div class="text-center">
-					<img
-						class="h-24 w-32 mx-auto selectable"
-						src="{{ url_for('static', filename='images/tennis.png') }}"
-						alt="Tennis" />
-				</div>
-				<div class="text-center">
-					<img
-						class="h-24 w-32 mx-auto selectable"
-						src="{{ url_for('static', filename='images/bongchuyen.png') }}"
-						alt="Bóng chuyền" />
-				</div>
+			<div class="sports-container">
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/bongda.png') }}"
+					alt="Bóng đá" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/bongro.png') }}"
+					alt="Bóng rổ" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/caulong.png') }}"
+					alt="Cầu lông" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/pickeball.png') }}"
+					alt="Pickeball" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/tennis.png') }}"
+					alt="Tennis" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/bongchuyen.png') }}"
+					alt="Bóng chuyền" />
 			</div>
+			
 			<div class="big-frame">
 				{% for i in range(12) %}
 				<div class="card">
