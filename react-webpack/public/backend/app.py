@@ -57,10 +57,6 @@ def admin_navbar():
 def admin_sidebar():
     return render_template('administrator/sidebar.html')
 
-@app.route('/navsidebar')
-def admin_navsidebar():
-    return render_template('administrator/navsidebar.html')
-
 @app.route('/test')
 def admin_test():
     return render_template('administrator/test.html')
@@ -68,6 +64,10 @@ def admin_test():
 @app.route('/test1')
 def admin_test1():
     return render_template('administrator/test1.html')
+
+@app.route('/example')
+def admin_example():
+    return render_template('administrator/example.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

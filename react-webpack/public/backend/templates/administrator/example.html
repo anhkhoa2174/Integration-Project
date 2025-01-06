@@ -1,0 +1,34 @@
+<!-- templates/main.html -->
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar - Sidebar Example</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS Style -->
+    <style>
+      /* Add any custom styles here */
+    </style>
+  </head>
+  <body class="h-full">
+    <!-- Include Navbar Component -->
+    {% include 'administrator/components/navbar.html' %}
+
+    <!-- Content Area -->
+    <div class="flex flex-1">
+      {% include 'administrator/components/sidebar.html' %}
+      <!-- Main Content Area -->
+      <div class="flex-1 p-6 overflow-auto">
+        <!-- Your main page content goes here -->
+        <h1 class="text-2xl font-bold">
+          Welcome to the Field Booking System Admin Panel
+        </h1>
+        <!-- Add more content as needed -->
+      </div>
+    </div>
+  </body>
+</html>

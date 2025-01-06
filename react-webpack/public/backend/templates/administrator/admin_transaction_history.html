@@ -6,204 +6,202 @@
     <title>Admin Home - Field Booking System</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f5f5f5;
-                margin: 0;
-                padding: 20px;
-            }
-    
-            .container {
-                max-width: 1200px;
-                margin: auto;
-                background: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-    
-            .container2 {
-                display: flex; /* Sử dụng flexbox để các phần tử nằm trên cùng hàng */
-                justify-content: space-between; /* Giãn cách giữa các phần tử */
-                align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
-            }
-            .container3 {
-                display: flex; /* Sử dụng flexbox để các phần tử nằm trên cùng hàng */
-                justify-content: space-between; /* Giãn cách giữa các phần tử */
-                align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
-            }
-    
-            .header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 20px;
-            }
-    
-            .header h2 {
-                margin: 0;
-            }
-    
-            .balance {
-                color: #007bff;
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 20px;
-            }
-    
-            .search-bar {
-                display: flex;
-                align-items: center;
-                gap: 20px; /* Giảm khoảng cách giữa ô tìm kiếm và nút tìm */
-                width: 315px; /* Đặt chiều rộng cố định cho thanh tìm kiếm */
-            }
-            
-            .input-wrapper {
-                position: relative;
-                flex: 1; /* Để ô tìm kiếm chiếm không gian tối đa */
-            }
-            
-            .input-wrapper input {
-                width: 100%;
-                padding: 8px 0px 8px 10px; /* Chừa không gian phải để chứa nút xóa */
-                font-size: 14px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                outline: none;
-            }
-            
-            #clearButton {
-                position: absolute;
-                top: 45%; /* Căn giữa theo chiều dọc */
-                right:5px; /* Điều chỉnh lại để nút xóa sát bên phải */
-                transform: translateY(-50%);
-                background: none;
-                border: none;
-                color: #aaa;
-                font-size: 27px;
-                
-                cursor: pointer;
-            }
-            
-            #clearButton:hover {
-                color: #000;
-            }
-            
-            #searchButton {
-                background-color: black;
-                color: white;
-                border: none;
-                padding: 8px 12px;
-                font-size: 14px;
-                cursor: pointer;
-                border-radius: 4px;
-            }
-            
-            #searchButton:hover {
-                background-color: #333;
-            }
-            .timeinterval {
-    
-                font-size: 15px;
-                margin-bottom: 5px;
-            }
-    
-            .filters {
-                display: flex;
-                gap: 10px;
-                margin-bottom: 5px;
-            }
-    
-            .filters input[type="date"],
-            .filters button {
-                padding: 8px 10px;
-                font-size: 14px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                font-weight: bold; /* Chữ in đậm */
-            }
-    
-            .filters button {
-                background-color: black;
-                color: #fff;
-                cursor: pointer;
-            }
-    
-            .filters button:hover {
-                background-color: #0056b3;
-            }
-    
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-top: 20px;
-                font-size: 14px; /* Giảm kích thước font chữ */
-            }
-    
-            table th, table td {
-                text-align: center;
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-            }
-    
-            table th {
-                background-color: #f1f1f1;
-            }
-    
-            .pagination {
-                display: flex;
-                justify-content: center;
-                gap: 2px;
-                margin-top: 20px;
-            }
-    
-            .pagination button {
-                padding: 6px 10px;
-          
-                background: #fff;
-                cursor: pointer;
-                border-radius: 50%;  /* Tạo hình tròn */
-                font-weight: bold; /* Chữ in đậm */
-                font-size: 15px;  /* Giảm kích thước chữ */
-                border: none; /* Bỏ viền */
-            }
-    
-            .pagination button:hover {
-                background:rgb(178, 179, 180);
-                color: #fff;
-            }
-    
-            .pagination button.active {
-                background:black ;
-                color: #fff;
-                pointer-events: none;
-            }
-    
-    
-            .actions {
-                display: flex;
-                justify-content: flex-end; /* Đẩy các nút sang bên phải */
-                gap: 10px;
-            }
-    
-            .actions button {
-                padding: 8px 12px;
-                font-size: 14px;
-                background-color: white; /* Nền trắng */
-                color: black; 
-                border: 2px solid black; /* Viền đen */
-                border-radius: 4px;
-                cursor: pointer;
-                font-weight: bold; /* Chữ in đậm */
-                margin-bottom: 5px;
-            }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container2 {
+            display: flex; /* Sử dụng flexbox để các phần tử nằm trên cùng hàng */
+            justify-content: space-between; /* Giãn cách giữa các phần tử */
+            align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+        }
+        .container3 {
+            display: flex; /* Sử dụng flexbox để các phần tử nằm trên cùng hàng */
+            justify-content: space-between; /* Giãn cách giữa các phần tử */
+            align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .balance {
+            color: #007bff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Giảm khoảng cách giữa ô tìm kiếm và nút tìm */
+            width: 315px; /* Đặt chiều rộng cố định cho thanh tìm kiếm */
+        }
         
-            .actions button:hover {
-                background-color: #333; /* Nền xám khi hover */
-                color: #fff; /* Chữ trắng khi hover */
-            }
-        </style>
+        .input-wrapper {
+            position: relative;
+            flex: 1; /* Để ô tìm kiếm chiếm không gian tối đa */
+        }
+        
+        .input-wrapper input {
+            width: 100%;
+            padding: 8px 0px 8px 10px; /* Chừa không gian phải để chứa nút xóa */
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        #clearButton {
+            position: absolute;
+            top: 45%; /* Căn giữa theo chiều dọc */
+            right:5px; /* Điều chỉnh lại để nút xóa sát bên phải */
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 27px;
+            
+            cursor: pointer;
+        }
+        
+        #clearButton:hover {
+            color: #000;
+        }
+        
+        #searchButton {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        #searchButton:hover {
+            background-color: #333;
+        }
+        .timeinterval {
+
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .filters input[type="date"],
+        .filters button {
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-weight: bold; /* Chữ in đậm */
+        }
+
+        .filters button {
+            background-color: black;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px; /* Giảm kích thước font chữ */
+        }
+
+        table th, table td {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f1f1f1;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 6px 10px;
+        
+            background: #fff;
+            cursor: pointer;
+            border-radius: 50%;  /* Tạo hình tròn */
+            font-weight: bold; /* Chữ in đậm */
+            font-size: 15px;  /* Giảm kích thước chữ */
+            border: none; /* Bỏ viền */
+        }
+
+        .pagination button:hover {
+            background:rgb(178, 179, 180);
+            color: #fff;
+        }
+
+        .pagination button.active {
+            background:black ;
+            color: #fff;
+            pointer-events: none;
+        }
+
+
+        .actions {
+            display: flex;
+            justify-content: flex-end; /* Đẩy các nút sang bên phải */
+            gap: 10px;
+        }
+
+        .actions button {
+            padding: 8px 12px;
+            font-size: 14px;
+            background-color: white; /* Nền trắng */
+            color: black; 
+            border: 2px solid black; /* Viền đen */
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold; /* Chữ in đậm */
+            margin-bottom: 5px;
+        }
+    
+        .actions button:hover {
+            background-color: #333; /* Nền xám khi hover */
+            color: #fff; /* Chữ trắng khi hover */
+        }
     </style>
 </head>
 <body class="h-full bg-gray-100 flex flex-col">

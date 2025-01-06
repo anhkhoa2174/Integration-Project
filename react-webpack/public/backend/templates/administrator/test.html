@@ -1,250 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Field Booking Interface</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <div class="flex flex-wrap lg:flex-nowrap p-4 gap-4">
-    <!-- Left Section -->
-    <div class="flex-1 lg:w-3/5">
-        <!-- User Reviews -->
-        <div class="bg-white p-4 rounded-lg shadow-md mb-4" style="height: 300px;">
-            <h2 class="text-lg font-semibold mb-2">Nhận xét người dùng</h2>
-            <div class="flex gap-4 text-sm text-gray-600 mb-4">
-                <div class="text-center">
-                    <p class="font-bold text-blue-500 text-2xl">10</p>
-                    <p>Nhận xét mới hôm nay</p>
-                </div>
-                <div class="text-center">
-                    <p class="font-bold text-purple-500 text-2xl">124</p>
-                    <p>Nhận xét trong tháng</p>
-                </div>
-            </div>
-            <button class="text-blue-500 text-sm font-medium">Xem tất cả nhận xét</button>
-            <div class="mt-4 overflow-auto" style="max-height: 190px;">
-                <div class="flex items-start space-x-3 mb-2">
-                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
-                    <div class="text-sm">
-                        <p class="font-bold">Lý Thu Phong <span class="text-gray-500">(Người dùng tích cực)</span></p>
-                        <p class="text-gray-600">Web của bạn rất tốt nhưng search sản chưa được tốt khi mà hỏi các câu khó.</p>
-                        <p class="text-gray-400 text-xs">Hôm nay lúc 13:37</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
-                    <div class="text-sm">
-                        <p class="font-bold">Nguyen Quang Duy <span class="text-gray-500">(Người dùng thường xuyên)</span></p>
-                        <p class="text-gray-600">Hệ thống sử dụng tốt, dễ nhìn, dễ sử dụng nhưng cần nâng cấp giao diện đẹp hơn.</p>
-                        <p class="text-gray-400 text-xs">Hôm nay lúc 15:23</p>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Field Booking Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Main Content -->
+    <!-- Top Section -->
+    <div class="flex flex-col gap-4">
+      <div class="flex rounded-lg shadow-md bg-white" style="height: 300px">
+        <!-- Field Image -->
+        <div class="flex" style="width: 450px">
+          <img
+            src="{{ url_for('static', filename='images/administrator/football_field.png') }}"
+            alt="Soccer Field"
+            class="w-full rounded-lg shadow-md"
+          />
+        </div>
+        <!-- Field Management -->
+        <div class="flex-1 p-6">
+          <h2 class="text-lg font-semibold mb-4">Quản lý sân bóng</h2>
+          <ul>
+            <li class="flex justify-between py-2 border-b">
+              <span>Sân bóng đá trong nhà Bắc Sài Gòn</span>
+              <span class="font-bold">1124</span>
+            </li>
+            <li class="flex justify-between py-2 border-b">
+              <span>Sân Bóng Chảo lửa</span>
+              <span class="font-bold">856</span>
+            </li>
+            <li class="flex justify-between py-2">
+              <span>Sân bóng khang an</span>
+              <span class="font-bold">523</span>
+            </li>
+          </ul>
+          <button
+            class="mt-4 w-48 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+          >
+            Đi tới
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-row gap-4">
+        <!-- Left Section -->
+        <div class="flex flex-col w-1/2 gap-4 bg-white">
+          <!-- -->
+          <div
+            class="p-4 rounded-lg shadow-md bg-white"
+            style="height: 250px"
+          ></div>
+
+          <!-- -->
+          <div
+            class="p-4 rounded-lg shadow-md bg-white"
+            style="height: 300px"
+          ></div>
         </div>
 
-        <!-- User List -->
-        <div class="bg-white p-4 rounded-lg shadow-md" style="height: 560px;">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-lg font-semibold">Danh sách người dùng</h2>
-                <p class="text-sm text-gray-500">145</p>
-            </div>
-            <div class="flex items-center space-x-4 mb-4">
-                <input type="text" placeholder="Search" class="w-full border rounded-md p-2 text-sm">
-                <button class="p-2 bg-gray-200 rounded-md">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3-3m0 0l3 3m-3-3v12"></path>
-                    </svg>
-                </button>
-            </div>
-            <table class="w-full text-sm text-left text-gray-500">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-100">
-                    <tr>
-                        <th scope="col" class="p-3">Người sử dụng</th>
-                        <th scope="col" class="p-3">Lượt đặt sân</th>
-                        <th scope="col" class="p-3">Truy cập lần cuối</th>
-                        <th scope="col" class="p-3">Ngày tham gia</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="bg-white border-b">
-                        <td class="p-3 flex items-center space-x-3">
-                            <input type="checkbox">
-                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
-                            <span>Lý Thu Phong</span>
-                        </td>
-                        <td class="p-3">20</td>
-                        <td class="p-3">4 ngày trước</td>
-                        <td class="p-3">07/07/2024</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <td class="p-3 flex items-center space-x-3">
-                            <input type="checkbox">
-                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
-                            <span>Lý Thu Phong</span>
-                        </td>
-                        <td class="p-3">20</td>
-                        <td class="p-3">4 ngày trước</td>
-                        <td class="p-3">07/07/2024</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <td class="p-3 flex items-center space-x-3">
-                            <input type="checkbox">
-                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
-                            <span>Lý Thu Phong</span>
-                        </td>
-                        <td class="p-3">20</td>
-                        <td class="p-3">4 ngày trước</td>
-                        <td class="p-3">07/07/2024</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <td class="p-3 flex items-center space-x-3">
-                            <input type="checkbox">
-                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
-                            <span>Lý Thu Phong</span>
-                        </td>
-                        <td class="p-3">20</td>
-                        <td class="p-3">4 ngày trước</td>
-                        <td class="p-3">07/07/2024</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <td class="p-3 flex items-center space-x-3">
-                            <input type="checkbox">
-                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
-                            <span>Lý Thu Phong</span>
-                        </td>
-                        <td class="p-3">20</td>
-                        <td class="p-3">4 ngày trước</td>
-                        <td class="p-3">07/07/2024</td>
-                    </tr>
-                    <tr class="bg-white border-b">
-                        <td class="p-3 flex items-center space-x-3">
-                            <input type="checkbox">
-                            <img src="https://via.placeholder.com/30" alt="User Avatar" class="w-8 h-8 rounded-full">
-                            <span>Lý Thu Phong</span>
-                        </td>
-                        <td class="p-3">20</td>
-                        <td class="p-3">4 ngày trước</td>
-                        <td class="p-3">07/07/2024</td>
-                    </tr>
-                    <!-- Repeat rows -->
-                </tbody>
-            </table>
-            <button class="w-full text-blue-500 text-sm mt-2">Xem thêm...</button>
+        <!-- Right Section -->
+        <div class="flex flex-col w-1/2 gap-4 bg-white">
+          <!-- -->
+          <div
+            class="p-4 rounded-lg shadow-md bg-white"
+            style="height: 150px"
+          ></div>
+
+          <!-- -->
+          <div
+            class="p-4 rounded-lg shadow-md bg-white"
+            style="height: 400px"
+          ></div>
         </div>
+      </div>
     </div>
-
-    <!-- Right Section -->
-    <div class="w-full lg:w-1/3">
-        <!-- Owner List -->
-        <div class="bg-white p-4 rounded-lg shadow-md mb-4" style="height: 710px;">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-lg font-semibold">Danh sách chủ sân</h2>
-                <button class="text-blue-500 text-sm">Thêm người</button>
-            </div>
-            <div class="flex items-center space-x-4 mb-4">
-                <input type="text" placeholder="Search" class="w-full border rounded-md p-2 text-sm">
-                <button class="p-2 bg-gray-200 rounded-md">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3-3m0 0l3 3m-3-3v12"></path>
-                    </svg>
-                </button>
-            </div>
-            <ul class="overflow-auto divide-y divide-gray-200" style="max-height: 650 px;">
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Lý Thu Phong</span>
-                    </div>
-                    <p>20</p>
-                </li>
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Nguyen Van A</span>
-                    </div>
-                    <p>15</p>
-                </li>
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Tran Thi B</span>
-                    </div>
-                    <p>30</p>
-                </li>
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Pham Quang C</span>
-                    </div>
-                    <p>25</p>
-                </li>
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Pham Quang C</span>
-                    </div>
-                    <p>25</p>
-                </li>
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Pham Quang C</span>
-                    </div>
-                    <p>25</p>
-                </li>
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Pham Quang C</span>
-                    </div>
-                    <p>25</p>
-                </li> 
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Pham Quang C</span>
-                    </div>
-                    <p>25</p>
-                </li> 
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Pham Quang C</span>
-                    </div>
-                    <p>25</p>
-                </li> 
-                <li class="flex items-center justify-between text-sm py-3">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox">
-                        <img src="https://via.placeholder.com/30" alt="Owner Avatar" class="w-8 h-8 rounded-full">
-                        <span>Pham Quang C</span>
-                    </div>
-                    <p>25</p>
-                </li> 
-            </ul>
-            <button class="w-full text-blue-500 text-sm mt-2">Xem thêm...</button>
-        </div>
-
-        <!-- Online Users -->
-        <div class="bg-white p-4 rounded-lg shadow-md" style="height: 150px;">
-            <h2 class="text-lg font-semibold mb-2">Người đang online</h2>
-            <div class="text-center text-3xl font-bold text-green-500">6</div>
-            <button class="w-full text-blue-500 text-sm mt-2">Xem chi tiết...</button>
-        </div>
-    </div>
-</div>
-
-    
-</body>
+  </body>
 </html>
