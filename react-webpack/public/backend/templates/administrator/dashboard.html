@@ -14,7 +14,7 @@
       /* Add any custom styles here */
     </style>
   </head>
-  <body class="h-full">
+  <body class="h-full bg-gray-100">
     <!-- Include Navbar Component -->
     {% include 'administrator/components/navbar.html' %}
 
@@ -60,14 +60,35 @@
           </div>
           <div class="flex flex-row gap-4">
             <!-- Left Section -->
-            <div class="flex flex-col w-1/2 gap-4 bg-white">
-              <!-- -->
+            <div class="flex flex-col w-1/2 gap-4 bg-gray-100">
+              <!-- User Management -->
               <div
-                class="p-4 rounded-lg shadow-md bg-white"
+                class="flex flex-col p-4 rounded-lg shadow-md bg-white justify-between"
                 style="height: 250px"
-              ></div>
+              >
+                <h2 class="text-lg font-semibold">Quản lý người dùng</h2>
+                <ul>
+                  <li class="flex justify-between py-2 border-b">
+                    <span>Nguyễn Văn A</span>
+                    <span class="font-bold">1.25M VND</span>
+                  </li>
+                  <li class="flex justify-between py-2 border-b">
+                    <span>Ngô Thị B</span>
+                    <span class="font-bold">0.8M VND</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <span>Lý Thường K</span>
+                    <span class="font-bold">0.1M VND</span>
+                  </li>
+                </ul>
+                <button
+                  class="w-36 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+                >
+                  Đi tới
+                </button>
+              </div>
 
-              <!-- -->
+              <!-- Statistic -->
               <div
                 class="p-4 rounded-lg shadow-md bg-white"
                 style="height: 300px"
@@ -75,7 +96,7 @@
             </div>
 
             <!-- Right Section -->
-            <div class="flex flex-col w-1/2 gap-4 bg-white">
+            <div class="flex flex-col w-1/2 gap-4 bg-gray-100">
               <!-- -->
               <div
                 class="p-4 rounded-lg shadow-md bg-white"
