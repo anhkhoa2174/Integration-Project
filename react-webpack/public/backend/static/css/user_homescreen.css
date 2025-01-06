@@ -1,3 +1,7 @@
+body {
+	overflow-x: hidden;
+}
+
 .main-wrapper {
 	height: 1250px;
 	width: 100%;
@@ -203,6 +207,17 @@
 	transition: transform 0.3s ease, filter 0.3s ease;
 	opacity: 1;
 }
+.fiftypercent {
+	width: 60%;
+	height: 90px;
+	top: -40%;
+	left: 64%;
+	object-fit: cover;
+	border: none;
+	position: relative;
+	transition: transform 0.3s ease, filter 0.3s ease;
+	opacity: 1;
+}
 .sports-filters {
 	position: relative;
 	gap: 15px;
@@ -238,7 +253,7 @@
 	margin: 40px auto;
 	padding: 20px;
 	border-radius: 20px;
-	background-color: white;
+	background-color: brown;
 	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 	max-width: 95%;
 	overflow: hidden;
