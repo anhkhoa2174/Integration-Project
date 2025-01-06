@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sporty Webby Homescreen</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+			rel="stylesheet" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/nav_bar_deposit.css') }}" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/user_homescreen.css') }}" />
+	</head>
+	<body>
+		<!-- nav bar -->
+		<div class="navbar_ngang">
+			<!-- logo + text -->
+			<div class="logo-section">
+				<img
+					class="logo"
+					src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}" />
+				<div class="logo-text">
+					Sporty <br />
+					Webby
+				</div>
+			</div>
+			<!-- search -->
+			<div class="search-container">
+				<div class="search-box">
+					<img
+						class="search-icon"
+						src="{{ url_for('static', filename='images/icon_search.png') }}" />
+					<input type="text" class="search-input" placeholder="Search" />
+					<button class="clear-btn">✖</button>
+				</div>
+				<script>
+					const searchInput = document.querySelector(".search-input");
+					const clearBtn = document.querySelector(".clear-btn");
+
+					clearBtn.addEventListener("click", () => {
+						searchInput.value = "";
+						searchInput.focus();
+					});
+				</script>
+			</div>
+			<!-- Navigation Links -->
+			<div class="nav-links">
+				<a href="#" class="nav-item" style="width: 90px">Trang chủ</a>
+				<a href="#" class="nav-item" style="width: 60px">Bạn bè</a>
+				<a href="#" class="nav-item">Blog</a>
+			</div>
+			<!-- Profile Section -->
+			<div class="profile-section">
+				<div class="notification-icons">
+					<!-- Bell icon for Notifications -->
+					<div class="bell-icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_noti.png') }}" />
+					</div>
+					<!-- Message box icon -->
+					<div class="message-icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_chat.png') }}" />
+					</div>
+				</div>
+				<!-- Profile Info -->
+				<div class="profile-info">
+					<img
+						class="profile-avatar"
+						src="{{ url_for('static', filename='images/avatar.png') }}" />
+					<div class="profile-name">
+						<p>Trần Văn A</p>
+						<p class="status">Trực tuyến</p>
+					</div>
+				</div>
+				<!-- Arrow icon to toggle dropdown menu -->
+				<div class="dropdown-arrow" onclick="toggleDropdown()">
+					<img
+						src="{{ url_for('static', filename='images/icon_arrow.png') }}" />
+				</div>
+				<!-- Dropdown menu -->
+				<div class="dropdown-menu" id="dropdownMenu">
+					<ul>
+						<li><a href="#">Thông tin cá nhân</a></li>
+						<li><a href="#">Lịch sử hoạt động</a></li>
+						<li><a href="#">Bảo mật</a></li>
+						<li><a href="#">Cài đặt</a></li>
+						<li><a href="#">Năng suất</a></li>
+					</ul>
+				</div>
+				<script>
+					function toggleDropdown() {
+						var dropdownMenu = document.getElementById("dropdownMenu");
+						dropdownMenu.style.display =
+							dropdownMenu.style.display === "block" ? "none" : "block";
+					}
+				</script>
+			</div>
+		</div>
+		<div class="main-wrapper">
+			<div class="sports-section">
+				<div class="sports-info">
+					<p class="highlight-text">
+						Có <span class="number-highlight">547</span>
+						<span class="blue-text">sân thể thao</span>
+						<span class="red-text">các loại</span> cho bạn lựa chọn !
+					</p>
+					<button class="book-btn">Đặt sân ngay</button>
+					<button class="deposit-btn">Nạp tiền ngay</button>
+				</div>
+				<div class="sports-images">
+					<img
+						src="{{ url_for('static', filename='images/image 14.png') }}"
+						alt="Sân 1" />
+					<img
+						src="{{ url_for('static', filename='images/image 12.png') }}"
+						alt="Sân 2" />
+					<img
+						src="{{ url_for('static', filename='images/image 10.png') }}"
+						alt="Sân 3" />
+					<img
+						src="{{ url_for('static', filename='images/image 13.png') }}"
+						alt="Sân 4" />
+				</div>
+			</div>
+			<div class="sale-section">
+				<div class="sale-images">
+					<img
+						src="{{ url_for('static', filename='images/woman.png') }}"
+						alt="Sân 1" />
+					<img
+						src="{{ url_for('static', filename='images/man.png') }}"
+						alt="Sân 2" />
+					<img
+						src="{{ url_for('static', filename='images/sale.png') }}"
+						alt="Sân 3" />
+					<!-- <img
+						src="{{ url_for('static', filename='images/50%.png') }}"
+						alt="Sân 4" /> -->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

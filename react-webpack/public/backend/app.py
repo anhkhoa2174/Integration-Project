@@ -60,5 +60,9 @@ def user_dashboard():
 def user_bookfield():
     return render_template('user_bookfield.html')
 
+@app.route('/user_homescreen')
+def user_homescreen():
+    return render_template('user_homescreen.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
