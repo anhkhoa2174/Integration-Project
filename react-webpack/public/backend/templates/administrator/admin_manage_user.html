@@ -229,8 +229,7 @@
                                 <p>Nhận xét mới hôm nay</p>
                             </div>
                             <div class="flex items-start space-x-3 mb-2">
-                                <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
-                                <div class="text-sm">
+                                <img class="w-10 h-10 rounded-full" src="{{ url_for('static', filename='images/people.png') }}" alt="Logo"  />                                <div class="text-sm">
                                     <p class="font-bold">Lý Thu Phong <span class="text-fuchsia-500">(Người dùng tích cực)</span></p>
                                     <p class="text-gray-600">Web của bạn rất tốt nhưng search sản chưa được tốt khi mà hỏi các câu khó.</p>
                                     <p class="text-gray-400 text-xs">Hôm nay lúc 13:37</p>
@@ -243,8 +242,7 @@
                                 <p>Nhận xét trong tháng</p>
                             </div>
                             <div class="flex items-start space-x-3">
-                                <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
-                                <div class="text-sm">
+                                <img class="w-10 h-10 rounded-full" src="{{ url_for('static', filename='images/people.png') }}" alt="Logo"  />                                <div class="text-sm">
                                     <p class="font-bold">Nguyen Quang Duy <span class="text-blue-500">(Người dùng thường xuyên)</span></p>
                                     <p class="text-gray-600">Hệ thống sử dụng tốt, dễ nhìn, dễ sử dụng nhưng cần nâng cấp giao diện đẹp hơn.</p>
                                     <p class="text-gray-400 text-xs">Hôm nay lúc 15:23</p>
@@ -278,7 +276,7 @@
                             <input 
                                 id="search-input" 
                                 type="text" 
-                                placeholder="Search" 
+                                placeholder="Tìm kiếm theo tên người dùng..." 
                                 class="search-input-class border rounded-md pl-4 pr-10 py-2 text-sm" />
                         
                             <!-- Nút "X" -->
@@ -364,7 +362,7 @@
                                             <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                         </div>
                                     </td>
-                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">19</td>
                                     <td class="p-3 text-center">4 ngày trước</td>
                                     <td class="p-3 text-center">07/07/2024</td>
                                 </tr>
@@ -377,7 +375,7 @@
                                             <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                         </div>
                                     </td>
-                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">18</td>
                                     <td class="p-3 text-center">4 ngày trước</td>
                                     <td class="p-3 text-center">07/07/2024</td>
                                 </tr>
@@ -390,7 +388,7 @@
                                             <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                         </div>
                                     </td>
-                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">15</td>
                                     <td class="p-3 text-center">4 ngày trước</td>
                                     <td class="p-3 text-center">07/07/2024</td>
                                 </tr>
@@ -403,7 +401,7 @@
                                             <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                         </div>
                                     </td>
-                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">12</td>
                                     <td class="p-3 text-center">4 ngày trước</td>
                                     <td class="p-3 text-center">07/07/2024</td>
                                 </tr>
@@ -415,7 +413,7 @@
                                             <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                         </div>
                                     </td>
-                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">20</td>
+                                    <td class="p-3 text-center text-blue-500 font-bold text-[1.3rem]">11</td>
                                     <td class="p-3 text-center">4 ngày trước</td>
                                     <td class="p-3 text-center">07/07/2024</td>
                                 </tr>
@@ -491,7 +489,7 @@
                             <input 
                                 id="search-input2" 
                                 type="text" 
-                                placeholder="Search" 
+                                placeholder="Tìm kiếm theo tên chủ sân..." 
                                 class="search-input-class2 border rounded-md pl-4 pr-10 py-2 text-sm" />
                         
                             <!-- Nút "X" -->
@@ -580,27 +578,7 @@
                                         <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                     </div>
                                 </div>
-                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]" >20</p>
-                            </li>
-                            <li class="flex items-center justify-between text-sm py-3">
-                                <div class="flex items-center space-x-3">
-                                    <input type="checkbox">
-                                    <img class="w-10 h-10 rounded-full" src="{{ url_for('static', filename='images/people.png') }}" alt="Logo"  />                                    <div>
-                                        <span class="block font-bold text-gray-900">Lý Thu Phong</span>
-                                        <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
-                                    </div>
-                                </div>
-                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">15</p>
-                            </li>
-                            <li class="flex items-center justify-between text-sm py-3">
-                                <div class="flex items-center space-x-3">
-                                    <input type="checkbox">
-                                    <img class="w-10 h-10 rounded-full" src="{{ url_for('static', filename='images/people.png') }}" alt="Logo"  />                                    <div>
-                                        <span class="block font-bold text-gray-900">Lý Thu Phong</span>
-                                        <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
-                                    </div>
-                                </div>
-                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">30</p>
+                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]" >30</p>
                             </li>
                             <li class="flex items-center justify-between text-sm py-3">
                                 <div class="flex items-center space-x-3">
@@ -620,7 +598,7 @@
                                         <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                     </div>
                                 </div>
-                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">20</p>
                             </li>
                             <li class="flex items-center justify-between text-sm py-3">
                                 <div class="flex items-center space-x-3">
@@ -630,7 +608,27 @@
                                         <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                     </div>
                                 </div>
-                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">20</p>
+                            </li>
+                            <li class="flex items-center justify-between text-sm py-3">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox">
+                                    <img class="w-10 h-10 rounded-full" src="{{ url_for('static', filename='images/people.png') }}" alt="Logo"  />                                    <div>
+                                        <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                        <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                                    </div>
+                                </div>
+                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">19</p>
+                            </li>
+                            <li class="flex items-center justify-between text-sm py-3">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox">
+                                    <img class="w-10 h-10 rounded-full" src="{{ url_for('static', filename='images/people.png') }}" alt="Logo"  />                                    <div>
+                                        <span class="block font-bold text-gray-900">Lý Thu Phong</span>
+                                        <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
+                                    </div>
+                                </div>
+                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">18</p>
                             </li>
                             <li class="flex items-center justify-between text-sm py-3">
                                 <div class="flex items-center space-x-3">
@@ -639,7 +637,7 @@
                                         <span class="block font-bold text-gray-900">Lý Thu Phong</span>
                                         <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                     </div>                    </div>
-                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">17</p>
                             </li> 
                             <li class="flex items-center justify-between text-sm py-3">
                                 <div class="flex items-center space-x-3">
@@ -648,7 +646,7 @@
                                         <span class="block font-bold text-gray-900">Lý Thu Phong</span>
                                         <span class="block text-sm font-semibold text-gray-500">phongly007@gmail.com</span>
                                     </div>                    </div>
-                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">25</p>
+                                <p class="p-3 text-blue-500 font-bold text-[1.3rem]">16</p>
                             </li> 
             
             
