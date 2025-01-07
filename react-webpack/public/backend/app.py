@@ -64,5 +64,9 @@ def user_bookfield():
 def user_homescreen():
     return render_template('user_homescreen.html')
 
+@app.route('/bookfield_info')
+def bookfield_info():
+    return render_template('bookfield_info.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
