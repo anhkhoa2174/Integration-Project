@@ -83,7 +83,9 @@
           </div>
           <script>
             function toggleDropdown() {
-              var dropdownMenu = document.getElementById
+              var dropdownMenu = document.getElementById("dropdownMenu");
+              dropdownMenu.classList.toggle("show");
+            }
           </script>
         </div>
       </div>
@@ -141,40 +143,93 @@
         </div>
     </div>
 </div>
-    <script>
-        const timeSlotsInner = document.querySelector('.time-slots-inner');
+<script>
+ const timeSlotsInner = document.querySelector('.time-slots-inner');
 
-        const bookings = [
-            { hour: 14, bookingInfo: ["Tên : Huỳnh Mai Quốc Khang", "SDT: 0902456566", "Ghi chú: Cho em thùng sting"], backgroundColor: "lightblue" },
-            { hour: 18, bookingInfo: ["Tên: Quang Duy", "SDT: 0902456566", "Ghi chú: Khai mạc giải bóng U18 bóng đá HCM"], backgroundColor: "lightcoral" },
-            { hour: 9, bookingInfo: ["Tên: Nguyen Van B", "SDT: 0123456789", "Ghi chú: Training"], backgroundColor: "lightgreen" },
-            { hour: 11, bookingInfo: ["Tên: Tran Thi C", "SDT: 0987654321", "Ghi chú: Match"], backgroundColor: "lightyellow" },
-            { hour: 22, bookingInfo: ["Tên: Le Van D", "SDT: 0369852147", "Ghi chú: Friendly Match"], backgroundColor: "lightpink" }
-        ];
+// Booking data
+const bookings = [
+  { hour: 14, bookingInfo: ["Tên: Huỳnh Mai Quốc Khang", "SDT: 0902456566", "Ghi chú: Cho em thùng sting"], backgroundColor: "lightblue" },
+  { hour: 18, bookingInfo: ["Tên: Quang Duy", "SDT: 0902456566", "Ghi chú: Khai mạc giải bóng U18 bóng đá HCM"], backgroundColor: "lightcoral" },
+  { hour: 9, bookingInfo: ["Tên: Nguyen Van B", "SDT: 0123456789", "Ghi chú: Training"], backgroundColor: "lightgreen" },
+  { hour: 11, bookingInfo: ["Tên: Tran Thi C", "SDT: 0987654321", "Ghi chú: Match"], backgroundColor: "lightyellow" },
+  { hour: 22, bookingInfo: ["Tên: Le Van D", "SDT: 0369852147", "Ghi chú: Friendly Match"], backgroundColor: "lightpink" }
+];
 
-        for (let hour = 0; hour <= 23; hour++) {
-            const time = String(hour).padStart(2, '0') + ':00';
-            const timeSlot = document.createElement('div');
-            timeSlot.classList.add('time-slot');
-            timeSlot.innerHTML = `<span>${time}</span>`;
-            timeSlotsInner.appendChild(timeSlot);
+// Generate time slots and bookings
+for (let hour = 0; hour <= 23; hour++) {
+  const time = String(hour).padStart(2, '0') + ':00';
+  const timeSlot = document.createElement('div');
+  timeSlot.classList.add('time-slot');
+  timeSlot.innerHTML = `<span>${time}</span>`;
+  timeSlotsInner.appendChild(timeSlot);
 
-            // Add bookings for this hour, if any
-            bookings.forEach(booking => {
-                if (booking.hour === hour) {
-                    const bookedSlot = document.createElement('div');
-                    bookedSlot.classList.add('time-slot', 'booked');
-                    bookedSlot.style.backgroundColor = booking.backgroundColor;
-                    bookedSlot.innerHTML = `
-                        <div class="booking-info">
-                            ${booking.bookingInfo.map(info => `<p>${info}</p>`).join('')}
-                        </div>
-                        <a href="ownercalendar3" class="delete-button">🗑</a>
-                    `;
-                    timeSlot.appendChild(bookedSlot);
-                }
-            });
-        }
-    </script>
+  bookings.forEach(booking => {
+    if (booking.hour === hour) {
+      const bookedSlot = document.createElement('div');
+      bookedSlot.classList.add('time-slot', 'booked');
+      bookedSlot.style.backgroundColor = booking.backgroundColor;
+      bookedSlot.innerHTML = `
+        <div class="booking-info">
+          ${booking.bookingInfo.map(info => `<p>${info}</p>`).join('')}
+        </div>
+        <div class="delete-button">
+       <button onclick="openPopup(this.closest('.booked'))" class="delete-btn" style="background-color: transparent; border: none; padding: 0;">
+        <img src="{{ url_for('static', filename='images/icon_trashcan.png') }}" alt="Delete"/>
+       </button>
+        </div>
+      `;
+      timeSlot.appendChild(bookedSlot);
+    }
+  });
+}
+
+let currentBookingElement = null; // Track the booking to be deleted
+
+// Open popup and pass the element to be deleted
+function openPopup(element) {
+  const popup = document.getElementById('popup');
+  const popupInfo = document.getElementById('popupInfo');
+
+  // Store the booking element to be deleted
+  currentBookingElement = element;
+
+  // Get booking info and populate the popup
+  const bookingInfo = element.querySelector('.booking-info').innerHTML;
+  popupInfo.innerHTML = bookingInfo;
+
+  popup.style.display = 'flex';
+}
+
+// Close popup
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+  currentBookingElement = null;
+}
+
+// Delete the booking element from the DOM
+function deleteItem() {
+  if (currentBookingElement) {
+    currentBookingElement.remove();
+    alert('Booking has been canceled!');
+  }
+  closePopup();
+}
+</script>
+
+<!-- Reusable Popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>Hủy Sân</h3>
+    <div id="popupInfo"></div>
+    <div class="reason-container">
+      <label for="reason">Lý do:</label>
+      <textarea id="reason" name="reason" placeholder="Nhập lý do hủy"></textarea>
+    </div>
+    <div class="popup-buttons">
+      <button onclick="deleteItem()">Xác nhận</button>
+      <button onclick="closePopup()">Hủy</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

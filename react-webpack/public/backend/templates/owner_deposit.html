@@ -83,7 +83,9 @@
           </div>
           <script>
             function toggleDropdown() {
-              var dropdownMenu = document.getElementById
+              var dropdownMenu = document.getElementById("dropdownMenu");
+              dropdownMenu.classList.toggle("show");
+            }
           </script>
         </div>
       </div>
@@ -114,156 +116,119 @@
           </a>
       </div>
 
-<div class="container">
-    <div class="main-content">
-      <div class="header">
-        <div>
-          <h3>Lịch sử giao dịch</h3>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+      <div class="content-container">
+        <h2>Lịch sử giao dịch</h2>
+        <div class="balance">
+          Số dư: <span class="balance-amount">125.000 VND</span>
         </div>
-        <input type="text" class="search-bar" placeholder="Tìm Kiếm...">
-      </div>
+        <!-- Khung tìm kiếm và lọc -->
+        <div class="filter-section">
+          <input type="date" id="start-date" />
 
+          <label for="end-date">đến</label>
+          <input type="date" id="end-date" />
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Mã đặt sân</th>
-                    <th>Ngày và Giờ</th>
-                    <th>Tên sân</th>
-                    <th>Loại sân</th>
-                    <th>Số tiền</th>
-                    <th>Ghi chú Giao dịch</th>
-                    <th>Phương thức Thanh toán</th>
-                    <th>Trạng thái</th>
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>001234</td>
-                <td>25/11/2024<br>7:00</td>
-                <td>Sân A</td>
-                <td>Sân cầu lông</td>
-                <td>100K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Momo</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>23/11/2024<br>8:00</td>
-                <td>Sân B</td>
-                <td>Sân bóng đá</td>
-                <td>50K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>21/11/2024<br>5:00</td>
-                <td>Sân C</td>
-                <td>Sân bóng rổ</td>
-                <td>80K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Paypal</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>18/11/2024<br>10:00</td>
-                <td>Sân D</td>
-                <td>Sân bóng chuyền</td>
-                <td>90K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-                <tr>
-                <td>001234</td>
-                <td>15/11/2024<br>11:00</td>
-                <td>Sân E</td>
-                <td>Sân pickleball</td>
-                <td>70K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>13/11/2024<br>12:00</td>
-                <td>Sân F</td>
-                <td>Sân bóng đá</td>
-                <td>200K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>11/11/2024<br>13:00</td>
-                <td>Sân G</td>
-                <td>Sân cầu lông</td>
-                <td>100K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>8/11/2024<br>14:30</td>
-                <td>Sân H</td>
-                <td>Sân tennis</td>
-                <td>80K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>6/4/2024<br>15:30</td>
-                <td>Sân I</td>
-                <td>Sân cầu lông</td>
-                <td>90K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>4/11/2024<br>16:30</td>
-                <td>Sân J</td>
-                <td>Sân bóng rổ</td>
-                <td>110K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-                <tr>
-                <td>001234</td>
-                <td>2/11/2024<br>17:30</td>
-                <td>Sân K</td>
-                <td>Sân bóng chuyền</td>
-                <td>200K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-              <tr>
-                <td>001234</td>
-                <td>1/11/2024<br>18:30</td>
-                <td>Sân L</td>
-                <td>Sân chuyên</td>
-                <td>150K VND</td>
-                <td>Không có ghi chú</td>
-                <td>Thẻ tín dụng</td>
-                <td>Hoàn thành</td>
-              </tr>
-            </tbody>
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Tìm kiếm theo mã đặt sân"
+          />
+
+          <button class="filter-btn" onclick="filterTable()">Lọc</button>
+        </div>
+
+        <table class="booking-table" id="bookingTable">
+          <thead>
+            <tr>
+              <th>Mã đặt sân</th>
+              <th>Ngày và Giờ</th>
+              <th>Tên tài khoản</th>
+              <th>Loại sân</th>
+              <th>Số tiền thanh toán</th>
+              <th>Ghi chú Giao dịch</th>
+              <th>Phương thức Thanh toán</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001234</td>
+              <td>2024-11-25 07:00</td>
+              <td>Trần Văn A</td>
+              <td>100K VND</td>
+              <td>Không có ghi chú</td>
+              <td>Momo</td>
+              <td class="status">Hoàn thành</td>
+              <td><button class="download-btn">Tải hóa đơn</button></td>
+            </tr>
+            <tr>
+              <td>001235</td>
+              <td>2024-11-23 08:00</td>
+              <td>Trần Văn A</td>
+              <td>50K VND</td>
+              <td>Không có ghi chú</td>
+              <td>Thẻ tín dụng</td>
+              <td class="status">Hoàn thành</td>
+              <td><button class="download-btn">Tải hóa đơn</button></td>
+            </tr>
+            <tr>
+              <td>001236</td>
+              <td>2024-11-24 09:00</td>
+              <td>Trần Văn A</td>
+              <td>80K VND</td>
+              <td>Không có ghi chú</td>
+              <td>Paypal</td>
+              <td class="status">Hoàn thành</td>
+              <td><button class="download-btn">Tải hóa đơn</button></td>
+            </tr>
+            <tr>
+              <td>001237</td>
+              <td>2024-11-18 10:00</td>
+              <td>Trần Văn A</td>
+              <td>90K VND</td>
+              <td>Không có ghi chú</td>
+              <td>Thẻ tín dụng</td>
+              <td class="status">Hoàn thành</td>
+              <td><button class="download-btn">Tải hóa đơn</button></td>
+            </tr>
+          </tbody>
         </table>
+
         <div class="pagination">
-          <a href="#">&laquo;</a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
+          <button class="page-btn">&laquo;</button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">&raquo;</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function filterTable() {
+        const searchInput = document
+          .getElementById("search-bar")
+          .value.toLowerCase();
+        const startDate = document.getElementById("start-date").value;
+        const endDate = document.getElementById("end-date").value;
+        const tableRows = document.querySelectorAll("#bookingTable tbody tr");
+
+        tableRows.forEach((row) => {
+          const rowText = row.textContent.toLowerCase();
+          const date = row.children[1].textContent.split(" ")[0]; // Lấy ngày từ cột ngày giờ
+          const fieldName = row.children[2].textContent.toLowerCase(); // Lấy Tên sân từ cột thứ 3
+
+          const dateValid =
+            (!startDate || date >= startDate) && (!endDate || date <= endDate);
+          const searchValid =
+            rowText.includes(searchInput) || fieldName.includes(searchInput); // Tìm trong cả row hoặc tên sân
+
+          if (dateValid && searchValid) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
