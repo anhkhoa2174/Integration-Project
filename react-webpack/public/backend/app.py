@@ -32,6 +32,10 @@ def booking_history():
 def transaction_history():
     return render_template('transaction_history.html')
 
+@app.route('/deposit')
+def deposit():
+    return render_template('deposit.html')
+
 @app.route('/admin_transaction_history')
 def admin_transaction_history():
     return render_template('administrator/admin_transaction_history.html')
@@ -40,34 +44,10 @@ def admin_transaction_history():
 def admin_manage_user():
     return render_template('administrator/admin_manage_user.html')
 
-@app.route('/deposit')
-def deposit():
-    return render_template('deposit.html')
-
-
-@app.route('/dashboard')
+@app.route('/admin_dashboard')
 def admin_dashboard():
     return render_template('administrator/dashboard.html')
 
-@app.route('/navbar')
-def admin_navbar():
-    return render_template('administrator/navbar.html')
-
-@app.route('/sidebar')
-def admin_sidebar():
-    return render_template('administrator/sidebar.html')
-
-@app.route('/test')
-def admin_test():
-    return render_template('administrator/test.html')
-
-@app.route('/test1')
-def admin_test1():
-    return render_template('administrator/test1.html')
-
-@app.route('/example')
-def admin_example():
-    return render_template('administrator/example.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
