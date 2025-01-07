@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Sporty Webby Homescreen</title>
+		<title>Sporty Webby Bookfield</title>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
 			rel="stylesheet" />
@@ -16,7 +16,7 @@
 			href="{{ url_for('static', filename='css/nav_bar_homescreen.css') }}" />
 		<link
 			rel="stylesheet"
-			href="{{ url_for('static', filename='css/user_homescreen.css') }}" />
+			href="{{ url_for('static', filename='css/bookfield_info.css') }}" />
 	</head>
 	<body>
 		<!-- nav bar -->
@@ -119,7 +119,9 @@
 						<img
 							src="{{ url_for('static', filename='images/icon_book_field.png') }}" />
 					</div>
-					<div class="text">Đặt sân</div>
+					<div class="text" style="background-color: rgb(14, 1, 87)">
+						Đặt sân
+					</div>
 				</div>
 				<div class="menu-item">
 					<div class="icon">
@@ -144,124 +146,103 @@
 					<div class="text">Lịch sử giao dịch</div>
 				</div>
 			</div>
-			<div class="sports-section">
-				<div class="sports-info">
-					<p class="highlight-text">
-						Có <span class="number-highlight">547</span>
-						<span class="blue-text">sân thể thao</span>
-						<span class="red-text">các loại</span> cho bạn lựa chọn !
-					</p>
-					<button class="book-btn">Đặt sân ngay</button>
-					<button class="deposit-btn">Nạp tiền ngay</button>
-				</div>
-				<div class="sports-images">
-					<img
-						src="{{ url_for('static', filename='images/image 14.png') }}"
-						alt="Sân 1" />
-					<img
-						src="{{ url_for('static', filename='images/image 12.png') }}"
-						alt="Sân 2" />
-					<img
-						src="{{ url_for('static', filename='images/image 10.png') }}"
-						alt="Sân 3" />
-					<img
-						src="{{ url_for('static', filename='images/image 13.png') }}"
-						alt="Sân 4" />
-				</div>
-			</div>
-			<div class="sale-section">
-				<div class="sale">
-					<img
-						src="{{ url_for('static', filename='images/sale.png') }}"
-						alt="Sân 3" />
-				</div>
-				<div class="ct">
-					<img
-						src="{{ url_for('static', filename='images/chuongtrinh.png') }}" />
-				</div>
-				<div class="woman">
-					<img src="{{ url_for('static', filename='images/woman.png') }}" />
-				</div>
-				<div class="man">
-					<img src="{{ url_for('static', filename='images/man.png') }}" />
-				</div>
-				<div class="fiftypercent">
-					<img src="{{ url_for('static', filename='images/50%.png') }}" />
-				</div>
-			</div>
-			<div class="sports-filters">
-				<button
-					class="filter-btn active"
-					data-sport="Bóng đá Mini 77"
-					data-img="sanbanh1.png,sanbanh2.png,sanbanh3.png,sanbanh4.png">
-					Sân bóng đá
-				</button>
-				<button
-					class="filter-btn"
-					data-sport="Bóng rổ Hùng Vương"
-					data-img="sanbongro.jpg,sanbongro.jpg,sanbongro.jpg,sanbongro.jpg">
-					Sân bóng rổ
-				</button>
-				<button
-					class="filter-btn"
-					data-sport="Cầu lông Thiên Hoàng"
-					data-img="sancaulong.jpg,sancaulong.jpg,sancaulong.jpg,sancaulong.jpg">
-					Sân cầu lông
-				</button>
-				<button
-					class="filter-btn"
-					data-sport="Tennis Vũ Trung"
-					data-img="santennis.jpg,santennis.jpg,santennis.jpg,santennis.jpg">
-					Sân tennis
-				</button>
-				<button
-					class="filter-btn"
-					data-sport="Pickeball Minh Chải"
-					data-img="sanpickeball.png,sanpickeball.png,sanpickeball.png,sanpickeball.png">
-					Sân pickleball
-				</button>
-				<button
-					class="filter-btn"
-					data-sport="Bóng chuyền Lê Lợi"
-					data-img="sanbongchuyen.jpg,sanbongchuyen.jpg,sanbongchuyen.jpg,sanbongchuyen.jpg">
-					Sân bóng chuyền
-				</button>
-			</div>
 
-			<div class="favorite-venues">
-				<h2 class="section-title">
+			<div class="gallery">
+				<div class="thumbnail-container">
 					<img
-						src="{{ url_for('static', filename='images/top1.png') }}"
-						alt="Top 1"
-						class="badge-icon" />
-					NHỮNG SÂN ĐƯỢC YÊU THÍCH NHẤT
-				</h2>
-				<div class="venue-list">
-					{% for i in range(4) %}
-					<div class="venue-card">
-						<img
-							class="venue-image"
-							src="{{ url_for('static', filename='images/sanbanh' ~ (i+1) ~ '.png') }}"
-							alt="Sân bóng {{ i+1 }}" />
-						<div class="venue-info">
-							<h3>Quận {{ i+1 }}</h3>
-							<p>Sân Bình An</p>
-							<div class="rating">
-								<span>4.5</span>
-								{% for _ in range(4) %}
-								<img
-									src="{{ url_for('static', filename='images/onestar.png') }}"
-									alt="Star" />
-								{% endfor %}
-								<img
-									src="{{ url_for('static', filename='images/halfstar.png') }}"
-									alt="Half Star" />
-							</div>
-							<p class="price">125.000 đ / giờ</p>
-						</div>
-					</div>
-					{% endfor %}
+						src="{{ url_for('static', filename='images/sanbanh1.png') }}"
+						onclick="changeImage(this)"
+						alt="thumb1" />
+					<img
+						src="{{ url_for('static', filename='images/sanbanh2.png') }}"
+						onclick="changeImage(this)"
+						alt="thumb2" />
+					<img
+						src="{{ url_for('static', filename='images/sanbanh3.png') }}"
+						onclick="changeImage(this)"
+						alt="thumb3" />
+					<img
+						src="{{ url_for('static', filename='images/sanbanh4.png') }}"
+						onclick="changeImage(this)"
+						alt="thumb4" />
 				</div>
+				<div class="main-image">
+					<img
+						id="main-display"
+						src="{{ url_for('static', filename='images/sanbanh1.png') }}"
+						alt="main" />
+				</div>
+			</div>
+			<div class="club-info">
+				<h1 style="font-size: 30px">Clb Sân Bóng Đá Mini 77</h1>
+				<p class="price">125.000 VND / giờ</p>
+				<p class="description">Mã sân: SS001</p>
+				<div class="rating">
+					<img
+						src="{{ url_for('static', filename='images/onestar.png') }}"
+						alt="Full Star" />
+					<img
+						src="{{ url_for('static', filename='images/onestar.png') }}"
+						alt="Full Star" />
+					<img
+						src="{{ url_for('static', filename='images/onestar.png') }}"
+						alt="Full Star" />
+					<img
+						src="{{ url_for('static', filename='images/onestar.png') }}"
+						alt="Full Star" />
+					<img
+						src="{{ url_for('static', filename='images/onestar.png') }}"
+						alt="Half Star" />
+					<span>154 Lượt đánh giá</span>
+				</div>
+				<p class="description">
+					Sân bóng mini chất lượng cao với không gian rộng rãi, thoáng mát, phù
+					hợp cho các trận đấu giao hữu hoặc luyện tập. Vị trí thuận lợi, dễ tìm
+					kiếm, nằm ngay tại trung tâm quận Gò Vấp. Dịch vụ chu đáo, trang bị
+					đầy đủ tiện nghi đảm bảo mang lại trải nghiệm tốt nhất cho khách hàng.
+				</p>
+				<ul class="contact-info">
+					<li>Chủ sân: Dương Anh L</li>
+					<li>Số điện thoại: 0912345678</li>
+					<li>Địa chỉ: 152 Nguyễn Oanh, Phường 7, Gò Vấp, Hồ Chí Minh</li>
+				</ul>
+				<div class="booking">
+					<label>Thời gian:</label>
+					<button>1 tiếng 30 phút</button>
+					<button class="book-now" onclick="showNotification()">Đặt sân</button>
+				</div>
+				<div class="social-share">
+					<a href="#">
+						<img
+							src="{{ url_for('static', filename='images/facebook.png') }}"
+							alt="Facebook" />
+					</a>
+					<a href="#">
+						<img
+							src="{{ url_for('static', filename='images/twitter.png') }}"
+							alt="Twitter" />
+					</a>
+					<a href="#">
+						<img
+							src="{{ url_for('static', filename='images/linkedin.png') }}"
+							alt="LinkedIn" />
+					</a>
+				</div>
+			</div>
+			<div class="promotion">
+				<h1>
+					<img
+						src="{{ url_for('static', filename='images/lugia.png') }}"
+						alt="Sân Lữ Gia" />
+				</h1>
+				<img
+					class="dibong"
+					src="{{ url_for('static', filename='images/dibong.png') }}"
+					alt="Đá bóng" />
+				<img
+					class="discount"
+					src="{{ url_for('static', filename='images/30%.png') }}"
+					alt="30%" />
 			</div>
 		</div>
 		<script>
@@ -293,5 +274,34 @@
 				});
 			});
 		</script>
+
+		<script>
+			function changeImage(element) {
+				const mainImage = document.getElementById("main-display");
+				mainImage.src = element.src;
+				mainImage.alt = element.alt;
+			}
+		</script>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const bookNowBtn = document.querySelector(".book-now");
+				bookNowBtn.addEventListener("click", showNotification);
+			});
+
+			function showNotification() {
+				const notification = document.getElementById("notification");
+				if (notification) {
+					notification.style.display = "block";
+					setTimeout(() => {
+						notification.style.display = "none";
+					}, 3000);
+				} else {
+					console.error("Notification element not found!");
+				}
+			}
+		</script>
+		<div class="notification" id="notification">
+			Sân đã được đặt thành công!
+		</div>
 	</body>
 </html>

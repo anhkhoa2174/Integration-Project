@@ -118,7 +118,9 @@
 						<img
 							src="{{ url_for('static', filename='images/icon_book_field.png') }}" />
 					</div>
-					<div class="text">Đặt sân</div>
+					<div class="text" style="background-color: rgb(14, 1, 87)">
+						Đặt sân
+					</div>
 				</div>
 				<div class="menu-item">
 					<div class="icon">
@@ -148,50 +150,54 @@
 				<img
 					class="selectable sports-item"
 					src="{{ url_for('static', filename='images/bongda.png') }}"
-					alt="Bóng đá" />
+					alt="Bóng đá"
+					data-sport="Bóng đá Mini 77"
+					data-img="sanbanh.png" />
 				<img
 					class="selectable sports-item"
 					src="{{ url_for('static', filename='images/bongro.png') }}"
-					alt="Bóng rổ" />
+					alt="Bóng rổ"
+					data-sport="Bóng rổ Hùng Vương"
+					data-img="sanbongro.jpg" />
 				<img
 					class="selectable sports-item"
 					src="{{ url_for('static', filename='images/caulong.png') }}"
-					alt="Cầu lông" />
+					alt="Cầu lông"
+					data-sport="Cầu lông Thiên Hoàng"
+					data-img="sancaulong.jpg" />
 				<img
 					class="selectable sports-item"
 					src="{{ url_for('static', filename='images/pickeball.png') }}"
-					alt="Pickeball" />
+					alt="Pickeball"
+					data-sport="Pickeball Minh Chải"
+					data-img="sanpickeball.png" />
 				<img
 					class="selectable sports-item"
 					src="{{ url_for('static', filename='images/tennis.png') }}"
-					alt="Tennis" />
+					alt="Tennis"
+					data-sport="Tennis Vũ Trung"
+					data-img="santennis.jpg" />
 				<img
 					class="selectable sports-item"
 					src="{{ url_for('static', filename='images/bongchuyen.png') }}"
-					alt="Bóng chuyền" />
+					alt="Bóng chuyền"
+					data-sport="Bóng chuyền Lê Lợi"
+					data-img="sanbongchuyen.jpg" />
 			</div>
-			
+
 			<div class="big-frame">
 				{% for i in range(12) %}
-				<div class="card">
-					<img
-						src="{{ url_for('static', filename='images/sanbanh.png') }}"
-						alt="Sân bóng" />
+				<div class="card" onClick="window.location.href='bookfield_info'">
+					<img id="club-image" src="{{ url_for('static',
+					filename='images/sanbanh.png') }}" alt="Sân bóng" / >
 					<div class="info">
-						<h3>CLB Sân Bóng Đá Mini 77</h3>
+						<h3 id="club-name">CLB Sân Bóng đá Mini 77</h3>
 						<div class="rating">
+							{% for _ in range(4) %}
 							<img
 								src="{{ url_for('static', filename='images/onestar.png') }}"
 								alt="star" />
-							<img
-								src="{{ url_for('static', filename='images/onestar.png') }}"
-								alt="star" />
-							<img
-								src="{{ url_for('static', filename='images/onestar.png') }}"
-								alt="star" />
-							<img
-								src="{{ url_for('static', filename='images/onestar.png') }}"
-								alt="star" />
+							{% endfor %}
 							<img
 								src="{{ url_for('static', filename='images/halfstar.png') }}"
 								alt="half star" />
@@ -204,17 +210,26 @@
 			</div>
 		</div>
 		<script>
-			// Lấy tất cả các ảnh có class 'selectable'
 			const images = document.querySelectorAll(".selectable");
-
-			// Thêm sự kiện click cho từng ảnh
 			images.forEach((img) => {
 				img.addEventListener("click", () => {
-					// Loại bỏ lớp 'selected' khỏi tất cả ảnh
 					images.forEach((item) => item.classList.remove("selected"));
-
-					// Thêm lớp 'selected' vào ảnh được click
 					img.classList.add("selected");
+				});
+			});
+		</script>
+		<script>
+			document.querySelectorAll(".sports-item").forEach((item) => {
+				item.addEventListener("click", function () {
+					const selectedSport = this.getAttribute("data-sport");
+					const selectedImg = this.getAttribute("data-img");
+					document.querySelectorAll("#club-name").forEach((clubName) => {
+						clubName.textContent = `CLB Sân ${selectedSport}`;
+					});
+					document.querySelectorAll("#club-image").forEach((clubImage) => {
+						clubImage.src = `{{ url_for('static', filename='images/') }}${selectedImg}`;
+						clubImage.alt = `Sân ${selectedSport}`;
+					});
 				});
 			});
 		</script>

@@ -27,14 +27,14 @@
 }
 .calendar-bar {
 	background-color: #00224e;
-	width: 80%;
+	width: 80.3%;
 	margin-top: 3px;
 	/* border: 1px solid #ddd; */
 	overflow: hidden;
 	height: 50px;
 	position: relative;
 	z-index: 2;
-	left: 13.2%;
+	left: 16.1%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -44,7 +44,7 @@
 	height: 1170px;
 	background-color: white;
 	position: relative;
-	left: 13.2%;
+	left: 16.2%;
 	z-index: 1;
 	top: -2%;
 	border-radius: 10px;
@@ -75,7 +75,7 @@
 .calendar {
 	width: 75%;
 	top: -95%;
-	left: 18%;
+	left: 21%;
 	border: 1px solid #ddd;
 	border-radius: 0px;
 	overflow: hidden;
