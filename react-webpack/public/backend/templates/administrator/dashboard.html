@@ -4,15 +4,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navbar - Sidebar Example</title>
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <!-- Custom CSS Style -->
-    <style>
-      /* Add any custom styles here */
-    </style>
   </head>
   <body class="h-full bg-gray-100">
     <!-- Include Navbar Component -->
@@ -36,7 +38,27 @@
             </div>
             <!-- Field Management -->
             <div class="flex-1 flex flex-col justify-between p-4">
-              <h2 class="text-lg font-semibold">Quản lý sân bóng</h2>
+              <div class="flex justify-between">
+                <h2 class="text-lg font-semibold">Quản lý sân thể thao</h2>
+                <!-- Icon -->
+                <span
+                  data-tooltip-target="tooltip-bottom-field-management"
+                  data-tooltip-placement="bottom"
+                  class="flex items-center justify-center w-6 h-6 text-gray-600 font-bold border-2 border-gray-600 rounded-full"
+                >
+                  i
+                </span>
+
+                <!-- Tooltip -->
+                <div
+                  id="tooltip-bottom-field-management"
+                  role="tooltip"
+                  class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white rounded-lg shadow-sm opacity-0 tooltip bg-gray-400"
+                >
+                  Top 3 sân thể thao được người dùng đặt sân nhiều nhất
+                  <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+              </div>
               <ul>
                 <li class="flex justify-between py-2 border-b">
                   <span>Sân bóng đá trong nhà Bắc Sài Gòn</span>
@@ -52,7 +74,7 @@
                 </li>
               </ul>
               <button
-                class="w-48 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+                class="w-36 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
               >
                 Đi tới
               </button>
@@ -66,19 +88,39 @@
                 class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
                 style="height: 250px"
               >
-                <h2 class="text-lg font-semibold">Quản lý người dùng</h2>
+                <div class="flex justify-between">
+                  <h2 class="text-lg font-semibold">Quản lý người dùng</h2>
+                  <!-- Icon -->
+                  <span
+                    data-tooltip-target="tooltip-bottom-user-management"
+                    data-tooltip-placement="bottom"
+                    class="flex items-center justify-center w-6 h-6 text-gray-600 font-bold border-2 border-gray-600 rounded-full"
+                  >
+                    i
+                  </span>
+
+                  <!-- Tooltip -->
+                  <div
+                    id="tooltip-bottom-user-management"
+                    role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white rounded-lg shadow-sm opacity-0 tooltip bg-gray-400"
+                  >
+                    Top 3 người dùng đặt sân nhiều nhất
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                  </div>
+                </div>
                 <ul>
                   <li class="flex justify-between py-2 border-b">
-                    <span>Nguyễn Văn A</span>
-                    <span class="font-bold">1.25M VND</span>
+                    <span>Lý Thụ Phong</span>
+                    <span class="font-bold">20</span>
                   </li>
                   <li class="flex justify-between py-2 border-b">
-                    <span>Ngô Thị B</span>
-                    <span class="font-bold">0.8M VND</span>
+                    <span>Trần Anh Khoa</span>
+                    <span class="font-bold">16</span>
                   </li>
                   <li class="flex justify-between py-2">
-                    <span>Lý Thường K</span>
-                    <span class="font-bold">0.1M VND</span>
+                    <span>Nguyễn Đoàn Hải Băng</span>
+                    <span class="font-bold">14</span>
                   </li>
                 </ul>
                 <button
@@ -93,7 +135,27 @@
                 class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
                 style="height: 300px"
               >
-                <h2 class="text-lg font-semibold">Thống kê</h2>
+                <div class="flex justify-between">
+                  <h2 class="text-lg font-semibold">Thống kê</h2>
+                  <!-- Icon -->
+                  <span
+                    data-tooltip-target="tooltip-bottom-statistic"
+                    data-tooltip-placement="bottom"
+                    class="flex items-center justify-center w-6 h-6 text-gray-600 font-bold border-2 border-gray-600 rounded-full"
+                  >
+                    i
+                  </span>
+
+                  <!-- Tooltip -->
+                  <div
+                    id="tooltip-bottom-statistic"
+                    role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white rounded-lg shadow-sm opacity-0 tooltip bg-gray-400"
+                  >
+                    Dữ liệu thống kê trong 1 tháng gần đây
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                  </div>
+                </div>
                 <div class="flex flex-row justify-between w-full px-4">
                   <div class="flex flex-col items-center">
                     <span class="font-bold text-3xl mb-3">130</span>
@@ -120,38 +182,93 @@
             <div class="flex flex-col w-1/2 gap-4 bg-gray-100">
               <!-- Notification -->
               <div
-                class="p-4 rounded-lg shadow-md bg-white"
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
                 style="height: 150px"
               >
-                <div class="flex flex-row justify-between items-center">
-                  <h2 class="text-lg font-semibold mb-4 bg-red-400">
-                    Thông báo
-                  </h2>
-                  <select class="w-28 p-2 border rounded mb-4 bg-red-400">
+                <div class="flex flex-row justify-between items-start">
+                  <h2 class="text-lg font-semibold">Thông báo</h2>
+                  <select class="w-34 h-8 px-2 border rounded text-sm">
                     <option>Mọi người</option>
-                    <option>Người chơi</option>
+                    <option>Người dùng</option>
                     <option>Chủ sân</option>
                     <option>Quản trị viên</option>
                   </select>
-                  <div class="icon w-4 h-4 bg-red-400">
+                  <button class="icon w-4 h-4">
                     <img
                       src="{{ url_for('static', filename='images/administrator/icon_send.svg') }}"
                       alt="Send Icon"
                       class="w-full h-full object-contain"
                     />
-                  </div>
+                  </button>
                 </div>
                 <textarea
-                  class="w-full p-2 border rounded"
+                  class="w-full p-2 border rounded resize-none"
                   placeholder="Viết thông báo của bạn ở đây..."
                 ></textarea>
               </div>
 
               <!-- Transaction History -->
               <div
-                class="p-4 rounded-lg shadow-md bg-white"
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
                 style="height: 400px"
-              ></div>
+              >
+                <h2 class="text-lg font-semibold mb-4">Lịch sử giao dịch</h2>
+                <ul class="max-h-64 overflow-y-auto border rounded-lg p-2">
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Lý Thụ Phong</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+50.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Lý Thụ Phong</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+75.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Trần Duy Đức Huy</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+500.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Trần Long</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+15.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Lý Thụ Phong</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+100.000đ</span>
+                  </li>
+                </ul>
+                <div class="flex flex-col items-center">
+                  <a
+                    href="/admin_transaction_history"
+                    class="text-gray-600 hover:text-gray-800"
+                  >
+                    Xem thêm...
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
