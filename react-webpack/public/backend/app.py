@@ -48,6 +48,17 @@ def admin_manage_user():
 def admin_dashboard():
     return render_template('administrator/dashboard.html')
 
+@app.route('/admin_manage_field')
+def admin_manage_field():
+    return render_template('administrator/admin_manage_field.html')
+
+@app.route('/statistics')
+def statistics():
+    return render_template('administrator/statistics.html')
+
+@app.route('/check_field')
+def check_field():
+    return render_template('administrator/check_field.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
