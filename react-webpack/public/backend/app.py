@@ -48,6 +48,10 @@ def admin_manage_user():
 def admin_dashboard():
     return render_template('administrator/dashboard.html')
 
+@app.route('/example')
+def example():
+    return render_template('administrator/example.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
