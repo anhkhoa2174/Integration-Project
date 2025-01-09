@@ -1,0 +1,155 @@
+<!-- templates/main.html -->
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS Style -->
+    <style>
+      /* Add any custom styles here */
+    </style>
+  </head>
+  <body class="h-full bg-gray-100">
+    <!-- Include Navbar Component -->
+    {% include 'administrator/components/navbar.html' %}
+
+    <!-- Content Area -->
+    <div class="flex flex-1">
+      {% include 'administrator/components/sidebar.html' %}
+      <!-- Main Content Area -->
+      <div class="flex-1 flex flex-col gap-4 p-6 overflow-auto">
+        <!-- Top -->
+        <div class="flex flex-row gap-4" style="height: 160px">
+          <!-- Số lượt đánh giá -->
+          <div
+            class="flex flex-col w-1/4 p-4 justify-between rounded-lg shadow-md bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h3 class="text-md font-semibold">Số lượt đánh giá</h3>
+                <p class="text-3xl font-bold mt-2">130</p>
+              </div>
+              <img
+                src="{{ url_for('static', filename='images/administrator/rating.png') }}"
+                alt="Rating"
+                style="width: 75px; height: 75px"
+              />
+            </div>
+            <p class="text-green-500" style="font-family: sans-serif">
+              ↗ 8.5% So với tuần trước
+            </p>
+          </div>
+          <!-- Số lượt đặt sân -->
+          <div
+            class="flex flex-col w-1/4 p-4 justify-between rounded-lg shadow-md bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h3 class="text-md font-semibold">Số lượt đặt sân</h3>
+                <p class="text-3xl font-bold mt-2">254</p>
+              </div>
+              <img
+                src="{{ url_for('static', filename='images/administrator/booking.png') }}"
+                alt="Booking"
+                style="width: 75px; height: 75px"
+              />
+            </div>
+            <p class="text-red-500" style="font-family: sans-serif">
+              ↘ 5.2% So với tuần trước
+            </p>
+          </div>
+          <!-- Doanh thu -->
+          <div
+            class="flex flex-col w-1/4 p-4 justify-between rounded-lg shadow-md bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h3 class="text-md font-semibold">Doanh thu</h3>
+                <p class="text-3xl font-bold mt-2">7.5M VND</p>
+              </div>
+              <img
+                src="{{ url_for('static', filename='images/administrator/money.png') }}"
+                alt="Money"
+                style="width: 75px; height: 75px"
+              />
+            </div>
+            <p class="text-green-500" style="font-family: sans-serif">
+              ↗ 3.4% So với tuần trước
+            </p>
+          </div>
+          <!-- Lượng truy cập -->
+          <div
+            class="flex flex-col w-1/4 p-4 justify-between rounded-lg shadow-md bg-white"
+          >
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <h3 class="text-md font-semibold">Lượt truy cập</h3>
+                <p class="text-3xl font-bold mt-2">201</p>
+              </div>
+              <img
+                src="{{ url_for('static', filename='images/administrator/web-search.png') }}"
+                alt="Web Search"
+                style="width: 75px; height: 75px"
+              />
+            </div>
+            <p class="text-green-500" style="font-family: sans-serif">
+              ↗ 5% So với tuần trước
+            </p>
+          </div>
+        </div>
+        <!-- Middle -->
+        <div
+          class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
+          style="height: 450px"
+        >
+          <!-- Header -->
+          <div class="flex flex-row justify-between items-center">
+            <h2 class="text-lg font-semibold">Doanh thu</h2>
+            <select
+              id="yearSelector"
+              class="w-24 h-8 px-2 border rounded text-sm text-gray-400"
+            >
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+          </div>
+          <!-- Chart -->
+          {% include 'administrator/components/admin_statistics_chart.html' %}
+        </div>
+        <!-- Bottom -->
+        <div
+          class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
+          style="height: 250px"
+        >
+          <!-- Header -->
+          <div class="flex flex-row justify-center items-center">
+            <h2 class="text-lg font-semibold">
+              Danh sách sân được đặt nhiều nhất
+            </h2>
+          </div>
+          <!-- Danh sách sân -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% include
+            'administrator/components/admin_statistics_field_card_1.html' %} {%
+            include
+            'administrator/components/admin_statistics_field_card_2.html' %} {%
+            include
+            'administrator/components/admin_statistics_field_card_3.html' %}
+          </div>
+          <!-- Read More -->
+          <div class="flex flex-col items-center">
+            <a href="#" class="text-gray-600 hover:text-gray-800">
+              Xem thêm...
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

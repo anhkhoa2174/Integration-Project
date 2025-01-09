@@ -1,0 +1,258 @@
+<!-- Navbar -->
+<div class="flex items-center justify-between px-4 py-3 bg-gray-900">
+  <!-- Logo -->
+  <div class="flex items-center space-x-3">
+    <img
+      class="w-10 h-10"
+      src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+      alt="Logo"
+    />
+    <div class="text-white font-bold">
+      <p>Sporty</p>
+      <p>Webby</p>
+    </div>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="flex items-center space-x-4">
+    <div class="flex space-x-3">
+      <!-- Bell icon for Notifications -->
+      <div class="relative">
+        <div
+          class="relative bg-white w-7 h-7 flex items-center justify-center rounded-full shadow-md cursor-pointer"
+          onclick="toggleDropdown('notificationMenu')"
+        >
+          <svg
+            class="w-4 h-4 text-black"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C7.589 2 4 5.589 4 10v5l-1.293 1.293A.999.999 0 0 0 4 18h16a.999.999 0 0 0 .293-1.707L20 15v-5c0-4.411-3.589-8-8-8zM7.293 17h9.414l1.086 1.086a1.994 1.994 0 0 0-2.563-2.567L7.293 17z"
+            ></path>
+            <path d="M11 20h2a1 1 0 0 1-2 0z"></path>
+          </svg>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div
+          id="notificationMenu"
+          class="absolute right-0 mt-2 w-64 bg-white border border-gray-300 rounded-lg shadow-lg hidden dropdown-menu"
+        >
+          <div class="py-2 px-4 text-gray-800 font-semibold border-b">
+            Thông báo
+          </div>
+          <ul class="py-2 text-gray-700">
+            <li class="px-4 py-2 hover:bg-gray-100">
+              <p class="text-sm">Bạn có một tin nhắn mới!</p>
+              <p class="text-xs text-gray-500">2 phút trước</p>
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-100">
+              <p class="text-sm">Bạn có nhiều tin nhắn mới!</p>
+              <p class="text-xs text-gray-500">2 giờ trước</p>
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-100">
+              <p class="text-sm">Nhắc nhở: Bảo trì vào lúc 7 giờ</p>
+              <p class="text-xs text-gray-500">5 ngày trước</p>
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-100">
+              <p class="text-sm">Bạn có một tin nhắn mới.</p>
+              <p class="text-xs text-gray-500">1 tháng trước</p>
+            </li>
+          </ul>
+          <div
+            class="py-2 px-4 text-center text-blue-500 hover:bg-gray-100 cursor-pointer"
+          >
+            Xem tất cả
+          </div>
+        </div>
+      </div>
+
+      <!-- Message box icon -->
+      <div class="relative">
+        <div
+          class="relative bg-white w-7 h-7 flex items-center justify-center rounded-full shadow-md cursor-pointer"
+          onclick="toggleDropdown('messageMenu')"
+        >
+          <svg
+            class="w-4 h-4 text-black"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20 2H4a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h3l4 4 4-4h5a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM9.5 13h-2v-2h2zm3 0h-2v-2h2zm3 0h-2v-2h2z"
+            ></path>
+          </svg>
+        </div>
+
+        <!-- Message Dropdown -->
+        <div
+          id="messageMenu"
+          class="absolute right-0 mt-2 w-72 bg-white border border-gray-300 rounded-lg shadow-lg hidden dropdown-menu"
+        >
+          <div class="py-2 px-4 text-gray-800 font-semibold border-b">
+            Tin nhắn
+          </div>
+          <ul class="py-2 text-gray-700">
+            <li class="px-4 py-2 hover:bg-gray-100">
+              <p class="text-sm font-medium">Nguyễn Thị Bè</p>
+              <p class="text-xs text-gray-500">
+                Cho mình hỏi về cách thức hoạt động của trang Web này.
+              </p>
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-100">
+              <p class="text-sm font-medium">Lý Cuốc</p>
+              <p class="text-xs text-gray-500">Giá sao vậy bạn?</p>
+            </li>
+            <li class="px-4 py-2 hover:bg-gray-100">
+              <p class="text-sm font-medium">Trưởng nhóm</p>
+              <p class="text-xs text-gray-500">Nhớ bảo trì trang Web!</p>
+            </li>
+          </ul>
+          <div
+            class="py-2 px-4 text-center text-blue-500 hover:bg-gray-100 cursor-pointer"
+          >
+            Xem tất cả
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Info -->
+    <div class="flex items-center space-x-2">
+      <img
+        class="w-10 h-10 rounded-full"
+        src="{{ url_for('static', filename='images/avatar.png') }}"
+        alt="Avatar"
+      />
+      <div class="text-white">
+        <p class="font-semibold">Trần Văn A</p>
+        <p class="text-sm text-green-500">Trực tuyến</p>
+      </div>
+    </div>
+
+    <!-- Arrow icon to toggle setting menu -->
+    <div
+      class="relative cursor-pointer text-white"
+      onclick="toggleDropdown('settingMenu')"
+    >
+      <svg
+        class="-mr-1 ml-2 h-5 w-5"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+
+      <!-- Setting menu -->
+      <div
+        class="absolute right-0 mt-7 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden dropdown-menu"
+        id="settingMenu"
+      >
+        <ul class="py-2 text-gray-800">
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+              >Thông tin cá nhân</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+              >Lịch sử hoạt động</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Bảo mật</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cài đặt</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Đăng suất</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script for Setting -->
+  <script>
+    function toggleSetting() {
+      var dropdownMenu = document.getElementById("settingMenu");
+      dropdownMenu.classList.toggle("hidden");
+    }
+
+    document.addEventListener("click", function (event) {
+      var dropdownMenu = document.getElementById("settingMenu");
+      var dropdownToggle = event.target.closest(".relative");
+      if (!dropdownToggle || !dropdownToggle.contains(event.target)) {
+        dropdownMenu.classList.add("hidden");
+      }
+    });
+  </script>
+
+  <!-- Script for Notification -->
+  <script>
+    function toggleNotification() {
+      var notificationMenu = document.getElementById("notificationMenu");
+      notificationMenu.classList.toggle("hidden");
+    }
+
+    document.addEventListener("click", function (event) {
+      var notificationMenu = document.getElementById("notificationMenu");
+      var bellIcon = event.target.closest(".relative");
+      if (!bellIcon || !bellIcon.contains(event.target)) {
+        notificationMenu.classList.add("hidden");
+      }
+    });
+  </script>
+
+  <!-- Script for Message Box -->
+  <script>
+    function toggleMessageBox() {
+      var messageMenu = document.getElementById("messageMenu");
+      messageMenu.classList.toggle("hidden");
+    }
+
+    // Close the dropdown if clicked outside
+    document.addEventListener("click", function (event) {
+      var messageMenu = document.getElementById("messageMenu");
+      var messageIcon = event.target.closest(".relative");
+      if (!messageIcon || !messageIcon.contains(event.target)) {
+        messageMenu.classList.add("hidden");
+      }
+    });
+  </script>
+
+  <script>
+    // Manage Dropdown Visibility
+    function toggleDropdown(id) {
+      const dropdownMenus = document.querySelectorAll(".dropdown-menu");
+      dropdownMenus.forEach((menu) => {
+        if (menu.id !== id) {
+          menu.classList.add("hidden"); // Hide all other dropdowns
+        }
+      });
+
+      const currentMenu = document.getElementById(id);
+      currentMenu.classList.toggle("hidden");
+    }
+
+    // Close all dropdowns if clicked outside
+    document.addEventListener("click", function (event) {
+      const dropdownMenus = document.querySelectorAll(".dropdown-menu");
+      const isInsideDropdown = event.target.closest(".relative");
+      if (!isInsideDropdown) {
+        dropdownMenus.forEach((menu) => menu.classList.add("hidden"));
+      }
+    });
+  </script>
+</div>

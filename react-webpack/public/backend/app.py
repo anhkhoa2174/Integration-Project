@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash, send_file
 from functools import wraps
-import psycopg2
+# import psycopg2
 from logging.config import dictConfig
 import logging
 import sys
 import base64
 import os
-from PyPDF2 import PdfReader
+# from PyPDF2 import PdfReader
 from io import BytesIO
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -15,9 +15,9 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 file_storage = {}
 
-# Kết nối cơ sở dữ liệu
-def get_db_connection():
-    return psycopg2.connect(database="CNPM", user="postgres", password="p123", host="localhost", port="5432")
+# # Kết nối cơ sở dữ liệu
+# def get_db_connection():
+#     return psycopg2.connect(database="CNPM", user="postgres", password="p123", host="localhost", port="5432")
 
 
 @app.route('/')
@@ -36,8 +36,39 @@ def transaction_history():
 def deposit():
     return render_template('deposit.html')
 
-#owner routes ##############################################################
 
+@app.route('/admin_transaction_history')
+def admin_transaction_history():
+    return render_template('administrator/admin_transaction_history.html')
+
+@app.route('/admin_manage_user')
+def admin_manage_user():
+    return render_template('administrator/admin_manage_user.html')
+
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    return render_template('administrator/dashboard.html')
+
+@app.route('/admin_manage_field')
+def admin_manage_field():
+    return render_template('administrator/admin_manage_field.html')
+
+@app.route('/admin_statistics')
+def admin_statistics():
+    return render_template('administrator/admin_statistics.html')
+
+@app.route('/admin_field_info')
+def admin_field_info():
+    return render_template('administrator/admin_field_info.html')
+
+@app.route('/test1')
+def test1():
+    return render_template('administrator/test1.html')
+
+@app.route('/test2')
+def test2():
+    return render_template('administrator/test2.html')
+  
 @app.route('/ownercalendar')
 def ownercalendar():
     return render_template('owner_calendar.html')

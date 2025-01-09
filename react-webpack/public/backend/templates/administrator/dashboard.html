@@ -1,0 +1,281 @@
+<!-- templates/main.html -->
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="h-full bg-gray-100">
+    <!-- Include Navbar Component -->
+    {% include 'administrator/components/navbar.html' %}
+
+    <!-- Content Area -->
+    <div class="flex flex-1">
+      <!-- Main Content Area -->
+      <div class="flex-1 py-6 px-48 overflow-auto">
+        <!-- Main Content -->
+        <div class="flex flex-col gap-4">
+          <!-- Top Section -->
+          <div class="flex rounded-lg shadow-md bg-white" style="height: 300px">
+            <!-- Field Image -->
+            <div class="flex w-1/2 pr-2">
+              <img
+                src="{{ url_for('static', filename='images/administrator/football_field.png') }}"
+                alt="Soccer Field"
+                class="w-full rounded-lg shadow-md"
+              />
+            </div>
+            <!-- Field Management -->
+            <div class="flex-1 flex flex-col justify-between p-4">
+              <div class="flex justify-between">
+                <h2 class="text-lg font-semibold">Quản lý sân thể thao</h2>
+                <!-- Icon -->
+                <span
+                  data-tooltip-target="tooltip-bottom-field-management"
+                  data-tooltip-placement="bottom"
+                  class="flex items-center justify-center w-6 h-6 text-gray-600 font-bold border-2 border-gray-600 rounded-full"
+                >
+                  i
+                </span>
+
+                <!-- Tooltip -->
+                <div
+                  id="tooltip-bottom-field-management"
+                  role="tooltip"
+                  class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white rounded-lg shadow-sm opacity-0 tooltip bg-gray-400"
+                >
+                  Top 3 sân thể thao được người dùng đặt sân nhiều nhất
+                  <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+              </div>
+              <ul>
+                <li class="flex justify-between py-2 border-b">
+                  <span>Sân bóng đá trong nhà Bắc Sài Gòn</span>
+                  <span class="font-bold">1124</span>
+                </li>
+                <li class="flex justify-between py-2 border-b">
+                  <span>Sân Bóng Chảo lửa</span>
+                  <span class="font-bold">856</span>
+                </li>
+                <li class="flex justify-between py-2">
+                  <span>Sân bóng khang an</span>
+                  <span class="font-bold">523</span>
+                </li>
+              </ul>
+              <button
+                onclick="window.location.href='/admin_manage_field';"
+                class="w-36 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+              >
+                Đi tới
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-row gap-4">
+            <!-- Left Section -->
+            <div class="flex flex-col w-1/2 gap-4 bg-gray-100">
+              <!-- User Management -->
+              <div
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
+                style="height: 250px"
+              >
+                <div class="flex justify-between">
+                  <h2 class="text-lg font-semibold">Quản lý người dùng</h2>
+                  <!-- Icon -->
+                  <span
+                    data-tooltip-target="tooltip-bottom-user-management"
+                    data-tooltip-placement="bottom"
+                    class="flex items-center justify-center w-6 h-6 text-gray-600 font-bold border-2 border-gray-600 rounded-full"
+                  >
+                    i
+                  </span>
+
+                  <!-- Tooltip -->
+                  <div
+                    id="tooltip-bottom-user-management"
+                    role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white rounded-lg shadow-sm opacity-0 tooltip bg-gray-400"
+                  >
+                    Top 3 người dùng đặt sân nhiều nhất
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                  </div>
+                </div>
+                <ul>
+                  <li class="flex justify-between py-2 border-b">
+                    <span>Lý Thụ Phong</span>
+                    <span class="font-bold">20</span>
+                  </li>
+                  <li class="flex justify-between py-2 border-b">
+                    <span>Trần Anh Khoa</span>
+                    <span class="font-bold">16</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <span>Nguyễn Đoàn Hải Băng</span>
+                    <span class="font-bold">14</span>
+                  </li>
+                </ul>
+                <button
+                  class="w-36 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+                  onclick="window.location.href='/admin_manage_user';"
+                >
+                  Đi tới
+                </button>
+              </div>
+
+              <!-- Statistic -->
+              <div
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
+                style="height: 300px"
+              >
+                <div class="flex justify-between">
+                  <h2 class="text-lg font-semibold">Thống kê</h2>
+                  <!-- Icon -->
+                  <span
+                    data-tooltip-target="tooltip-bottom-statistic"
+                    data-tooltip-placement="bottom"
+                    class="flex items-center justify-center w-6 h-6 text-gray-600 font-bold border-2 border-gray-600 rounded-full"
+                  >
+                    i
+                  </span>
+
+                  <!-- Tooltip -->
+                  <div
+                    id="tooltip-bottom-statistic"
+                    role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white rounded-lg shadow-sm opacity-0 tooltip bg-gray-400"
+                  >
+                    Dữ liệu thống kê trong 1 tháng gần đây
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                  </div>
+                </div>
+                <div class="flex flex-row justify-between w-full px-4">
+                  <div class="flex flex-col items-center">
+                    <span class="font-bold text-3xl mb-3">130</span>
+                    <span>Số lượt đánh giá</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="font-bold text-3xl mb-3">254</span>
+                    <span>Số lượt đặt sân</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="font-bold text-3xl mb-3">201</span>
+                    <span>Lượng truy cập</span>
+                  </div>
+                </div>
+                <button
+                  onclick="window.location.href='/admin_statistics';"
+                  class="w-36 bg-green-500 text-white py-2 rounded hover:bg-green-600 mx-auto block"
+                >
+                  Đi tới
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="flex flex-col w-1/2 gap-4 bg-gray-100">
+              <!-- Notification -->
+              <div
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
+                style="height: 150px"
+              >
+                <div class="flex flex-row justify-between items-start">
+                  <h2 class="text-lg font-semibold">Thông báo</h2>
+                  <select class="w-34 h-8 px-2 border rounded text-sm">
+                    <option>Mọi người</option>
+                    <option>Người dùng</option>
+                    <option>Chủ sân</option>
+                    <option>Quản trị viên</option>
+                  </select>
+                  <button class="icon w-4 h-4">
+                    <img
+                      src="{{ url_for('static', filename='images/administrator/icon_send.svg') }}"
+                      alt="Send Icon"
+                      class="w-full h-full object-contain"
+                    />
+                  </button>
+                </div>
+                <textarea
+                  class="w-full p-2 border rounded resize-none"
+                  placeholder="Viết thông báo của bạn ở đây..."
+                ></textarea>
+              </div>
+
+              <!-- Transaction History -->
+              <div
+                class="flex flex-col justify-between p-4 rounded-lg shadow-md bg-white"
+                style="height: 400px"
+              >
+                <h2 class="text-lg font-semibold">Lịch sử giao dịch</h2>
+                <ul class="max-h-64 overflow-y-auto border rounded-lg p-2">
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Lý Thụ Phong</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+50.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Lý Thụ Phong</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+75.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Trần Duy Đức Huy</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+500.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Trần Long</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+15.000đ</span>
+                  </li>
+                  <li class="flex justify-between py-2">
+                    <div class="flex flex-col">
+                      <span>Nhận tiền từ Lý Thụ Phong</span>
+                      <span class="text-sm text-gray-400"
+                        >18:32 - 27/10/2024</span
+                      >
+                    </div>
+                    <span class="font-bold">+100.000đ</span>
+                  </li>
+                </ul>
+                <div class="flex flex-col items-center">
+                  <a
+                    href="/admin_transaction_history"
+                    class="text-gray-600 hover:text-gray-800"
+                  >
+                    Xem thêm...
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
