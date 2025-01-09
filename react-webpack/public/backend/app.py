@@ -16,7 +16,7 @@ file_storage = {}
 
 # Kết nối cơ sở dữ liệu
 def get_db_connection():
-    return psycopg2.connect(database="project", user="postgres", password="p123", host="localhost", port="5432")
+    return psycopg2.connect(database="project", user="postgres", password="anhkhoa191217", host="localhost", port="5432")
 
 
 # Đăng nhập
