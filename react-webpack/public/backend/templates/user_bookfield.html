@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sporty Webby Book Field</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+			rel="stylesheet" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/nav_bar_bookfield.css') }}" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/user_bookfield.css') }}" />
+	</head>
+	<body>
+		<!-- nav bar -->
+		<div class="navbar_ngang">
+			<!-- logo + text -->
+			<div class="logo-section">
+				<img
+					class="logo"
+					src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}" />
+				<div class="logo-text">
+					Sporty <br />
+					Webby
+				</div>
+			</div>
+			<!-- search -->
+			<div class="search-container">
+				<div class="search-box">
+					<img
+						class="search-icon"
+						src="{{ url_for('static', filename='images/icon_search.png') }}" />
+					<input type="text" class="search-input" placeholder="Search" />
+					<button class="clear-btn">✖</button>
+				</div>
+				<script>
+					const searchInput = document.querySelector(".search-input");
+					const clearBtn = document.querySelector(".clear-btn");
+
+					clearBtn.addEventListener("click", () => {
+						searchInput.value = "";
+						searchInput.focus();
+					});
+				</script>
+			</div>
+			<!-- Navigation Links -->
+			<div class="nav-links">
+				<a href="#" class="nav-item" style="width: 90px">Trang chủ</a>
+				<a href="#" class="nav-item" style="width: 60px">Bạn bè</a>
+				<a href="#" class="nav-item">Blog</a>
+			</div>
+			<!-- Profile Section -->
+			<div class="profile-section">
+				<div class="notification-icons">
+					<!-- Bell icon for Notifications -->
+					<div class="bell-icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_noti.png') }}" />
+					</div>
+					<!-- Message box icon -->
+					<div class="message-icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_chat.png') }}" />
+					</div>
+				</div>
+				<!-- Profile Info -->
+				<div class="profile-info">
+					<img
+						class="profile-avatar"
+						src="{{ url_for('static', filename='images/avatar.png') }}" />
+					<div class="profile-name">
+						<p>Trần Văn A</p>
+						<p class="status">Trực tuyến</p>
+					</div>
+				</div>
+				<!-- Arrow icon to toggle dropdown menu -->
+				<div class="dropdown-arrow" onclick="toggleDropdown()">
+					<img
+						src="{{ url_for('static', filename='images/icon_arrow.png') }}" />
+				</div>
+				<!-- Dropdown menu -->
+				<div class="dropdown-menu" id="dropdownMenu">
+					<ul>
+						<li><a href="#">Thông tin cá nhân</a></li>
+						<li><a href="#">Lịch sử hoạt động</a></li>
+						<li><a href="#">Bảo mật</a></li>
+						<li><a href="#">Cài đặt</a></li>
+						<li><a href="#">Năng suất</a></li>
+					</ul>
+				</div>
+				<script>
+					function toggleDropdown() {
+						var dropdownMenu = document.getElementById("dropdownMenu");
+						dropdownMenu.style.display =
+							dropdownMenu.style.display === "block" ? "none" : "block";
+					}
+				</script>
+			</div>
+		</div>
+		<div class="main-wrapper">
+			<div class="sidebar">
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_dashboard.png') }}" />
+					</div>
+					<div class="text">Bảng điều khiển</div>
+				</div>
+				<div class="menu-item" style="background-color: rgb(14, 1, 87)">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_book_field.png') }}" />
+					</div>
+					<div class="text" style="background-color: rgb(14, 1, 87)">
+						Đặt sân
+					</div>
+				</div>
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_history_book_field.png') }}"
+							class="abc" />
+					</div>
+					<div class="text">Lịch sử đặt sân</div>
+				</div>
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_deposit.png') }}" />
+					</div>
+					<div class="text">Nạp tiền</div>
+				</div>
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_payment_history.png') }}" />
+					</div>
+					<div class="text">Lịch sử giao dịch</div>
+				</div>
+			</div>
+			<!-- Sports Section -->
+			<div class="sports-container">
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/bongda.png') }}"
+					alt="Bóng đá"
+					data-sport="Bóng đá Mini 77"
+					data-img="sanbanh.png" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/bongro.png') }}"
+					alt="Bóng rổ"
+					data-sport="Bóng rổ Hùng Vương"
+					data-img="sanbongro.jpg" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/caulong.png') }}"
+					alt="Cầu lông"
+					data-sport="Cầu lông Thiên Hoàng"
+					data-img="sancaulong.jpg" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/pickeball.png') }}"
+					alt="Pickeball"
+					data-sport="Pickeball Minh Chải"
+					data-img="sanpickeball.png" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/tennis.png') }}"
+					alt="Tennis"
+					data-sport="Tennis Vũ Trung"
+					data-img="santennis.jpg" />
+				<img
+					class="selectable sports-item"
+					src="{{ url_for('static', filename='images/bongchuyen.png') }}"
+					alt="Bóng chuyền"
+					data-sport="Bóng chuyền Lê Lợi"
+					data-img="sanbongchuyen.jpg" />
+			</div>
+
+			<div class="big-frame">
+				{% for i in range(12) %}
+				<div class="card" onClick="window.location.href='bookfield_info'">
+					<img id="club-image" src="{{ url_for('static',
+					filename='images/sanbanh.png') }}" alt="Sân bóng" / >
+					<div class="info">
+						<h3 id="club-name">CLB Sân Bóng đá Mini 77</h3>
+						<div class="rating">
+							{% for _ in range(4) %}
+							<img
+								src="{{ url_for('static', filename='images/onestar.png') }}"
+								alt="star" />
+							{% endfor %}
+							<img
+								src="{{ url_for('static', filename='images/halfstar.png') }}"
+								alt="half star" />
+							<span class="rating-word">4.5</span>
+						</div>
+						<p class="price">125.000 đ / giờ</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<script>
+			const images = document.querySelectorAll(".selectable");
+			images.forEach((img) => {
+				img.addEventListener("click", () => {
+					images.forEach((item) => item.classList.remove("selected"));
+					img.classList.add("selected");
+				});
+			});
+		</script>
+		<script>
+			document.querySelectorAll(".sports-item").forEach((item) => {
+				item.addEventListener("click", function () {
+					const selectedSport = this.getAttribute("data-sport");
+					const selectedImg = this.getAttribute("data-img");
+					document.querySelectorAll("#club-name").forEach((clubName) => {
+						clubName.textContent = `CLB Sân ${selectedSport}`;
+					});
+					document.querySelectorAll("#club-image").forEach((clubImage) => {
+						clubImage.src = `{{ url_for('static', filename='images/') }}${selectedImg}`;
+						clubImage.alt = `Sân ${selectedSport}`;
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

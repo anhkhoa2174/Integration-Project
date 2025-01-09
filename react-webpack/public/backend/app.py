@@ -36,7 +36,41 @@ def transaction_history():
 def deposit():
     return render_template('deposit.html')
 
+<<<<<<< HEAD
 
+=======
+@app.route('/ownercalendar')
+def ownercalendar():
+    return render_template('owner_calendar.html')
+
+@app.route('/ownercalendar2')
+def ownercalendar2():
+    return render_template('owner_calendar_var2.html')
+
+@app.route('/ownercalendar3')
+def ownercalendar3():
+    return render_template('owner_calendar_var3.html')
+
+@app.route('/ownerdeposit')
+def ownerdeposit():
+    return render_template('owner_deposit.html')
+
+@app.route('/user_dashboard')
+def user_dashboard():
+    return render_template('user_dashboard.html')
+
+@app.route('/user_bookfield')
+def user_bookfield():
+    return render_template('user_bookfield.html')
+
+@app.route('/user_homescreen')
+def user_homescreen():
+    return render_template('user_homescreen.html')
+
+@app.route('/bookfield_info')
+def bookfield_info():
+    return render_template('bookfield_info.html')
+>>>>>>> ce0290521c14cee10bda24f5d00bf52a97e43e9d
 
 if __name__ == '__main__':
     app.run(debug=True)

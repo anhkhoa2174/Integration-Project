@@ -9,7 +9,10 @@
 	color: white;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 	margin-left: auto;
-	position: relative;
+	position: fixed;  /* Cố định thanh navbar */
+	top: 0;  /* Đặt thanh navbar ở đầu trang */
+	left: 0;
+	z-index: 1000; /* Đảm bảo nó hiển thị trên cùng */
 }
 /* Logo Section */
 .logo-section {
@@ -220,12 +223,16 @@ body {
 }
 
 .sidebar {
-	width: 180px;
-	height: 91vh;
-	background: #041f4a; /* Màu xanh đậm */
+    width: 180px;
+	height: 100vh; /* Đảm bảo sidebar full chiều cao theo viewport */
+	background: #041f4a;
 	color: white;
 	display: flex;
 	flex-direction: column;
+	position: fixed; /* Cố định sidebar */
+	left: 0;
+	top: 9vh; /* Đặt sidebar ngay dưới navbar */
+	z-index: 999;
 }
 
 .menu-item {

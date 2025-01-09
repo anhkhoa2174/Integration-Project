@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sporty Webby Dashboard</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+			rel="stylesheet" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/nav_bar_homescreen.css') }}" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/user_dashboard.css') }}" />
+	</head>
+	<body>
+		<!-- nav bar -->
+		<div class="navbar_ngang">
+			<!-- logo + text -->
+			<div class="logo-section">
+				<img
+					class="logo"
+					src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}" />
+				<div class="logo-text">
+					Sporty <br />
+					Webby
+				</div>
+			</div>
+			<!-- search -->
+			<div class="search-container">
+				<div class="search-box">
+					<img
+						class="search-icon"
+						src="{{ url_for('static', filename='images/icon_search.png') }}" />
+					<input type="text" class="search-input" placeholder="Search" />
+					<button class="clear-btn">✖</button>
+				</div>
+				<script>
+					const searchInput = document.querySelector(".search-input");
+					const clearBtn = document.querySelector(".clear-btn");
+
+					clearBtn.addEventListener("click", () => {
+						searchInput.value = "";
+						searchInput.focus();
+					});
+				</script>
+			</div>
+			<!-- Navigation Links -->
+			<div class="nav-links">
+				<a href="#" class="nav-item" style="width: 90px">Trang chủ</a>
+				<a href="#" class="nav-item" style="width: 60px">Bạn bè</a>
+				<a href="#" class="nav-item">Blog</a>
+			</div>
+			<!-- Profile Section -->
+			<div class="profile-section">
+				<div class="notification-icons">
+					<!-- Bell icon for Notifications -->
+					<div class="bell-icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_noti.png') }}" />
+					</div>
+					<!-- Message box icon -->
+					<div class="message-icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_chat.png') }}" />
+					</div>
+				</div>
+				<!-- Profile Info -->
+				<div class="profile-info">
+					<img
+						class="profile-avatar"
+						src="{{ url_for('static', filename='images/avatar.png') }}" />
+					<div class="profile-name">
+						<p>Trần Văn A</p>
+						<p class="status">Trực tuyến</p>
+					</div>
+				</div>
+				<!-- Arrow icon to toggle dropdown menu -->
+				<div class="dropdown-arrow" onclick="toggleDropdown()">
+					<img
+						src="{{ url_for('static', filename='images/icon_arrow.png') }}" />
+				</div>
+				<!-- Dropdown menu -->
+				<div class="dropdown-menu" id="dropdownMenu">
+					<ul>
+						<li><a href="#">Thông tin cá nhân</a></li>
+						<li><a href="#">Lịch sử hoạt động</a></li>
+						<li><a href="#">Bảo mật</a></li>
+						<li><a href="#">Cài đặt</a></li>
+						<li><a href="#">Năng suất</a></li>
+					</ul>
+				</div>
+				<script>
+					function toggleDropdown() {
+						var dropdownMenu = document.getElementById("dropdownMenu");
+						dropdownMenu.style.display =
+							dropdownMenu.style.display === "block" ? "none" : "block";
+					}
+				</script>
+			</div>
+		</div>
+		<div class="main-wrapper">
+			<div class="calendar-bar">
+				<i class="fas fa-bars" onclick="toggleMenu()"></i>
+				<i class="fas fa-calendar-alt" onclick="openCalendar()"></i>
+				<i class="fas fa-chevron-left" onclick="prevMonth()"></i>
+				<span class="calendar-month" id="calendarMonth">Tháng 11, 2024</span>
+				<i class="fas fa-chevron-right" onclick="nextMonth()"></i>
+				<i class="fas fa-th" onclick="addEvent()"></i>
+				<i class="fas fa-list" onclick="viewEventDetails()"></i>
+				<i class="fas fa-filter" onclick="applyFilter()"></i>
+				<i class="fas fa-cog" onclick="openSettings()"></i>
+				<i class="fas fa-search" onclick="performSearch()"></i>
+			</div>
+
+			<div class="sidebar">
+				<div class="menu-item" style="background-color: rgb(14, 1, 87)">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_dashboard.png') }}" />
+					</div>
+					<div class="text">Bảng điều khiển</div>
+				</div>
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_book_field.png') }}" />
+					</div>
+					<div class="text" style="background-color: rgb(14, 1, 87)">
+						Đặt sân
+					</div>
+				</div>
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_history_book_field.png') }}"
+							class="abc" />
+					</div>
+					<div class="text">Lịch sử đặt sân</div>
+				</div>
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_deposit.png') }}" />
+					</div>
+					<div class="text">Nạp tiền</div>
+				</div>
+				<div class="menu-item">
+					<div class="icon">
+						<img
+							src="{{ url_for('static', filename='images/icon_payment_history.png') }}" />
+					</div>
+					<div class="text">Lịch sử giao dịch</div>
+				</div>
+			</div>
+			<div class="under-calendar-bar">
+				<p
+					class="two-digit-time-cell"
+					style="top: 4.1%; left: 0.3%; width: 80px">
+					GMT +07
+				</p>
+				<p class="one-digit-time-cell" style="top: 6.3%">7 AM</p>
+				<p class="one-digit-time-cell" style="top: 8.3%">8 AM</p>
+				<p class="one-digit-time-cell" style="top: 10.3%">9 AM</p>
+				<p class="two-digit-time-cell" style="top: 12.3%">10 AM</p>
+				<p class="two-digit-time-cell" style="top: 14.3%">11 AM</p>
+				<p class="two-digit-time-cell" style="top: 16.3%">12 AM</p>
+				<p class="two-digit-time-cell" style="top: 18.4%">13 PM</p>
+				<p class="two-digit-time-cell" style="top: 20.5%">14 PM</p>
+				<p class="two-digit-time-cell" style="top: 22.5%">15 PM</p>
+				<p class="two-digit-time-cell" style="top: 24.5%">16 PM</p>
+				<p class="two-digit-time-cell" style="top: 26.5%">17 PM</p>
+				<p class="two-digit-time-cell" style="top: 28.7%">18 PM</p>
+				<p class="two-digit-time-cell" style="top: 30.7%">19 PM</p>
+				<p class="two-digit-time-cell" style="top: 32.7%">20 PM</p>
+				<p class="two-digit-time-cell" style="top: 34.9%">21 PM</p>
+				<p class="two-digit-time-cell" style="top: 36.9%">22 PM</p>
+				<p class="two-digit-time-cell" style="top: 38.9%">23 PM</p>
+			</div>
+
+			<div class="calendar">
+				<div class="calendar-header">
+					<div>CN <br />10</div>
+					<div>TH 2 <br />11</div>
+					<div>TH 3 <br />12</div>
+					<div>TH 4 <br />13</div>
+					<div>TH 5 <br />14</div>
+					<div>TH 6 <br />15</div>
+					<div>TH 7 <br />16</div>
+				</div>
+				<div class="calendar-body"></div>
+			</div>
+		</div>
+		<script>
+			let currentDate = new Date();
+
+			// Hàm cập nhật lịch
+			function updateCalendar() {
+				const monthSpan = document.getElementById("calendarMonth");
+				const calendarHeader = document.querySelector(".calendar-header");
+				const calendarBody = document.querySelector(".calendar-body");
+				const startOfWeek = getStartOfWeek(currentDate);
+				const endOfWeek = getEndOfWeek(currentDate);
+
+				const months = [
+					"Tháng 1",
+					"Tháng 2",
+					"Tháng 3",
+					"Tháng 4",
+					"Tháng 5",
+					"Tháng 6",
+					"Tháng 7",
+					"Tháng 8",
+					"Tháng 9",
+					"Tháng 10",
+					"Tháng 11",
+					"Tháng 12",
+				];
+
+				// Hiển thị tháng và năm hiện tại
+				monthSpan.textContent = `${
+					months[startOfWeek.getMonth()]
+				}, ${startOfWeek.getFullYear()}`;
+
+				// Xóa nội dung cũ và tạo tuần mới
+				calendarHeader.innerHTML = "";
+				calendarBody.innerHTML = "";
+
+				for (let i = 0; i < 7; i++) {
+					let day = new Date(startOfWeek);
+					day.setDate(startOfWeek.getDate() + i);
+
+					const dayCell = document.createElement("div");
+					dayCell.innerHTML = `${getDayName(day)} <br />${day.getDate()}`;
+					calendarHeader.appendChild(dayCell);
+				}
+
+				// Kiểm tra nếu là tuần từ 6/1/2025 đến 12/1/2025
+				if (
+					startOfWeek.getFullYear() === 2025 &&
+					startOfWeek.getMonth() === 0 && // Tháng 0 là tháng 1
+					startOfWeek.getDate() === 6
+				) {
+					calendarBody.innerHTML = `
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell">
+					<div class="event yellow" style="top: 5px; left: 4px; width: 90%; height: 170%">
+						Trận đá bóng<br />7 - 9 AM
+					</div>
+				</div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell">
+					<div class="event red" style="top: 5px; left: 4px; width: 90%; height: 170%">
+						Trận bóng rổ<br />8 - 10 AM
+					</div>
+				</div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell">
+					<div class="event blue" style="top: 5px; left: 4px; width: 90%; height: 72%">
+						Trận đá bóng<br />14 - 15 PM
+					</div>
+				</div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell">
+					<div class="event green" style="top: 5px; left: 4px; width: 90%; height: 72%">
+						Trận cầu lông<br />16 - 17 PM
+					</div>
+				</div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div><div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div><div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div><div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+				<div class="calendar-cell"></div>
+			`;
+				} else {
+					// Nếu không phải tuần này thì hiển thị ô trống
+					for (let i = 0; i < 126; i++) {
+						calendarBody.innerHTML += '<div class="calendar-cell"></div>';
+					}
+				}
+			}
+
+			// Lấy ngày bắt đầu của tuần (Thứ 2)
+			function getStartOfWeek(date) {
+				const start = new Date(date);
+				const day = start.getDay();
+				const diff = start.getDate() - day + (day === 0 ? -6 : 1); // Nếu là Chủ Nhật thì lùi về Thứ 2 trước đó
+				start.setDate(diff);
+				return start;
+			}
+
+			// Lấy ngày kết thúc của tuần (Chủ Nhật)
+			function getEndOfWeek(date) {
+				const end = new Date(getStartOfWeek(date));
+				end.setDate(end.getDate() + 6);
+				return end;
+			}
+
+			// Lấy tên ngày (CN, Thứ 2, Thứ 3,...)
+			function getDayName(date) {
+				const days = ["CN", "TH 2", "TH 3", "TH 4", "TH 5", "TH 6", "TH 7"];
+				return days[date.getDay()];
+			}
+
+			// Lùi về tuần trước
+			function prevMonth() {
+				currentDate.setDate(currentDate.getDate() - 7);
+				updateCalendar();
+			}
+
+			// Tới tuần tiếp theo
+			function nextMonth() {
+				currentDate.setDate(currentDate.getDate() + 7);
+				updateCalendar();
+			}
+
+			// Khởi tạo lịch khi load trang
+			updateCalendar();
+		</script>
+
+		<script>
+			function addEvent() {
+				alert("Thêm sự kiện mới thành công!");
+			}
+
+			function bookField() {
+				alert("Đặt sân thành công! Hãy kiểm tra lịch sử đặt sân.");
+			}
+
+			function viewEventDetails() {
+				alert("Xem chi tiết sự kiện: Trận đá bóng lúc 7 AM.");
+			}
+		</script>
+		<script>
+			// Mở và đóng menu trượt từ bên trái (slide menu)
+			function toggleMenu() {
+				let menu = document.querySelector(".sidebar");
+				if (menu.style.transform === "translateX(0px)") {
+					menu.style.transform = "translateX(-250px)";
+				} else {
+					menu.style.transform = "translateX(0px)";
+				}
+			}
+
+			// Hiển thị modal lịch (giống như pop-up) để chọn ngày
+			function openCalendar() {
+				let modal = document.createElement("div");
+				modal.innerHTML = `
+			<div class="modal-overlay">
+				<div class="modal-content">
+					<h3>Chọn Ngày</h3>
+					<input type="date" id="select-date" />
+					<button onclick="confirmDate()">Xác Nhận</button>
+					<button onclick="closeModal()">Đóng</button>
+				</div>
+			</div>
+		`;
+				document.body.appendChild(modal);
+			}
+
+			function confirmDate() {
+				let selectedDate = document.getElementById("select-date").value;
+				if (selectedDate) {
+					alert(`Đã chọn ngày: ${selectedDate}`);
+				} else {
+					alert("Vui lòng chọn ngày.");
+				}
+				closeModal();
+			}
+
+			// Đóng modal pop-up
+			function closeModal() {
+				let modal = document.querySelector(".modal-overlay");
+				if (modal) modal.remove();
+			}
+
+			// Áp dụng bộ lọc và làm mờ nội dung trang
+			function applyFilter() {
+				document.body.style.filter = "blur(3px)";
+				setTimeout(() => {
+					document.body.style.filter = "none";
+				}, 1500);
+				alert("Bộ lọc đã được áp dụng!");
+			}
+
+			// Mở cửa sổ cài đặt (popup nhỏ gọn)
+			function openSettings() {
+				let settingsBox = document.createElement("div");
+				settingsBox.className = "settings-box";
+				settingsBox.innerHTML = `
+			<h3>Cài Đặt</h3>
+			<label><input type="checkbox" checked /> Nhận thông báo</label>
+			<label><input type="checkbox" /> Giao diện tối</label>
+			<button onclick="saveSettings()">Lưu</button>
+		`;
+				document.body.appendChild(settingsBox);
+			}
+
+			function saveSettings() {
+				alert("Cài đặt đã được lưu!");
+				closeModal();
+			}
+
+			// Hiệu ứng tìm kiếm với animation
+			function performSearch() {
+				let searchTerm = prompt("Nhập nội dung bạn muốn tìm:");
+				if (searchTerm) {
+					let searchBox = document.querySelector(".search-box");
+					searchBox.classList.add("active-search");
+					setTimeout(() => {
+						searchBox.classList.remove("active-search");
+						alert(`Đang tìm kiếm: ${searchTerm}`);
+					}, 1200);
+				}
+			}
+		</script>
+	</body>
+</html>

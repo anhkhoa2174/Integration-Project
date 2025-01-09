@@ -1,0 +1,156 @@
+/* Wrapper tổng quan chia làm 3 cột */
+.main-wrapper {
+	height: 750px;
+	width: 100%;
+	margin-top: 9vh;
+}
+.club-info {
+	width: 36%;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	font-family: "Arial", sans-serif;
+	position: relative;
+	height: 94%;
+	left: 48%;
+	top: -25%;
+	transform: translate(-50%, -20%);
+}
+.rating {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 15px 0;
+}
+.rating img {
+	height: 28px;
+}
+.rating span {
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 12px;
+	color: #666;
+}
+.price {
+	font-size: 26px;
+	font-weight: bold;
+	color: #666;
+}
+.description,
+.contact-info li {
+	color: #666;
+	max-width: 300px;
+}
+.contact-info li {
+	list-style: none;
+	margin: 8px 0;
+}
+.booking {
+	margin-top: 25px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.booking label {
+	font-weight: bold;
+}
+.booking button {
+	background-color: #fff;
+	border: 1px solid #000;
+	padding: 12px 25px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: bold;
+}
+.book-now {
+	background-color: #28a745 !important;
+	color: white !important;
+	border: none !important;
+	padding: 12px 25px !important;
+	border-radius: 8px !important;
+	cursor: pointer !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+}
+.social-share img {
+	height: 20px;
+	margin: 0 12px;
+}
+.promotion {
+	position: relative;
+	width: 39%;
+	padding: 20px;
+	height: 300px;
+	top: -84%;
+	left: 20%;
+	background-color: #fff;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+}
+.promotion h1 {
+	position: relative;
+	top: 0%;
+	left: 10%;
+	color: red;
+	width: 80%;
+	height: 100px;
+	font-weight: bold;
+	transform: rotate(-5deg);
+}
+.promotion .dibong {
+	width: 45%;
+	position: relative;
+	top: 0%;
+	height: 60%;
+	left: 10%;
+}
+.promotion .discount {
+	width: 40%;
+	top: -65%;
+	height: 60%;
+	left: 61%;
+	position: relative;
+}
+.gallery {
+	display: flex;
+	align-items: center;
+	left: 27%;
+	width: 30%;
+	height: 350px;
+	top: 5%;
+	position: relative;
+}
+.thumbnail-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+}
+.thumbnail-container img {
+	width: 80px;
+	cursor: pointer;
+	border-radius: 5px;
+	border: 2px solid transparent;
+}
+.thumbnail-container img:hover {
+	border-color: #007bff;
+}
+.main-image img {
+	width: 90%;
+	border-radius: 10px;
+	margin-left: 45px;
+}
+.notification {
+	display: none;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background-color: #4caf50;
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+}
