@@ -585,3 +585,30 @@ input[type="checkbox"]:checked {
 .return-login-btn:hover {
   background-color: #007acc;
 }
+
+@media (max-width: 1536px) {
+
+  .login-container {
+    height: 60vh;
+  }
+
+  .qr-login-container {
+    height: 60vh;
+  }
+
+  .forgot-password-container {
+    height: 60vh;
+  }
+
+  .verify-code-container {
+    height: 60vh;
+  }
+
+  .reset-password-wrapper {
+    height: 60vh;
+  }
+
+  .reset-success-container {
+    height: 60vh;
+  }
+}

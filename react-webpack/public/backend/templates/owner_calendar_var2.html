@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporty Webby Calendar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owner_calendar_var2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}">
+</head>
+<body>
+     <!-- nav bar -->
+     <div class="navbar_ngang">
+        <div class="logo-section">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+          />
+          <div class="logo-text">
+            Sporty <br />
+            Webby
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <img
+              class="search-icon"
+              src="{{ url_for('static', filename='images/icon_search.png') }}"
+            />
+            <input type="text" class="search-input" placeholder="Search" />
+            <button class="clear-btn">✖</button>
+          </div>
+          <script>
+            const searchInput = document.querySelector(".search-input");
+            const clearBtn = document.querySelector(".clear-btn");
+    
+            clearBtn.addEventListener("click", () => {
+              searchInput.value = "";
+              searchInput.focus();
+            });
+          </script>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-item">Trang chủ</a>
+          <a href="#" class="nav-item">Bạn bè</a>
+          <a href="#" class="nav-item">Blog</a>
+        </div>
+        <div class="profile-section">
+          <div class="notification-icons">
+            <div class="bell-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_noti.png') }}"
+              />
+            </div>
+            <div class="message-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_chat.png') }}"
+              />
+            </div>
+          </div>
+          <div class="profile-info">
+            <img
+              class="profile-avatar"
+              src="{{ url_for('static', filename='images/avatar.png') }}"
+            />
+            <div class="profile-name">
+              <p>Trần Văn A</p>
+              <p class="status">Trực tuyến</p>
+            </div>
+          </div>
+          <div class="dropdown-arrow" onclick="toggleDropdown()">
+            <img
+              src="{{ url_for('static', filename='images/icon_arrow.png') }}"
+            />
+          </div>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+              <li><a href="#">Thông tin cá nhân</a></li>
+              <li><a href="#">Lịch sử hoạt động</a></li>
+              <li><a href="#">Bảo mật</a></li>
+              <li><a href="#">Cài đặt</a></li>
+              <li><a href="#">Năng suất</a></li>
+            </ul>
+          </div>
+          <script>
+            function toggleDropdown() {
+              var dropdownMenu = document.getElementById("dropdownMenu");
+              dropdownMenu.classList.toggle("show");
+            }
+          </script>
+        </div>
+      </div>
+      <div class="sidebar">
+        <a href="#" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_dashboard.png') }}" alt="Trang chủ Icon"/>
+            </div>
+            <div class="text">Trang chủ</div>
+        </a>
+        <a href="#" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_book_field.png') }}" alt="Quản Lí Sân Icon" />
+            </div>
+            <div class="text">Quản Lí Sân</div>
+        </a>
+        <a href="ownercalendar" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_calendar.png') }}" alt="Lịch Icon"/>
+            </div>
+            <div class="text">Lịch</div>
+        </a>
+        <a href="ownerdeposit" class="menu-item">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='images/icon_payment_history.png') }}" alt="Lịch sử giao dịch Icon"/>
+            </div>
+            <div class="text">Lịch sử giao dịch</div>
+        </a>
+    </div>
+
+    <div class="main-content">
+        <div class="month-header">
+            <div class="month-dropdown">
+                <button class="month-dropdown-toggle">18 Tháng 5, 2024 ▼</button>
+                <div class="month-dropdown-menu">
+                    </div>
+            </div>
+            <div class="field-dropdown">
+              <button class="field-dropdown-toggle">Clb Sân Bóng Đá Mini 77 ▼</button>
+              <div class="field-dropdown-menu">
+                  </div>
+          </div>
+        </div>
+
+        <div class="field-info">
+            <h2>Clb Sân Bóng Đá Mini 77</h2>
+            <p>Địa chỉ: 152 Nguyễn Oanh, Phường 7, Gò Vấp, Hồ Chí Minh</p>
+        </div>
+
+        <div class="schedule">
+    <div class="time-slots">
+        <div class="time-slot-container">
+            <div class="time-slots-inner">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+ const timeSlotsInner = document.querySelector('.time-slots-inner');
+
+// Booking data
+const bookings = [
+  { hour: 14, bookingInfo: ["Tên: Huỳnh Mai Quốc Khang", "SDT: 0902456566", "Ghi chú: Cho em thùng sting"], backgroundColor: "lightblue" },
+  { hour: 18, bookingInfo: ["Tên: Quang Duy", "SDT: 0902456566", "Ghi chú: Khai mạc giải bóng U18 bóng đá HCM"], backgroundColor: "lightcoral" },
+  { hour: 9, bookingInfo: ["Tên: Nguyen Van B", "SDT: 0123456789", "Ghi chú: Training"], backgroundColor: "lightgreen" },
+  { hour: 11, bookingInfo: ["Tên: Tran Thi C", "SDT: 0987654321", "Ghi chú: Match"], backgroundColor: "lightyellow" },
+  { hour: 22, bookingInfo: ["Tên: Le Van D", "SDT: 0369852147", "Ghi chú: Friendly Match"], backgroundColor: "lightpink" }
+];
+
+// Generate time slots and bookings
+for (let hour = 0; hour <= 23; hour++) {
+  const time = String(hour).padStart(2, '0') + ':00';
+  const timeSlot = document.createElement('div');
+  timeSlot.classList.add('time-slot');
+  timeSlot.innerHTML = `<span>${time}</span>`;
+  timeSlotsInner.appendChild(timeSlot);
+
+  bookings.forEach(booking => {
+    if (booking.hour === hour) {
+      const bookedSlot = document.createElement('div');
+      bookedSlot.classList.add('time-slot', 'booked');
+      bookedSlot.style.backgroundColor = booking.backgroundColor;
+      bookedSlot.innerHTML = `
+        <div class="booking-info">
+          ${booking.bookingInfo.map(info => `<p>${info}</p>`).join('')}
+        </div>
+        <div class="delete-button">
+       <button onclick="openPopup(this.closest('.booked'))" class="delete-btn" style="background-color: transparent; border: none; padding: 0;">
+        <img src="{{ url_for('static', filename='images/icon_trashcan.png') }}" alt="Delete"/>
+       </button>
+        </div>
+      `;
+      timeSlot.appendChild(bookedSlot);
+    }
+  });
+}
+
+let currentBookingElement = null; // Track the booking to be deleted
+
+// Open popup and pass the element to be deleted
+function openPopup(element) {
+  const popup = document.getElementById('popup');
+  const popupInfo = document.getElementById('popupInfo');
+
+  // Store the booking element to be deleted
+  currentBookingElement = element;
+
+  // Get booking info and populate the popup
+  const bookingInfo = element.querySelector('.booking-info').innerHTML;
+  popupInfo.innerHTML = bookingInfo;
+
+  popup.style.display = 'flex';
+}
+
+// Close popup
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+  currentBookingElement = null;
+}
+
+// Delete the booking element from the DOM
+function deleteItem() {
+  if (currentBookingElement) {
+    currentBookingElement.remove();
+    alert('Booking has been canceled!');
+  }
+  closePopup();
+}
+</script>
+
+<!-- Reusable Popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>Hủy Sân</h3>
+    <div id="popupInfo"></div>
+    <div class="reason-container">
+      <label for="reason">Lý do:</label>
+      <textarea id="reason" name="reason" placeholder="Nhập lý do hủy"></textarea>
+    </div>
+    <div class="popup-buttons">
+      <button onclick="deleteItem()">Xác nhận</button>
+      <button onclick="closePopup()">Hủy</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
