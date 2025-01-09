@@ -166,7 +166,7 @@
           <input
             type="text"
             id="search-bar"
-            placeholder="Tìm kiếm theo tên sân"
+            placeholder="Tìm kiếm theo mã giao dịch"
           />
 
           <button class="filter-btn" onclick="filterTable()">Lọc</button>
@@ -250,7 +250,7 @@
         tableRows.forEach((row) => {
           const rowText = row.textContent.toLowerCase();
           const date = row.children[1].textContent.split(" ")[0]; // Lấy ngày từ cột ngày giờ
-          const fieldName = row.children[2].textContent.toLowerCase(); // Lấy Tên sân từ cột thứ 3
+          const fieldName = row.children[0].textContent.toLowerCase(); // Lấy mã giao dịch
 
           const dateValid =
             (!startDate || date >= startDate) && (!endDate || date <= endDate);

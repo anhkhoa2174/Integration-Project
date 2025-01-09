@@ -173,12 +173,12 @@
               <div class="package-bottom">
                 <div class="package-info">
                   <p>Gói 100k</p>
-                  <span>95.000 VND</span>
+                  <span data-add="100000" data-pay="95000">95.000 VND</span>
                 </div>
                 <button>+</button>
               </div>
             </div>
-
+        
             <!-- Gói 200k -->
             <div class="package-item">
               <img
@@ -188,12 +188,12 @@
               <div class="package-bottom">
                 <div class="package-info">
                   <p>Gói 200k</p>
-                  <span>190.000 VND</span>
+                  <span data-add="200000" data-pay="190000">190.000 VND</span>
                 </div>
                 <button>+</button>
               </div>
             </div>
-
+        
             <!-- Gói 400k -->
             <div class="package-item">
               <img
@@ -203,12 +203,12 @@
               <div class="package-bottom">
                 <div class="package-info">
                   <p>Gói 400k</p>
-                  <span>385.000 VND</span>
+                  <span data-add="400000" data-pay="385000">385.000 VND</span>
                 </div>
                 <button>+</button>
               </div>
             </div>
-
+        
             <!-- Gói 500k -->
             <div class="package-item">
               <img
@@ -218,12 +218,12 @@
               <div class="package-bottom">
                 <div class="package-info">
                   <p>Gói 500k</p>
-                  <span>480.000 VND</span>
+                  <span data-add="500000" data-pay="480000">480.000 VND</span>
                 </div>
                 <button>+</button>
               </div>
             </div>
-
+        
             <!-- Gói 600k -->
             <div class="package-item">
               <img
@@ -233,12 +233,12 @@
               <div class="package-bottom">
                 <div class="package-info">
                   <p>Gói 600k</p>
-                  <span>575.000 VND</span>
+                  <span data-add="600000" data-pay="575000">575.000 VND</span>
                 </div>
                 <button>+</button>
               </div>
             </div>
-
+        
             <!-- Gói 800k -->
             <div class="package-item">
               <img
@@ -248,7 +248,7 @@
               <div class="package-bottom">
                 <div class="package-info">
                   <p>Gói 800k</p>
-                  <span>765.000 VND</span>
+                  <span data-add="800000" data-pay="765000">765.000 VND</span>
                 </div>
                 <button>+</button>
               </div>
@@ -444,6 +444,62 @@
         window.location.href = page;
       }
     </script>
+    <script>
+      // Cập nhật khi nhấn nút Thanh toán ngay
+      document.getElementById("payButton").addEventListener("click", function () {
+        if (selectedPackage && selectedMethod) {
+          // Lấy số dư tài khoản hiện tại
+          const accountBalanceSpan = document.querySelector(".account-info span");
+          const currentBalance = parseInt(
+            accountBalanceSpan.textContent.replace(/[^\d]/g, "")
+          );
+    
+          // Lấy giá trị của gói nạp: thêm vào tài khoản và số tiền trả
+          const packageInfo = document.querySelector(".selected-package");
+          const packageText = packageInfo.querySelector("p").textContent;
+          let addedValue = 0;
+    
+          // Xác định giá trị thêm vào tài khoản dựa trên gói nạp
+          if (packageText === "Gói 100k") addedValue = 100000;
+          else if (packageText === "Gói 200k") addedValue = 200000;
+          else if (packageText === "Gói 400k") addedValue = 400000;
+          else if (packageText === "Gói 500k") addedValue = 500000;
+          else if (packageText === "Gói 600k") addedValue = 600000;
+          else if (packageText === "Gói 800k") addedValue = 800000;
+    
+          // Cập nhật số dư tài khoản
+          const newBalance = currentBalance + addedValue;
+          accountBalanceSpan.textContent = `${newBalance.toLocaleString(
+            "vi-VN"
+          )} VND`;
+    
+          // Reset trạng thái gói nạp và phương thức thanh toán
+          document.getElementById("selectedPackageBox").innerHTML = "Chọn gói nạp";
+          document.getElementById("selectedPackageBox").style.border =
+            "2px dashed #ddd";
+          document.getElementById("selectedMethodBox").innerHTML =
+            "Chọn phương thức thanh toán";
+          document.getElementById("selectedMethodBox").style.border =
+            "2px dashed #ccc";
+    
+          // Reset các biến trạng thái
+          selectedPackage = false;
+          selectedMethod = false;
+    
+          // Vô hiệu hóa nút thanh toán
+          validatePayment();
+    
+          alert(
+            `Thanh toán thành công! ${addedValue.toLocaleString(
+              "vi-VN"
+            )} VND đã được thêm vào tài khoản.`
+          );
+        } else {
+          alert("Vui lòng chọn gói nạp và phương thức thanh toán trước khi thanh toán.");
+        }
+      });
+    </script>
+    
     
   </body>
 </html>
