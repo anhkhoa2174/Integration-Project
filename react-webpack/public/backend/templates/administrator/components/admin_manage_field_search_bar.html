@@ -33,9 +33,27 @@
   </button>
 </div>
 <script>
+  // Clear Search
   function clearSearch() {
     const input = document.querySelector('input[type="text"]');
     input.value = "";
     input.focus();
   }
+
+  // Search for Field Card
+  const searchInput = document.querySelector('input[type="text"]');
+
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    const fieldCards = document.querySelectorAll(".field-card");
+
+    fieldCards.forEach((card) => {
+      const fieldName = card.getAttribute("data-field-name").toLowerCase();
+      if (fieldName.includes(query)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
 </script>
