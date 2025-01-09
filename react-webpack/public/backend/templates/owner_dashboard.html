@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Owner Dashboard</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}"> -->
     <link rel="stylesheet" href="../static/css/owner_dashboard.css">
 </head>
 <body>
@@ -43,11 +44,15 @@
     
     <div class="main-content">
         
+        <div class="manage-field-header">
+            <h2>Đăng bài viết</h2>
+            <!-- Add more field cards as needed -->
+        </div>
+        
         <div class="PartA">
             <!-- PartA1: Post Section and Statistics -->
             <div class="PartA1">
                 <div class="post-section">
-                    <h3>Đăng bài viết</h3>
                     <textarea placeholder="Viết nội dung của bạn ở đây..."></textarea>
                     <div class="additional-content">
                         <div class="upload-section">
@@ -65,7 +70,6 @@
                 </div>
                 <div class="statistics">
                     <h3>Số lượng người truy cập</h3>
-                    <canvas id="visitorChart"></canvas>
                 </div>
             </div>
         
