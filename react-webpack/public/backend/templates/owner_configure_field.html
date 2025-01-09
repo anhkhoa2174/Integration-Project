@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="../static/css/owner_configure_field.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="../static/images/icon_sports_soccer.png" alt="Logo" class="logo">
+            <span>Sporty Webby</span>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search">
+        </div>
+        <nav class="nav-links">
+            <a href="#">Trang Chủ</a>
+            <a href="#">Bạn Bè</a>
+            <a href="#">Blog</a>
+        </nav>
+        <div class="icons">
+            <img src="../static/images/Bell.png" alt="Notifications" class="icon">
+            <img src="../static/images/Chat.png" alt="Media" class="icon">
+            <div class="profile">
+                <span>Trần Văn A</span>
+                <img src="../static/images/avatar.png" alt="Profile" class="icon">
+            </div>
+        </div>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a href="owner_dashboard.html"><img src="../static/images/globe.png" alt="Home"> Trang Chủ</a></li>
+            <hr> 
+            <li class = "active"><a href="owner_managefield.html"><img src="../static/images/icon_book_field.png" alt="Field Management"> Quản Lý Sân</a></li>
+            <hr> 
+            <li><a href="#"><img src="../static/images/Date_range.png" alt="Calendar"> Lịch</a></li>
+            <hr> 
+            <li><a href="#"><img src="../static/images/icon_payment_history.png" alt="Transaction History"> Lịch Sử Giao Dịch</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <div class="edit-field-container">
+            <h2>CHỈNH SỬA THÔNG TIN SÂN</h2>
+            <form class="edit-field-form">
+                <!-- Block 1: Field Name -->
+                <div class="form-block">
+                    <label for="field-name">Tên sân</label>
+                    <input type="text" id="field-name" name="field-name" value="Clb Sân Bóng Đá Mini 77">
+                </div>
+        
+                <!-- Block 2: Address -->
+                <div class="form-block">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" name="address" value="152 Lý Chính Thắng, Phường 7, Quận 3, Hồ Chí Minh">
+                </div>
+        
+                <div class = "form34-container">
+                    <div class="form-row">
+                        <!-- Phone Number -->
+                        <div class="form-block">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="text" id="phone" name="phone" value="0912345678">
+                        </div>
+                                        <!-- Owner Name -->
+                        <div class="form-row">
+                            <div class="form-block full-width">
+                                <label for="owner-name">Tên chủ sân</label>
+                                <input type="text" id="owner-name" name="owner-name" value="Dương Ánh L">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-section">
+                        <input type="file" id="upload" hidden>
+                        <label for="upload" class="upload-label">
+                            <img src="../static/images/file.png" alt="Upload" class="icon">
+                            Ảnh sân<span class="upload-link">tải lên</span>
+                        </label>
+                        <span class="file-size-note">Kích thước file cho phép tối đa là 10MB</span>
+                    </div>
+                </div>
+                <!-- Block 5: Description -->
+                <div class="form-block">
+                    <label for="description">Mô tả sân</label>
+                    <textarea id="description" name="description" rows="5">Sân bóng mini chất lượng cao với không gian rộng rãi, thoáng mát, phù hợp cho các trận đấu giao hữu hoặc luyện tập. Vị trí thuận lợi, dễ tìm kiếm, nằm ngay tại trung tâm quận Gò Vấp. Dịch vụ chu đáo, trang bị đầy đủ tiện nghi đảm bảo mang lại trải nghiệm tốt nhất cho khách hàng.</textarea>
+                </div>
+        
+                <!-- Block 6: Buttons -->
+                <div class="form-buttons">
+                    <button type="button" class="cancel-button" onclick="window.location.href='owner_managefield.html';">Hủy</button>
+
+                    <button type="button" class="save-button" onclick="window.location.href='owner_managefield.html';">Đăng ký</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+        
+    
+    <!-- Your content here -->
+    <script src="../static/effect/owner_dashboard.js"></script>
+</body>
+</html>
