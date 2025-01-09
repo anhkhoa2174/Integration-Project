@@ -5,138 +5,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #2c3e50;
-    padding: 10px 20px;
-    color: white;
-    height: 40px;
-    position: fixed; /* Make the header fixed */
-    z-index: 1000; /* Ensures the header stays above other elements */
-}
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-.logo {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-.search-container {
-    flex: 1;
-    display: flex;
-    margin: 0 70px;
-}
-.search-container input {
-    width: 350px;
-    padding: 7px;
-    border-radius: 5px;
-    border: none;
-}
-.nav-links {
-    margin: 0 200px;
-    gap: 20px;
-}
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-.nav-links a:hover {
-    background-color: #34495e;
-}
-.icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.icon {
-    width: 24px;
-    height: 24px;
-}
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.sidebar {
-    width: 180px; /* Set sidebar width */
-    background-color: #2c3e50; /* Sidebar background color */
-    color: white;
-    padding: 20px;
-    height: calc(100vh - 60px); /* Sidebar height: viewport height minus header height */
-    position: fixed; /* Make the sidebar fixed */
-    top: 60px; /* Position the sidebar below the header */
-    left: 0; /* Align the sidebar to the left */
-    /* border-top-right-radius: 10px; Rounded top-right corner */
-    border-bottom-right-radius: 10px; /* Rounded bottom-right corner */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    overflow-y: auto; /* Enable scrolling within the sidebar if content overflows */
-    z-index: 1000; /* Ensure it stays on top of other elements */
-}
-.sidebar-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.sidebar-logo {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-.sidebar h2 {
-    font-size: 24px;
-    margin: 0;
-}
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-.sidebar ul li {
-    padding: 10px 0;
-}
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-.sidebar ul li a:hover {
-    background-color: #34495e;
-}
-.sidebar ul li a img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-hr {
-    border: 0;
-    height: 1px;
-    background: #34495e;
-    margin: 10px 0;
-}
-
-/* Highlight the active menu item */
-.sidebar ul li.active a {
-    background-color: #34495e; /* Highlight background color */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow */
-    font-weight: bold; /* Optional: Make text bold */
-    border-radius: 10px;
-}
-
-/* Optional: Hover effect for active item */
-.sidebar ul li.active a:hover {
-    background-color: #4a6fa5; /* Slightly lighter color on hover */
-}
-
-/* ------------------------END OF TEMPLATE--------------------------------- */
 
 
 .main-content {
@@ -502,6 +370,7 @@ hr {
 }
 
 .edit-button {
+    text-decoration: none;
     padding: 10px 20px;
     background: #27ae60;
     color: white;
