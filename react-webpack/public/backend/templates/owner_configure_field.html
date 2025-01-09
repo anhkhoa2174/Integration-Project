@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="../static/css/owner_configure_field.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}">
+</head>
+<body>
+     <!-- nav bar -->
+     <div class="navbar_ngang">
+        <div class="logo-section">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+          />
+          <div class="logo-text">
+            Sporty <br />
+            Webby
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <img
+              class="search-icon"
+              src="{{ url_for('static', filename='images/icon_search.png') }}"
+            />
+            <input type="text" class="search-input" placeholder="Search" />
+            <button class="clear-btn">✖</button>
+          </div>
+          <script>
+            const searchInput = document.querySelector(".search-input");
+            const clearBtn = document.querySelector(".clear-btn");
+    
+            clearBtn.addEventListener("click", () => {
+              searchInput.value = "";
+              searchInput.focus();
+            });
+          </script>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-item">Trang chủ</a>
+          <a href="#" class="nav-item">Bạn bè</a>
+          <a href="#" class="nav-item">Blog</a>
+        </div>
+        <div class="profile-section">
+          <div class="notification-icons">
+            <div class="bell-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_noti.png') }}"
+              />
+            </div>
+            <div class="message-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_chat.png') }}"
+              />
+            </div>
+          </div>
+          <div class="profile-info">
+            <img
+              class="profile-avatar"
+              src="{{ url_for('static', filename='images/avatar.png') }}"
+            />
+            <div class="profile-name">
+              <p>Trần Văn A</p>
+              <p class="status">Trực tuyến</p>
+            </div>
+          </div>
+          <div class="dropdown-arrow" onclick="toggleDropdown()">
+            <img
+              src="{{ url_for('static', filename='images/icon_arrow.png') }}"
+            />
+          </div>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+              <li><a href="#">Thông tin cá nhân</a></li>
+              <li><a href="#">Lịch sử hoạt động</a></li>
+              <li><a href="#">Bảo mật</a></li>
+              <li><a href="#">Cài đặt</a></li>
+              <li><a href="#">Năng suất</a></li>
+            </ul>
+          </div>
+          <script>
+            function toggleDropdown() {
+              var dropdownMenu = document.getElementById('dropdownMenu');
+              dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            }
+          </script>
+        </div>
+      </div>
+      <div class="sidebar">
+          <a href="owner_dashboard" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_dashboard.png') }}" alt="Trang chủ Icon"/>
+              </div>
+              <div class="text">Trang chủ</div>
+          </a>
+          <a href="owner_managefield" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_book_field.png') }}" alt="Quản Lí Sân Icon" />
+              </div>
+              <div class="text">Quản Lí Sân</div>
+          </a>
+          <a href="ownercalendar" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_calendar.png') }}" alt="Lịch Icon"/>
+              </div>
+              <div class="text">Lịch</div>
+          </a>
+          <a href="ownerdeposit" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_payment_history.png') }}" alt="Lịch sử giao dịch Icon"/>
+              </div>
+              <div class="text">Lịch sử giao dịch</div>
+          </a>
+      </div>
+    
+    <div class="main-content">
+        <div class="edit-field-container">
+            <h2>CHỈNH SỬA THÔNG TIN SÂN</h2>
+            <form class="edit-field-form">
+                <!-- Block 1: Field Name -->
+                <div class="form-block">
+                    <label for="field-name">Tên sân</label>
+                    <input type="text" id="field-name" name="field-name" value="Sân bóng đá trong nhà Lý Chính Thắng">
+                </div>
+        
+                <!-- Block 2: Address -->
+                <div class="form-block">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" name="address" value="152 Lý Chính Thắng, Phường 7, Quận 3, Hồ Chí Minh">
+                </div>
+        
+                <div class = "form34-container">
+                    <div class="form-row">
+                        <!-- Phone Number -->
+                        <div class="form-block">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="text" id="phone" name="phone" value="0912345678">
+                        </div>
+                                        <!-- Owner Name -->
+                        <div class="form-row">
+                            <div class="form-block full-width">
+                                <label for="owner-name">Tên chủ sân</label>
+                                <input type="text" id="owner-name" name="owner-name" value="Dương Ánh L">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-section">
+                        <input type="file" id="upload" hidden>
+                        <label for="upload" class="upload-label">
+                            <img src="../static/images/file.png" alt="Upload" class="icon">
+                            Ảnh sân<span class="upload-link">tải lên</span>
+                        </label>
+                        <span class="file-size-note">Kích thước file cho phép tối đa là 10MB</span>
+                    </div>
+                </div>
+                <!-- Block 5: Description -->
+                <div class="form-block">
+                    <label for="description">Mô tả sân</label>
+                    <textarea id="description" name="description" rows="5">Sân bóng mini chất lượng cao với không gian rộng rãi, thoáng mát, phù hợp cho các trận đấu giao hữu hoặc luyện tập. Vị trí thuận lợi, dễ tìm kiếm, nằm ngay tại trung tâm quận Gò Vấp. Dịch vụ chu đáo, trang bị đầy đủ tiện nghi đảm bảo mang lại trải nghiệm tốt nhất cho khách hàng.</textarea>
+                </div>
+        
+                <!-- Block 6: Buttons -->
+                <div class="form-buttons">
+                    <button type="button" class="cancel-button" onclick="window.location.href='owner_managefield';">Hủy</button>
+
+                    <button type="button" class="save-button" onclick="window.location.href='owner_managefield';">Lưu</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+        
+    
+    <!-- Your content here -->
+    <script src="../static/effect/owner_dashboard.js"></script>
+</body>
+</html>

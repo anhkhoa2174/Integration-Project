@@ -1,0 +1,395 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    margin-left: 220px; /* Adjust for sidebar width */
+    margin-top: 40px; /* Adjust for fixed header */
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px); /* Ensure it spans the full viewport */
+}
+
+.statistics {
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 130px;
+    
+}
+
+
+.recent-fields {
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    /* padding: 10px; */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+.recent-fields h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: #2c3e50;
+}
+
+.field-carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px; /* Adjust the max-width for responsiveness */
+    margin: 0 auto;
+    padding: 10px; /* Add padding around the container */
+}
+
+.field-carousel {
+    display: flex;
+    gap: 20px; /* Adjust the spacing between fields */
+    transition: transform 0.3s ease-in-out; /* Smooth scrolling effect */
+}
+
+.field-item {
+    flex: 0 0 calc((100% - 40px) / 3); /* Ensure 3 items are visible at a time */
+    max-width: calc((100% - 40px) / 3); /* Adjust max-width to maintain spacing */
+    background: white;
+    border-radius: 15px;
+    padding: 15px; /* Padding inside each field */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.field-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.field-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.field-info {
+    padding: 10px;
+    text-align: left;
+}
+
+.field-info h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.rating {
+    font-size: 14px;
+    color: #f39c12;
+}
+
+.rating span {
+    color: #7f8c8d;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+    background: #34495e;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.see-more {
+    margin: 10px 15px;
+    background: #2c3e50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    transition: background 0.3s;
+}
+
+.see-more:hover {
+    background: #2ecc71;
+}
+
+
+/* Post Section */
+
+.post-section {
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.post-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.post-section textarea {
+    width: 97%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 15px;
+    resize: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.additional-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.add-content-btn {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-content-btn:hover {
+    background-color: #34495e;
+}
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px dashed #8fa3f7; /* Blue dashed border */
+    border-radius: 10px;
+    background-color: #f9f9ff;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%; /* Make it span the full width of the parent */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    transition: border-color 0.3s ease;
+}
+
+.upload-section:hover {
+    border-color: #5c79e6; /* Highlight border on hover */
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    color: #2c3e50;
+    cursor: pointer;
+    gap: 10px;
+    width: 100%; /* Ensure the label spans the full width */
+}
+
+.upload-label img.icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.upload-label .upload-link {
+    color: #4a6df5;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.upload-label .upload-link:hover {
+    text-decoration: underline;
+}
+
+.file-size-note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #7f8c8d;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.post-button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.post-button:hover {
+    background-color: #2ecc71;
+    transform: translateY(-3px);
+}
+
+
+.post-button:hover {
+    background-color: #2ecc71;
+    transform: translateY(-3px);
+}
+
+.post-section .icon {
+    width: 16px;
+    height: 16px;
+    filter: invert(100%); /* Ensure icons are white on dark backgrounds */
+}
+
+.PartA {
+    display: grid;
+    grid-template-columns: 5fr 2fr; /* 3:2 ratio for PartA1 and PartA2 */
+    gap: 30px; /* Space between the sections */
+    margin-top: 0px;
+}
+
+.PartA1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between post-section and statistics */
+}
+
+.PartA2 {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-header {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: #2c3e50;
+}
+
+.news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-item:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.news-tag {
+    width: 25px;
+    height: 25px;
+    background-color: #ff6b6b; /* Bright red for attention */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 0;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-content h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.news-time {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.news-description {
+    font-size: 12px;
+    color: #2c3e50;
+}
+
+.news-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.graph{
+    width: 100%;
+}

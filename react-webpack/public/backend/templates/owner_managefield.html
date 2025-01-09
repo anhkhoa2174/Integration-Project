@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="../static/css/owner_managefield.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}">
+</head>
+<body>
+     <!-- nav bar -->
+     <div class="navbar_ngang">
+        <div class="logo-section">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+          />
+          <div class="logo-text">
+            Sporty <br />
+            Webby
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <img
+              class="search-icon"
+              src="{{ url_for('static', filename='images/icon_search.png') }}"
+            />
+            <input type="text" class="search-input" placeholder="Search" />
+            <button class="clear-btn">✖</button>
+          </div>
+          <script>
+            const searchInput = document.querySelector(".search-input");
+            const clearBtn = document.querySelector(".clear-btn");
+    
+            clearBtn.addEventListener("click", () => {
+              searchInput.value = "";
+              searchInput.focus();
+            });
+          </script>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-item">Trang chủ</a>
+          <a href="#" class="nav-item">Bạn bè</a>
+          <a href="#" class="nav-item">Blog</a>
+        </div>
+        <div class="profile-section">
+          <div class="notification-icons">
+            <div class="bell-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_noti.png') }}"
+              />
+            </div>
+            <div class="message-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_chat.png') }}"
+              />
+            </div>
+          </div>
+          <div class="profile-info">
+            <img
+              class="profile-avatar"
+              src="{{ url_for('static', filename='images/avatar.png') }}"
+            />
+            <div class="profile-name">
+              <p>Trần Văn A</p>
+              <p class="status">Trực tuyến</p>
+            </div>
+          </div>
+          <div class="dropdown-arrow" onclick="toggleDropdown()">
+            <img
+              src="{{ url_for('static', filename='images/icon_arrow.png') }}"
+            />
+          </div>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+              <li><a href="#">Thông tin cá nhân</a></li>
+              <li><a href="#">Lịch sử hoạt động</a></li>
+              <li><a href="#">Bảo mật</a></li>
+              <li><a href="#">Cài đặt</a></li>
+              <li><a href="#">Năng suất</a></li>
+            </ul>
+          </div>
+          <script>
+            function toggleDropdown() {
+              var dropdownMenu = document.getElementById('dropdownMenu');
+              dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            }
+          </script>
+        </div>
+      </div>
+      <div class="sidebar">
+          <a href="owner_dashboard" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_dashboard.png') }}" alt="Trang chủ Icon"/>
+              </div>
+              <div class="text">Trang chủ</div>
+          </a>
+          <a href="owner_managefield" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_book_field.png') }}" alt="Quản Lí Sân Icon" />
+              </div>
+              <div class="text">Quản Lí Sân</div>
+          </a>
+          <a href="ownercalendar" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_calendar.png') }}" alt="Lịch Icon"/>
+              </div>
+              <div class="text">Lịch</div>
+          </a>
+          <a href="ownerdeposit" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_payment_history.png') }}" alt="Lịch sử giao dịch Icon"/>
+              </div>
+              <div class="text">Lịch sử giao dịch</div>
+          </a>
+      </div>
+    
+    <div class="main-content">
+        <div class="manage-field-header">
+            <h2>Quản Lý Sân</h2>
+            <!-- Add more field cards as needed -->
+        </div>
+        
+        <div class="statistics-container">
+            <div class="stats-left">
+                <div class="category-tabs">
+                    <button class="active-tab">Bóng đá</button>
+                    <button>Bóng rổ</button>
+                    <button>Cầu lông</button>
+                    <button>Tenis</button>
+                    <button class="arrow-btn">➔</button>
+                </div>
+                <div class="field-bookings">
+                    <h3>Sân đã được đặt</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <span class="progress-value">34</span>
+                        </div>
+                        <span class="progress-max">45</span>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div class="stats-right">
+                <div class="rating-header">
+                    <button class="field-name">Sân bóng đá Lý Thường Kiệt</button>
+                    <button class="arrow-btn">➔</button>
+                </div>
+                <div class="rating-stats">
+                    <div class="rating-row">
+                        <span class="rating-label">5 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">4 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">3 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">2 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 20%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">1 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="average-rating">
+                    4,5
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>200 lượt đánh giá</p>
+                </div>
+            </div>         
+    </div>
+    <div class="view-field-main-container">
+        <!-- Left: Field Section -->
+        <div class="view-field-container">
+            <div class="view-field-header">
+                <h2>Sân của tôi</h2>
+                <div class="field-controls">
+                    <input type="text" placeholder="Search" class="search-bar">
+                    <button class="add-field-btn" onclick="window.location.href='owner_register_field';">+</button>
+                    <button class="filter-btn">🔍 Lọc</button>
+                </div>
+            </div>
+            <div class="field-list">
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field-item">
+                    <a href="owner_view_field_more" ><img src="../static/images/field1.png" alt="Field Image" class="field-image">                    
+                    </a>
+                    <div class="field-details">
+                        <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                        <p>
+                            <span class="rating">4.5 ⭐ (11)</span>
+                            <br>
+                            <span class="price">125,000 VND/Giờ</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- Repeat field-item as needed -->
+            </div>
+        </div>
+    
+        <!-- Right: Profit Section -->
+        <div class="profit-container">
+            <h3>Lợi Nhuận</h3>
+            <div class="profit-details">
+                <p class="profit-value">+20M VND</p>
+                <p class="profit-increase">+3M VND (15%)</p>
+            </div>
+        </div>
+    </div>
+    <!-- Your content here -->
+    <script src="../static/effect/owner_managefield.js"></script>
+</body>
+</html>
