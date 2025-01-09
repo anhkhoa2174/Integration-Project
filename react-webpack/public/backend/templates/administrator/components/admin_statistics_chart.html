@@ -1,0 +1,78 @@
+<!-- Revenue Chart Section -->
+<canvas id="revenueChart" class="w-full p-4" style="height: 400px"></canvas>
+
+<!-- Chart.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById("revenueChart").getContext("2d");
+
+  const dataByYear = {
+    2025: [15, 35, 55, 75, 65, 85, 95, 105, 75, 90, 60, 80],
+    2024: [10, 30, 50, 87, 45, 60, 75, 90, 65, 80, 55, 70],
+    2023: [20, 40, 60, 80, 70, 50, 60, 80, 40, 70, 50, 60],
+  };
+
+  const revenueChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      datasets: [
+        {
+          label: "Doanh thu",
+          data: dataByYear[2025], // Default to 2025
+          borderColor: "rgba(59, 130, 246, 1)",
+          backgroundColor: "rgba(59, 130, 246, 0.2)",
+          fill: true,
+        },
+      ],
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+      scales: {
+        x: {
+          grid: {
+            display: false,
+          },
+        },
+        y: {
+          ticks: {
+            stepSize: 20,
+            callback: function (value) {
+              if (value % 20 === 0) {
+                return value + "M";
+              }
+              return "";
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const yearSelector = document.getElementById("yearSelector");
+  yearSelector.addEventListener("change", function () {
+    const selectedYear = this.value;
+
+    revenueChart.data.datasets[0].data = dataByYear[selectedYear];
+    revenueChart.update();
+  });
+</script>

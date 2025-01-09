@@ -52,13 +52,21 @@ def admin_dashboard():
 def admin_manage_field():
     return render_template('administrator/admin_manage_field.html')
 
-@app.route('/statistics')
-def statistics():
-    return render_template('administrator/statistics.html')
+@app.route('/admin_statistics')
+def admin_statistics():
+    return render_template('administrator/admin_statistics.html')
 
-@app.route('/check_field')
-def check_field():
-    return render_template('administrator/check_field.html')
+@app.route('/admin_field_info')
+def admin_field_info():
+    return render_template('administrator/admin_field_info.html')
+
+@app.route('/test1')
+def test1():
+    return render_template('administrator/test1.html')
+
+@app.route('/test2')
+def test2():
+    return render_template('administrator/test2.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

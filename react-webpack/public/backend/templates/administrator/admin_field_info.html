@@ -1,0 +1,280 @@
+<!-- templates/main.html -->
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Field Info</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS Style -->
+    <style>
+      /* Add any custom styles here */
+    </style>
+  </head>
+  <body class="h-full bg-gray-100">
+    <!-- Include Navbar Component -->
+    {% include 'administrator/components/navbar.html' %}
+
+    <!-- Content Area -->
+    <div class="flex flex-1">
+      <!-- Main Content Area -->
+      <div class="flex-1 py-6 px-36 overflow-auto">
+        <div class="flex flex-row justify-between gap-8">
+          <!-- Left Section -->
+          <div class="flex flex-col bg-gray-200 relative" style="width: 600px">
+            <div
+              id="slider"
+              class="h-full w-full bg-cover bg-center rounded-lg"
+              style="background-image: url('{{ url_for('static', filename='images/administrator/football_field.png') }}')"
+            ></div>
+            <div class="absolute inset-y-0 left-1 flex items-center">
+              <button
+                id="prevButton"
+                class="bg-gray-400 bg-opacity-0 text-white p-2 rounded-full hover:bg-opacity-80"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="absolute inset-y-0 right-1 flex items-center">
+              <button
+                id="nextButton"
+                class="bg-gray-400 bg-opacity-0 text-white p-2 rounded-full hover:bg-opacity-80"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="hidden">
+              <img
+                src="{{ url_for('static', filename='images/administrator/football_field.png') }}"
+                alt="Image 1"
+              />
+              <img
+                src="{{ url_for('static', filename='images/administrator/football_field_1.png') }}"
+                alt="Image 2"
+              />
+            </div>
+          </div>
+          <!-- Right Section -->
+          <div class="flex flex-col w-1/2 gap-4">
+            <h1 class="text-2xl font-bold text-gray-800">
+              Clb Sân Bóng Đá Mini 77
+            </h1>
+            <p class="text-lg text-gray-600 mt-2">200.000 VND / giờ</p>
+
+            <div class="flex items-center mt-3 space-x-2">
+              <div class="flex items-center text-yellow-500">
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.049 2.927C9.35 2.042 10.65 2.042 10.951 2.927L12.144 6.18L15.668 6.365C16.614 6.408 16.997 7.623 16.218 8.118L13.42 9.93L14.504 13.616C14.758 14.527 13.758 15.278 13.011 14.788L10 12.9L6.989 14.788C6.242 15.278 5.242 14.527 5.496 13.616L6.58 9.93L3.782 8.118C3.003 7.623 3.386 6.408 4.332 6.365L7.856 6.18L9.049 2.927Z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.049 2.927C9.35 2.042 10.65 2.042 10.951 2.927L12.144 6.18L15.668 6.365C16.614 6.408 16.997 7.623 16.218 8.118L13.42 9.93L14.504 13.616C14.758 14.527 13.758 15.278 13.011 14.788L10 12.9L6.989 14.788C6.242 15.278 5.242 14.527 5.496 13.616L6.58 9.93L3.782 8.118C3.003 7.623 3.386 6.408 4.332 6.365L7.856 6.18L9.049 2.927Z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.049 2.927C9.35 2.042 10.65 2.042 10.951 2.927L12.144 6.18L15.668 6.365C16.614 6.408 16.997 7.623 16.218 8.118L13.42 9.93L14.504 13.616C14.758 14.527 13.758 15.278 13.011 14.788L10 12.9L6.989 14.788C6.242 15.278 5.242 14.527 5.496 13.616L6.58 9.93L3.782 8.118C3.003 7.623 3.386 6.408 4.332 6.365L7.856 6.18L9.049 2.927Z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.049 2.927C9.35 2.042 10.65 2.042 10.951 2.927L12.144 6.18L15.668 6.365C16.614 6.408 16.997 7.623 16.218 8.118L13.42 9.93L14.504 13.616C14.758 14.527 13.758 15.278 13.011 14.788L10 12.9L6.989 14.788C6.242 15.278 5.242 14.527 5.496 13.616L6.58 9.93L3.782 8.118C3.003 7.623 3.386 6.408 4.332 6.365L7.856 6.18L9.049 2.927Z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.049 2.927C9.35 2.042 10.65 2.042 10.951 2.927L12.144 6.18L15.668 6.365C16.614 6.408 16.997 7.623 16.218 8.118L13.42 9.93L14.504 13.616C14.758 14.527 13.758 15.278 13.011 14.788L10 12.9L6.989 14.788C6.242 15.278 5.242 14.527 5.496 13.616L6.58 9.93L3.782 8.118C3.003 7.623 3.386 6.408 4.332 6.365L7.856 6.18L9.049 2.927Z"
+                  ></path>
+                </svg>
+              </div>
+              <p class="text-sm text-gray-500">154 Lượt đánh giá</p>
+            </div>
+
+            <p class="text-gray-700 mt-4">
+              Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+              vitae, ultricies eget, tempor sit amet, ante.
+            </p>
+
+            <div class="mt-4">
+              <p class="text-sm text-gray-600">
+                <span class="font-bold">Chủ sân:</span> Dương Ánh L
+              </p>
+              <p class="text-sm text-gray-600">
+                <span class="font-bold">Số điện thoại:</span> 0912345678
+              </p>
+              <p class="text-sm text-gray-600">
+                <span class="font-bold">Địa chỉ:</span> 152 Nguyễn Oanh, Phường
+                7, Gò Vấp, Hồ Chí Minh
+              </p>
+            </div>
+
+            <div class="flex space-x-4 mt-6">
+              <button
+                class="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600"
+              >
+                Chấp nhận
+              </button>
+              <button
+                class="bg-red-500 text-white px-4 py-2 rounded shadow hover:bg-red-600"
+              >
+                Từ chối
+              </button>
+            </div>
+
+            <div class="mt-6">
+              <p class="text-sm text-gray-600">
+                <span class="font-bold">Mã sân:</span> SS001
+              </p>
+              <p class="text-sm text-gray-600">
+                <span class="font-bold">Môn thể thao:</span> Bóng đá
+              </p>
+              <p class="text-sm text-gray-600">
+                <span class="font-bold">Tags:</span> Bóng đá, Hồ Chí Minh, Gò
+                Vấp, Phường 7
+              </p>
+            </div>
+
+            <div class="mt-6 flex space-x-4">
+              <a href="#" class="text-gray-600 hover:text-blue-600">
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22 5.255a8.06 8.06 0 01-2.356.656 4.072 4.072 0 001.804-2.25 8.168 8.168 0 01-2.593.992A4.078 4.078 0 0016.292 3c-2.266 0-4.102 1.841-4.102 4.11 0 .32.034.631.105.928A11.589 11.589 0 013 4.671a4.106 4.106 0 001.278 5.468 4.066 4.066 0 01-1.861-.515v.052c0 2.252 1.59 4.13 3.695 4.552a4.074 4.074 0 01-1.857.07 4.08 4.08 0 003.815 2.85 8.19 8.19 0 01-5.066 1.747 8.326 8.326 0 01-.975-.058A11.526 11.526 0 007.29 21c7.548 0 11.68-6.256 11.68-11.682 0-.177-.004-.355-.012-.53A8.233 8.233 0 0022 5.255z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-blue-600">
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22.676 0H1.324C.593 0 0 .592 0 1.325v21.351C0 23.407.592 24 1.324 24H12.82v-9.286H9.692v-3.622h3.129V8.412c0-3.1 1.895-4.787 4.66-4.787 1.323 0 2.46.099 2.79.142v3.24h-1.916c-1.504 0-1.796.714-1.796 1.762v2.309h3.588l-.467 3.622h-3.121V24h6.116C23.408 24 24 23.408 24 22.676V1.325C24 .593 23.408 0 22.676 0z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-blue-600">
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M23.994 24v-9.269c0-4.65-.982-8.245-6.302-8.245-2.5 0-3.69 1.375-4.312 2.34h-.064V7.586H8.028v16.413h5.402v-8.1c0-2.139.406-4.206 3.054-4.206 2.614 0 2.658 2.451 2.658 4.339V24h5.402zM0 7.586h5.415V24H0zM2.708 0c-1.73 0-2.708.997-2.708 2.304 0 1.278.938 2.305 2.628 2.305h.031c1.77 0 2.707-1.027 2.707-2.305C5.375.996 4.447 0 2.708 0z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a
+      href="javascript:history.back()"
+      class="absolute top-24 left-4 flex items-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-5 h-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+      Quay lại
+    </a>
+
+    <script>
+      const images = [
+        "{{ url_for('static', filename='images/administrator/football_field.png') }}",
+        "{{ url_for('static', filename='images/administrator/football_field_1.png') }}",
+      ];
+
+      let currentIndex = 0;
+      const slider = document.getElementById("slider");
+
+      document.getElementById("prevButton").addEventListener("click", () => {
+        currentIndex =
+          currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+        slider.style.backgroundImage = `url('${images[currentIndex]}')`;
+      });
+
+      document.getElementById("nextButton").addEventListener("click", () => {
+        currentIndex =
+          currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+        slider.style.backgroundImage = `url('${images[currentIndex]}')`;
+      });
+    </script>
+  </body>
+</html>
