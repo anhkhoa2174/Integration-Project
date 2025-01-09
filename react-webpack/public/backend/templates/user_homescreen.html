@@ -52,7 +52,7 @@
 			</div>
 			<!-- Navigation Links -->
 			<div class="nav-links">
-				<a href="#" class="nav-item" style="width: 90px">Trang chủ</a>
+				<a href="#" class="nav-item" style="width: 90px" onclick="navigateTo('user_homescreen')">Trang chủ</a>
 				<a href="#" class="nav-item" style="width: 60px">Bạn bè</a>
 				<a href="#" class="nav-item">Blog</a>
 			</div>
@@ -107,43 +107,48 @@
 		<div class="main-wrapper">
 			<!-- side bar -->
 			<div class="sidebar">
-				<div class="menu-item">
-					<div class="icon">
-						<img
-							src="{{ url_for('static', filename='images/icon_dashboard.png') }}" />
-					</div>
-					<div class="text">Bảng điều khiển</div>
+				<div class="menu-item"  onclick="navigateTo('user_dashboard')">
+				  <div class="icon">
+					<img
+					  src="{{ url_for('static', filename='images/icon_dashboard.png') }}"
+					/>
+				  </div>
+				  <div class="text">Bảng điều khiển</div>
 				</div>
-				<div class="menu-item">
-					<div class="icon">
-						<img
-							src="{{ url_for('static', filename='images/icon_book_field.png') }}" />
-					</div>
-					<div class="text">Đặt sân</div>
+				<div class="menu-item" onclick="navigateTo('user_bookfield')">
+				  <div class="icon">
+					<img
+					  src="{{ url_for('static', filename='images/icon_book_field.png') }}"
+					/>
+				  </div>
+				  <div class="text">Đặt sân</div>
 				</div>
-				<div class="menu-item">
-					<div class="icon">
-						<img
-							src="{{ url_for('static', filename='images/icon_history_book_field.png') }}"
-							class="abc" />
-					</div>
-					<div class="text">Lịch sử đặt sân</div>
+				<div class="menu-item" onclick="navigateTo('booking_history')">
+				  <div class="icon">
+					<img
+					  src="{{ url_for('static', filename='images/icon_history_book_field.png') }}"
+					  class="abc"
+					/>
+				  </div>
+				  <div class="text">Lịch sử đặt sân</div>
 				</div>
-				<div class="menu-item">
-					<div class="icon">
-						<img
-							src="{{ url_for('static', filename='images/icon_deposit.png') }}" />
-					</div>
-					<div class="text">Nạp tiền</div>
+				<div class="menu-item"  onclick="navigateTo('deposit')">
+				  <div class="icon">
+					<img
+					  src="{{ url_for('static', filename='images/icon_deposit.png') }}"
+					/>
+				  </div>
+				  <div class="text">Nạp tiền</div>
 				</div>
-				<div class="menu-item">
-					<div class="icon">
-						<img
-							src="{{ url_for('static', filename='images/icon_payment_history.png') }}" />
-					</div>
-					<div class="text">Lịch sử giao dịch</div>
+				<div class="menu-item" onclick="navigateTo('transaction_history')">
+				  <div class="icon">
+					<img
+					  src="{{ url_for('static', filename='images/icon_payment_history.png') }}"
+					/>
+				  </div>
+				  <div class="text">Lịch sử giao dịch</div>
 				</div>
-			</div>
+			  </div>
 			<div class="sports-section">
 				<div class="sports-info">
 					<p class="highlight-text">
@@ -293,5 +298,11 @@
 				});
 			});
 		</script>
+		<script>
+			function navigateTo(page) {
+			  // Chuyển hướng đến trang được chỉ định
+			  window.location.href = page;
+			}
+		  </script>
 	</body>
 </html>

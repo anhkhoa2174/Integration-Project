@@ -1,11 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash, send_file
 from functools import wraps
-# import psycopg2
+import psycopg2
 from logging.config import dictConfig
 import logging
-import sys
-import base64
-import os
+
+from psycopg2.extras import RealDictCursor
 # from PyPDF2 import PdfReader
 from io import BytesIO
 logging.basicConfig(level=logging.DEBUG)
@@ -15,14 +14,46 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 file_storage = {}
 
-# # Kết nối cơ sở dữ liệu
-# def get_db_connection():
-#     return psycopg2.connect(database="CNPM", user="postgres", password="p123", host="localhost", port="5432")
+# Kết nối cơ sở dữ liệu
+def get_db_connection():
+    return psycopg2.connect(database="project", user="postgres", password="p123", host="localhost", port="5432")
 
 
-@app.route('/')
+# Đăng nhập
+@app.route('/', methods=['GET', 'POST'])
 def login():
-    return render_template('index.html') 
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # Kết nối cơ sở dữ liệu và truy vấn thông tin người dùng
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor(cursor_factory=RealDictCursor)
+            cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+            user = cursor.fetchone()
+            conn.close()
+
+            if user:
+                session['username'] = user['username']
+                session['role'] = user['role']
+
+                # Chuyển hướng theo vai trò
+                if user['role'] == 'user':
+                    return redirect(url_for('user_homescreen'))
+                elif user['role'] == 'admin':
+                    return redirect(url_for('admin_dashboard'))
+                elif user['role'] == 'owner':
+                    return redirect(url_for('owner_dashboard'))
+                else:
+                    flash("Vai trò không hợp lệ.", "error")
+            else:
+                flash("Tên đăng nhập hoặc mật khẩu không đúng.", "error")
+        except Exception as e:
+            logger.error(f"Lỗi kết nối cơ sở dữ liệu: {e}")
+            flash("Có lỗi xảy ra, vui lòng thử lại.", "error")
+
+    return render_template('index.html')  # Trang đăng nhập
 
 @app.route('/booking_history')
 def booking_history():
