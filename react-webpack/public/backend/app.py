@@ -36,6 +36,7 @@ def transaction_history():
 def deposit():
     return render_template('deposit.html')
 
+
 @app.route('/admin_transaction_history')
 def admin_transaction_history():
     return render_template('administrator/admin_transaction_history.html')
@@ -76,13 +77,32 @@ def ownercalendar():
 def ownercalendar2():
     return render_template('owner_calendar_var2.html')
 
-@app.route('/ownercalendar3')
-def ownercalendar3():
-    return render_template('owner_calendar_var3.html')
-
 @app.route('/ownerdeposit')
 def ownerdeposit():
     return render_template('owner_deposit.html')
+
+@app.route('/owner_dashboard')
+def owner_dashboard():
+    return render_template('owner_dashboard.html')
+
+@app.route('/owner_configure_field')
+def owner_configure_field():
+    return render_template('owner_configure_field.html')
+
+@app.route('/owner_managefield')
+def owner_managefield():
+    return render_template('owner_managefield.html')
+
+@app.route('/owner_register_field')
+def owner_register_field():
+    return render_template('owner_register_field.html')
+
+@app.route('/owner_view_field_more')
+def owner_view_field_more():
+    return render_template('owner_view_field_more.html')
+
+############################################################################
+
 
 @app.route('/user_dashboard')
 def user_dashboard():

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}"> -->
+    <link rel="stylesheet" href="../static/css/owner_dashboard.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar_owner.css') }}">
+</head>
+<body>
+    <!-- nav bar -->
+    <div class="navbar_ngang">
+        <div class="logo-section">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/icon_sports_soccer.png') }}"
+          />
+          <div class="logo-text">
+            Sporty <br />
+            Webby
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <img
+              class="search-icon"
+              src="{{ url_for('static', filename='images/icon_search.png') }}"
+            />
+            <input type="text" class="search-input" placeholder="Search" />
+            <button class="clear-btn">✖</button>
+          </div>
+          <script>
+            const searchInput = document.querySelector(".search-input");
+            const clearBtn = document.querySelector(".clear-btn");
+    
+            clearBtn.addEventListener("click", () => {
+              searchInput.value = "";
+              searchInput.focus();
+            });
+          </script>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-item">Trang chủ</a>
+          <a href="#" class="nav-item">Bạn bè</a>
+          <a href="#" class="nav-item">Blog</a>
+        </div>
+        <div class="profile-section">
+          <div class="notification-icons">
+            <div class="bell-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_noti.png') }}"
+              />
+            </div>
+            <div class="message-icon">
+              <img
+                src="{{ url_for('static', filename='images/icon_chat.png') }}"
+              />
+            </div>
+          </div>
+          <div class="profile-info">
+            <img
+              class="profile-avatar"
+              src="{{ url_for('static', filename='images/avatar.png') }}"
+            />
+            <div class="profile-name">
+              <p>Trần Văn A</p>
+              <p class="status">Trực tuyến</p>
+            </div>
+          </div>
+          <div class="dropdown-arrow" onclick="toggleDropdown()">
+            <img
+              src="{{ url_for('static', filename='images/icon_arrow.png') }}"
+            />
+          </div>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+              <li><a href="#">Thông tin cá nhân</a></li>
+              <li><a href="#">Lịch sử hoạt động</a></li>
+              <li><a href="#">Bảo mật</a></li>
+              <li><a href="#">Cài đặt</a></li>
+              <li><a href="#">Năng suất</a></li>
+            </ul>
+          </div>
+          <script>
+            function toggleDropdown() {
+              var dropdownMenu = document.getElementById('dropdownMenu');
+              dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            }
+          </script>
+        </div>
+      </div>
+      <div class="sidebar">
+          <a href="owner_dashboard" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_dashboard.png') }}" alt="Trang chủ Icon"/>
+              </div>
+              <div class="text">Trang chủ</div>
+          </a>
+          <a href="owner_managefield" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_book_field.png') }}" alt="Quản Lí Sân Icon" />
+              </div>
+              <div class="text">Quản Lí Sân</div>
+          </a>
+          <a href="ownercalendar" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_calendar.png') }}" alt="Lịch Icon"/>
+              </div>
+              <div class="text">Lịch</div>
+          </a>
+          <a href="ownerdeposit" class="menu-item">
+              <div class="icon">
+                  <img src="{{ url_for('static', filename='images/icon_payment_history.png') }}" alt="Lịch sử giao dịch Icon"/>
+              </div>
+              <div class="text">Lịch sử giao dịch</div>
+          </a>
+      </div>
+    
+    <div class="main-content">
+        
+        <div class="manage-field-header">
+            <h2>Đăng bài viết</h2>
+            <!-- Add more field cards as needed -->
+        </div>
+        
+        <div class="PartA">
+            <!-- PartA1: Post Section and Statistics -->
+            <div class="PartA1">
+                <div class="post-section">
+                    <textarea placeholder="Viết nội dung của bạn ở đây..."></textarea>
+                    <div class="additional-content">
+                        <div class="upload-section">
+                            <input type="file" id="upload" hidden>
+                            <label for="upload" class="upload-label">
+                                <img src="../static/images/file.png" alt="Upload" class="icon">
+                                Kéo thả file của bạn tại đây hoặc <span class="upload-link">tải lên</span>
+                            </label>
+                            <span class="file-size-note">Kích thước file cho phép tối đa là 10MB</span>
+                        </div>
+                    </div>
+                    <button class="post-button">
+                        Đăng
+                    </button>
+                </div>
+                <div class="statistics">
+                    <h3>Số lượng người truy cập</h3>
+                </div>
+            </div>
+        
+            <div class="PartA2">
+                <h3 class="news-header">Tin tức</h3>
+                <div class="news-item">
+                    <div class="news-tag">
+                        <span>TT</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Thắng Thái Lan, Việt Nam vô địch ASEAN Cup 2024</h4>
+                        <p class="news-time">17 hours ago</p>
+                        <p class="news-description">
+                            Thắng Thái Lan 3-2 ở lượt về chung kết, đội tuyển Việt Nam lần thứ ba vô địch Đông Nam Á với tỷ số chung cuộc 5-3.
+                        </p>
+                    </div>
+                    <img src="../static/images/news1.png" alt="News Image" class="news-image">
+                </div>
+                <div class="news-item">
+                    <div class="news-tag">
+                        <span>TT</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Sân bóng đá Phú Thọ giảm 50% nhân dịp Việt Nam vô địch</h4>
+                        <p class="news-time">17 hours ago</p>
+                        <p class="news-description">
+                            Thắng Thái Lan 3-2 ở lượt về chung kết, đội tuyển Việt Nam lần thứ ba vô địch Đông Nam Á với tỷ số chung cuộc 5-3.
+                        </p>
+                    </div>
+                    <img src="../static/images/news2.png" alt="News Image" class="news-image">
+                </div>
+            </div>
+        </div>
+            
+        
+        
+        <div class="recent-fields">
+            <h3>Những sân truy cập gần đây</h3>
+            <div class="field-carousel-container">
+                <button class="carousel-btn prev-btn">❮</button>
+                <div class="field-carousel">
+                    <!-- Carousel items -->
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                            <p>4.5 ⭐ <span>(11)</span></p>
+                            <p>125.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá trong nhà ABC</h4>
+                            <p>4.7 ⭐ <span>(15)</span></p>
+                            <p>150.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá ngoài trời XYZ</h4>
+                            <p>4.3 ⭐ <span>(8)</span></p>
+                            <p>100.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá VIP</h4>
+                            <p>4.8 ⭐ <span>(25)</span></p>
+                            <p>200.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá thân thiện</h4>
+                            <p>4.6 ⭐ <span>(20)</span></p>
+                            <p>130.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn">❯</button>
+            </div>
+            <button class="see-more">Đi tới</button>
+        </div>
+        
+    
+    <!-- Your content here -->
+    <script src="../static/effect/owner_dashboard.js"></script>
+</body>
+</html>

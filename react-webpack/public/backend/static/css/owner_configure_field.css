@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.main-content {
+    margin-left: 220px; /* Adjust for sidebar width */
+    margin-top: 40px; /* Adjust for fixed header */
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px); /* Ensure it spans the full viewport */
+}
+
+.edit-field-container {
+    margin: 50px auto;
+    width: 70%;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.edit-field-container h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.edit-field-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-block {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 3;
+}
+
+label {
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px dashed #57585b; /* Blue dashed border */
+    border-radius: 10px;
+    background-color: #f9f9ff;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%; /* Make it span the full width of the parent */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    transition: border-color 0.3s ease;
+    margin-top: 8px;
+}
+
+.upload-section:hover {
+    border-color: #7a7c81; /* Highlight border on hover */
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    color: #2c3e50;
+    cursor: pointer;
+    gap: 10px;
+    width: 100%; /* Ensure the label spans the full width */
+}
+
+.upload-label img.icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.upload-label .upload-link {
+    color: #4a6df5;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.upload-label .upload-link:hover {
+    text-decoration: underline;
+}
+
+.file-size-note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #7f8c8d;
+    width: 100%;
+    text-align: center;
+}
+
+.form34-container{
+    display: grid;
+    grid-template-columns: 2fr 3fr; /* 3:2 ratio for PartA1 and PartA2 */
+    gap: 30px; /* Space between the sections */
+}
+
+.cancel-button,
+.save-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cancel-button {
+    background-color: #e0e0e0;
+    color: #2c3e50;
+}
+
+.cancel-button:hover {
+    background-color: #d6d6d6;
+}
+
+.save-button {
+    background-color: #27ae60;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #219150;
+}
