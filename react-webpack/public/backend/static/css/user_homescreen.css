@@ -1,0 +1,371 @@
+body {
+	overflow-x: hidden;
+}
+
+.main-wrapper {
+	height: 1250px;
+	width: 100%;
+	margin-top: 9vh;
+}
+
+.sports-section {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+	max-width: 38%;
+	max-height: 400px;
+	/* margin: 40px auto; */
+	left: 17%;
+	top: 3%;
+	position: relative;
+	/* background: linear-gradient(145deg, #ffffff, #f0f0f0); */
+	background-color: white;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sports-section:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.sports-info {
+	flex: 1;
+	padding: 40px;
+	text-align: center;
+	background: linear-gradient(to right, #ffffff, #f9f9f9);
+	box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+}
+
+.highlight-text {
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 20px;
+	line-height: 1.5;
+}
+
+.number-highlight {
+	color: #0056d2;
+	font-size: 2rem;
+}
+
+.blue-text {
+	color: #0056d2;
+}
+
+.red-text {
+	color: #d70000;
+}
+
+.book-btn,
+.deposit-btn {
+	margin-top: 15px;
+	padding: 14px 30px;
+	font-size: 1rem;
+	font-weight: 600;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: none;
+}
+
+.book-btn {
+	background: linear-gradient(135deg, #000080, #0044cc);
+	color: white;
+	box-shadow: 0 4px 15px rgba(0, 0, 128, 0.4);
+}
+
+.book-btn:hover {
+	background: linear-gradient(135deg, #0000b3, #0056d2);
+	box-shadow: 0 6px 20px rgba(0, 0, 128, 0.6);
+	transform: translateY(-5px);
+}
+
+.deposit-btn {
+	background: linear-gradient(135deg, #d70000, #ff3b3b);
+	color: white;
+	box-shadow: 0 4px 15px rgba(215, 0, 0, 0.4);
+}
+
+.deposit-btn:hover {
+	background: linear-gradient(135deg, #ff1a1a, #ff5252);
+	box-shadow: 0 6px 20px rgba(215, 0, 0, 0.6);
+	transform: translateY(-5px);
+}
+
+.sports-images {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	width: 55%;
+	position: relative;
+	z-index: 0;
+}
+
+.sports-images img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border: none;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sports-images img:hover {
+	transform: scale(1.05);
+	filter: brightness(1.1);
+}
+
+.sports-section::before {
+	content: "";
+	position: absolute;
+	top: -10%;
+	right: -10%;
+	width: 120%;
+	height: 120%;
+	background: linear-gradient(
+		120deg,
+		rgba(0, 0, 128, 0.1),
+		rgba(255, 0, 0, 0.1)
+	);
+	transform: rotate(-10deg);
+	z-index: -1;
+	border-radius: 30%;
+	filter: blur(40px);
+}
+
+.sale-section {
+	/* display: flex; */
+	/* align-items: center;
+	justify-content: space-between; */
+	border: none;
+	background-color: white;
+	border-radius: 10px;
+
+	overflow: hidden;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+	width: 38%;
+	height: 400px;
+	/* margin: 40px auto; */
+	left: 60%;
+	top: -29%;
+	position: relative;
+	/* background: linear-gradient(145deg, #ffffff, #f0f0f0); */
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sale-section:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.sale {
+	width: 65%;
+	height: 100px;
+	object-fit: cover;
+	top: 67%;
+	left: 1%;
+	position: relative;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.ct {
+	width: 60%;
+	height: 90px;
+	top: 25%;
+	left: 8%;
+	object-fit: cover;
+	border: none;
+	position: relative;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.woman {
+	width: 60%;
+	height: 90px;
+	top: -45%;
+	left: 8%;
+	object-fit: cover;
+	border: none;
+	position: relative;
+	transition: transform 0.3s ease, filter 0.3s ease;
+	opacity: 1;
+}
+
+.man {
+	width: 60%;
+	height: 90px;
+	top: -66%;
+	left: 40%;
+	object-fit: cover;
+	border: none;
+	position: relative;
+	transition: transform 0.3s ease, filter 0.3s ease;
+	opacity: 1;
+}
+.fiftypercent {
+	width: 60%;
+	height: 90px;
+	top: -40%;
+	left: 64%;
+	object-fit: cover;
+	border: none;
+	position: relative;
+	transition: transform 0.3s ease, filter 0.3s ease;
+	opacity: 1;
+}
+.sports-filters {
+	position: relative;
+	gap: 15px;
+	top: -25%;
+	left: 28%;
+	justify-content: center;
+	margin: 30px 0;
+}
+
+.filter-btn {
+	padding: 10px 25px;
+	font-size: 1rem;
+	background-color: #f2f2f2;
+	color: #333;
+	border: 1px solid transparent; /* Viền trong suốt ban đầu */
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn:hover {
+	background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+	background-color: white;
+	color: #0056d2;
+	border: 2px solid #0056d2; /* Viền xanh khi được chọn */
+	box-shadow: 0 2px 12px rgba(0, 86, 210, 0.2);
+}
+.favorite-venues {
+	margin: 40px auto;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: brown;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+	max-width: 95%;
+	overflow: hidden;
+}
+
+.section-title {
+	text-align: center;
+	font-size: 1.8rem;
+	font-style: italic;
+	margin-bottom: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.badge-icon {
+	width: 40px;
+	margin-right: 10px;
+}
+
+.favorite-venues {
+	margin: 40px auto;
+	padding: 20px;
+	position: relative;
+	top: -25%;
+	left: 7.3%;
+	border-radius: 20px;
+	background-color: white;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+	max-width: 80%;
+	overflow: hidden;
+}
+
+.section-title {
+	text-align: center;
+	font-size: 1.8rem;
+	font-style: italic;
+	margin-bottom: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.badge-icon {
+	width: 40px;
+	margin-right: 10px;
+}
+
+.venue-list {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.venue-card {
+	background-color: #fff;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	width: 22%;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.venue-card:hover {
+	transform: translateY(-10px);
+}
+
+.venue-image {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+}
+
+.venue-info {
+	padding: 15px;
+	text-align: left;
+}
+
+.venue-info h3 {
+	margin: 10px 0 5px;
+	font-size: 1.4rem;
+}
+
+.venue-info p {
+	color: #777;
+	font-size: 1rem;
+	margin-bottom: 10px;
+}
+
+.rating {
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.rating img {
+	width: 20px;
+	margin-left: 3px;
+}
+
+.rating span {
+	font-size: 1.1rem;
+	margin-right: 10px;
+	font-weight: bold;
+	color: #333;
+}
+
+.price {
+	color: #0056d2;
+	font-weight: bold;
+	font-size: 1.2rem;
+}

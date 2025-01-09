@@ -2,47 +2,54 @@
 	display: flex;
 	align-items: flex-start;
 }
-
-/* Wrapper tổng quan chia làm 3 cột */
 .main-wrapper {
-	display: grid;
-	grid-template-columns: 13% 55% 25%; /* Sidebar nhỏ, nội dung lớn, cột xác nhận nhỏ */
 	height: 1250px;
-	gap: 20px;
+	width: 100%;
+	margin-top: 13vh;
 }
 
 .one-digit-time-cell {
 	color: gray;
-	position: absolute;
-	width: 40px;
+	position: relative;
+	width: 50px;
 	height: 20px;
-	left: 240px;
+	left: 2.5%;
 	z-index: 3;
 }
 .two-digit-time-cell {
 	font-family: "Lato";
 	color: gray;
-	position: absolute;
+	position: relative;
 	width: 50px;
 	height: 20px;
-	left: 232px;
+	left: 1.6%;
 	z-index: 3;
 }
 .calendar-bar {
 	background-color: #00224e;
-	width: 1310px;
+	width: 80.3%;
 	margin-top: 3px;
-	border: 1px solid #ddd;
+	/* border: 1px solid #ddd; */
 	overflow: hidden;
-	height: 43px;
-	position: absolute;
+	height: 50px;
+	position: relative;
 	z-index: 2;
-	left: 190px;
+	left: 16.1%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 }
-
+.under-calendar-bar {
+	width: 80%;
+	height: 1170px;
+	background-color: white;
+	position: relative;
+	left: 16.2%;
+	z-index: 1;
+	top: -2%;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Đổ bóng */
+}
 .calendar-bar button {
 	background-color: white;
 	color: #00224e;
@@ -66,9 +73,9 @@
 	margin: 0 15px;
 }
 .calendar {
-	width: 1200px;
-	margin-top: 46px;
-	margin-left: 70px;
+	width: 75%;
+	top: -95%;
+	left: 21%;
 	border: 1px solid #ddd;
 	border-radius: 0px;
 	overflow: hidden;

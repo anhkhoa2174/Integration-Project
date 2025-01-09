@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="../static/css/owner_view_field_more.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="../static/images/icon_sports_soccer.png" alt="Logo" class="logo">
+            <span>Sporty Webby</span>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search">
+        </div>
+        <nav class="nav-links">
+            <a href="#">Trang Chủ</a>
+            <a href="#">Bạn Bè</a>
+            <a href="#">Blog</a>
+        </nav>
+        <div class="icons">
+            <img src="../static/images/Bell.png" alt="Notifications" class="icon">
+            <img src="../static/images/Chat.png" alt="Media" class="icon">
+            <div class="profile">
+                <span>Trần Văn A</span>
+                <img src="../static/images/avatar.png" alt="Profile" class="icon">
+            </div>
+        </div>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li><a href="#"><img src="../static/images/globe.png" alt="Home"> Trang Chủ</a></li>
+            <hr> 
+            <li class = "active"><a href="#"><img src="../static/images/icon_book_field.png" alt="Field Management"> Quản Lý Sân</a></li>
+            <hr> 
+            <li><a href="#"><img src="../static/images/Date_range.png" alt="Calendar"> Lịch</a></li>
+            <hr> 
+            <li><a href="#"><img src="../static/images/icon_payment_history.png" alt="Transaction History"> Lịch Sử Giao Dịch</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <div class="manage-field-header">
+            <h2>Quản Lý Sân</h2>
+            <!-- Add more field cards as needed -->
+        </div>
+        
+        <div class="statistics-container">
+            <div class="stats-left">
+                <div class="category-tabs">
+                    <button class="active-tab">Bóng đá</button>
+                    <button>Bóng rổ</button>
+                    <button>Cầu lông</button>
+                    <button>Tenis</button>
+                    <button class="arrow-btn">➔</button>
+                </div>
+                <div class="field-bookings">
+                    <h3>Sân đã được đặt</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <span class="progress-value">10</span>
+                        </div>
+                        <span class="progress-max">15</span>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div class="stats-right">
+                <div class="rating-header">
+                    <button class="field-name">Sân bóng đá trong nhà Lý Chính Thắng</button>
+                    <button class="arrow-btn">➔</button>
+                </div>
+                <div class="rating-stats">
+                    <div class="rating-row">
+                        <span class="rating-label">5 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">4 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">3 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">2 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <span class="rating-label">1 ⭐</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="average-rating">
+                    4.0
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>200 lượt đánh giá</p>
+                </div>
+            </div>         
+    </div>
+    <div class="view-field-main-container">
+        <!-- Left: Field Section -->
+        <div class="view-field-container">
+            <div class="field-list">
+                <img src="../static/images/field-thumb1.png" alt="Thumbnail 1" class="thumbnail active">
+                <img src="../static/images/field-thumb2.png" alt="Thumbnail 2" class="thumbnail">
+                <img src="../static/images/field-thumb3.png" alt="Thumbnail 3" class="thumbnail">
+                <img src="../static/images/field-thumb4.png" alt="Thumbnail 4" class="thumbnail">
+                <!-- Repeat field-item as needed -->
+            </div>
+            <div class="main-image-container">
+                <img src="../static/images/field-main.png" alt="Main Field Image" class="main-image">
+            </div>
+        </div>
+    
+        <div class="field-info-container">
+            <div class="field-info">
+                <h2>Sân bóng đá trong nhà Lý Chính Thắng</h2>
+                <p class="price">125,000 VND / giờ</p>
+                <div class="rating-section">
+                    <div class="stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <div>  </div>
+                    <span class="rating-count">154 Lượt đánh giá</span>
+                </div>
+                <p class="description">
+                    Sân bóng mini chất lượng cao với không gian rộng rãi, thoáng mát, phù hợp cho các trận đấu giao hữu hoặc luyện tập. Vị trí thuận lợi, dễ tìm kiếm, nằm ngay tại trung tâm quận Gò Vấp. Dịch vụ chu đáo, trang bị đầy đủ tiện nghi đảm bảo mang lại trải nghiệm tốt nhất cho khách hàng.
+                </p>
+                <div class="owner-details">
+                    <p>Chủ sân: <span>Dương Ánh L</span></p>
+                    <p>Số điện thoại: <span>0912345678</span></p>
+                    <p>Địa chỉ: <span>152 Lý Chính Thắng, Phường 7, Quận 3, Hồ Chí Minh</span></p>
+                </div>
+                <button class="edit-button">Chỉnh Sửa</button>
+            </div>
+            
+        </div>
+        <!-- Right: Profit Section -->
+
+    </div>
+    
+    
+    
+    <!-- Your content here -->
+    <script src="../static/effect/owner_managefield.js"></script>
+</body>
+</html>

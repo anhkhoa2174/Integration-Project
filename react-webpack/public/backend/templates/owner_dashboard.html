@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="../static/css/owner_dashboard.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="../static/images/icon_sports_soccer.png" alt="Logo" class="logo">
+            <span>Sporty Webby</span>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search">
+        </div>
+        <nav class="nav-links">
+            <a href="#">Trang Chủ</a>
+            <a href="#">Bạn Bè</a>
+            <a href="#">Blog</a>
+        </nav>
+        <div class="icons">
+            <img src="../static/images/Bell.png" alt="Notifications" class="icon">
+            <img src="../static/images/Chat.png" alt="Media" class="icon">
+            <div class="profile">
+                <span>Trần Văn A</span>
+                <img src="../static/images/avatar.png" alt="Profile" class="icon">
+            </div>
+        </div>
+    </header>
+    <div class="sidebar">
+        <ul>
+            <li class = "active"><a href="#"><img src="../static/images/globe.png" alt="Home"> Trang Chủ</a></li>
+            <hr> 
+            <li><a href="owner_managefield.html"><img src="../static/images/icon_book_field.png" alt="Field Management"> Quản Lý Sân</a></li>
+            <hr> 
+            <li><a href="#"><img src="../static/images/Date_range.png" alt="Calendar"> Lịch</a></li>
+            <hr> 
+            <li><a href="#"><img src="../static/images/icon_payment_history.png" alt="Transaction History"> Lịch Sử Giao Dịch</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        
+        <div class="PartA">
+            <!-- PartA1: Post Section and Statistics -->
+            <div class="PartA1">
+                <div class="post-section">
+                    <h3>Đăng bài viết</h3>
+                    <textarea placeholder="Viết nội dung của bạn ở đây..."></textarea>
+                    <div class="additional-content">
+                        <div class="upload-section">
+                            <input type="file" id="upload" hidden>
+                            <label for="upload" class="upload-label">
+                                <img src="../static/images/file.png" alt="Upload" class="icon">
+                                Kéo thả file của bạn tại đây hoặc <span class="upload-link">tải lên</span>
+                            </label>
+                            <span class="file-size-note">Kích thước file cho phép tối đa là 10MB</span>
+                        </div>
+                    </div>
+                    <button class="post-button">
+                        Đăng
+                    </button>
+                </div>
+                <div class="statistics">
+                    <h3>Số lượng người truy cập</h3>
+                    <canvas id="visitorChart"></canvas>
+                </div>
+            </div>
+        
+            <div class="PartA2">
+                <h3 class="news-header">Tin tức</h3>
+                <div class="news-item">
+                    <div class="news-tag">
+                        <span>TT</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Thắng Thái Lan, Việt Nam vô địch ASEAN Cup 2024</h4>
+                        <p class="news-time">17 hours ago</p>
+                        <p class="news-description">
+                            Thắng Thái Lan 3-2 ở lượt về chung kết, đội tuyển Việt Nam lần thứ ba vô địch Đông Nam Á với tỷ số chung cuộc 5-3.
+                        </p>
+                    </div>
+                    <img src="../static/images/news1.png" alt="News Image" class="news-image">
+                </div>
+                <div class="news-item">
+                    <div class="news-tag">
+                        <span>TT</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Sân bóng đá Phú Thọ giảm 50% nhân dịp Việt Nam vô địch</h4>
+                        <p class="news-time">17 hours ago</p>
+                        <p class="news-description">
+                            Thắng Thái Lan 3-2 ở lượt về chung kết, đội tuyển Việt Nam lần thứ ba vô địch Đông Nam Á với tỷ số chung cuộc 5-3.
+                        </p>
+                    </div>
+                    <img src="../static/images/news2.png" alt="News Image" class="news-image">
+                </div>
+            </div>
+        </div>
+            
+        
+        
+        <div class="recent-fields">
+            <h3>Những sân truy cập gần đây</h3>
+            <div class="field-carousel-container">
+                <button class="carousel-btn prev-btn">❮</button>
+                <div class="field-carousel">
+                    <!-- Carousel items -->
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá trong nhà Lý Chính Thắng</h4>
+                            <p>4.5 ⭐ <span>(11)</span></p>
+                            <p>125.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá trong nhà ABC</h4>
+                            <p>4.7 ⭐ <span>(15)</span></p>
+                            <p>150.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá ngoài trời XYZ</h4>
+                            <p>4.3 ⭐ <span>(8)</span></p>
+                            <p>100.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá VIP</h4>
+                            <p>4.8 ⭐ <span>(25)</span></p>
+                            <p>200.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                    <div class="field-item">
+                        <img src="../static/images/field1.png" alt="Field">
+                        <div class="field-info">
+                            <h4>Sân bóng đá thân thiện</h4>
+                            <p>4.6 ⭐ <span>(20)</span></p>
+                            <p>130.000 VND/Giờ</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn">❯</button>
+            </div>
+            <button class="see-more">Đi tới</button>
+        </div>
+        
+    
+    <!-- Your content here -->
+    <script src="../static/effect/owner_dashboard.js"></script>
+</body>
+</html>
